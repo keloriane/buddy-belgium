@@ -1,0 +1,66 @@
+.home {
+	width: 100vw;
+}
+.line-content {
+	overflow: hidden;
+}
+.hero-wrapper {
+	width: 90%;
+	display: grid;
+	gap: 74px;
+	grid-template-columns: 1.5fr 2fr;
+	margin: auto;
+
+	.hero-title {
+
+
+		display: flex;
+		align-items: center;
+		h1 {
+			font-size: calc(4vw + 1rem);
+			span {
+				overflow: hidden ;
+				display: flex;
+			}
+
+
+
+		}
+	}
+	.hero-slider {
+
+		display: flex;
+		align-items: center;
+		background-image: url("http://localhost/buddy-belgium/wp-content/uploads/2021/01/buddy-logo-background.png");
+		background-size: 70%;
+		background-position: center center;
+		background-repeat: no-repeat;
+
+		img {
+			width: 100%;
+		}
+
+	}
+}
+.indent {
+	text-indent: 3vw;
+}
+
+.dot {
+	display: block;
+	text-align: left;
+	width: 40px;
+}
+
+
+@media (max-width: 996px ) {
+	.hero-wrapper {
+		grid-template-columns: 1fr;
+		.hero-title {
+			justify-content: center;
+			h1 {
+				font-size: calc(8vw + 1rem);
+			}
+		}
+	}
+}
