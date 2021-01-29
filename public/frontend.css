@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css2?family=Cousine:wght@400;700&display=swap);
-@import url(https://fonts.googleapis.com/css2?family=Eczar:wght@700&family=Poppins:wght@600;700&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Eczar:wght@700&family=Poppins:wght@100;200;300;400;600;700&display=swap);
 /*
 Theme Name: Landing
 Theme URI: http://landing.local/
@@ -80,10 +80,10 @@ section {
   backface-visibility: hidden; }
 
 h1 h2 {
-  font-family: 'Eczar' , serif; }
+  font-family: 'Eczar', serif; }
 
 h3 {
-  font-family: 'Cousine' , monospace; }
+  font-family: 'Cousine', monospace; }
 
 h2 {
   font-size: calc(3vw + 1rem); }
@@ -98,53 +98,7 @@ h2 {
   color: #3A7498; }
 
 .indent-2 {
-  text-indent: calc( 25px * 1.5); }
-
-.home {
-  width: 100vw; }
-
-.line-content {
-  overflow: hidden; }
-
-.hero-wrapper {
-  width: 90%;
-  display: grid;
-  gap: 74px;
-  grid-template-columns: 1.5fr 2fr;
-  margin: auto; }
-  .hero-wrapper .hero-title {
-    display: flex;
-    align-items: center; }
-    .hero-wrapper .hero-title h1 {
-      font-size: calc(4vw + 1rem); }
-      .hero-wrapper .hero-title h1 span {
-        overflow: hidden;
-        display: flex; }
-  .hero-wrapper .hero-slider {
-    display: flex;
-    align-items: center;
-    background-image: url("http://localhost/buddy-belgium/wp-content/uploads/2021/01/buddy-logo-background.png");
-    background-size: 70%;
-    background-position: center center;
-    background-repeat: no-repeat; }
-    .hero-wrapper .hero-slider img {
-      width: 100%; }
-
-.indent {
-  text-indent: 3vw; }
-
-.dot {
-  display: block;
-  text-align: left;
-  width: 40px; }
-
-@media (max-width: 996px) {
-  .hero-wrapper {
-    grid-template-columns: 1fr; }
-    .hero-wrapper .hero-title {
-      justify-content: center; }
-      .hero-wrapper .hero-title h1 {
-        font-size: calc(8vw + 1rem); } }
+  text-indent: calc(25px * 1.5); }
 
 #parcours {
   display: grid;
@@ -391,6 +345,122 @@ section {
   width: 100%;
   height: 100%;
   position: fixed; }
+
+.brand {
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden; }
+
+.brand__bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -5;
+  overflow: hidden;
+  background: orange; }
+
+.brand__bg__img {
+  width: 100%;
+  object-fit: contain; }
+
+.brand__header {
+  max-width: 700px;
+  margin: 0 auto;
+  padding-top: 80px; }
+
+.brand__header__title {
+  color: #FFFFFF;
+  margin: 0 auto;
+  text-align: center; }
+
+.brand__header__text {
+  color: #FFFFFF;
+  margin: 32px auto;
+  text-align: center;
+  font-family: Poppins, sans-serif;
+  font-weight: 200;
+  line-height: 150%; }
+  @media (max-width: 560px) {
+    .brand__header__text {
+      padding: 30px 20px; } }
+
+.brand__logos {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap; }
+  @media (min-width: 780px) {
+    .brand__logos {
+      max-width: 900px;
+      justify-content: space-between;
+      align-items: center; } }
+
+.brand__logos__wrapper {
+  max-width: 280px;
+  margin-top: 64px; }
+
+.brand__logos__wrapper img {
+  width: 100%; }
+
+.contact__wrapper {
+  max-width: 1500px;
+  margin: 0 auto; }
+
+.contact__title {
+  font-size: 67px; }
+  .contact__title .line1 {
+    color: #3A7498; }
+  .contact__title .line2 {
+    color: #C3D6A1; }
+  @media (min-width: 780px) {
+    .contact__title {
+      margin-top: 64px;
+      margin-left: 80px; } }
+
+.home {
+  width: 100vw; }
+
+.line-content {
+  overflow: hidden; }
+
+.hero-wrapper {
+  width: 90%;
+  display: grid;
+  gap: 74px;
+  grid-template-columns: 1.5fr 2fr;
+  margin: auto; }
+  .hero-wrapper .hero-title {
+    display: flex;
+    align-items: center; }
+    .hero-wrapper .hero-title h1 {
+      font-size: calc(4vw + 1rem); }
+      .hero-wrapper .hero-title h1 span {
+        overflow: hidden;
+        display: flex; }
+  .hero-wrapper .hero-slider {
+    display: flex;
+    align-items: center;
+    background-image: url("http://localhost/buddy-belgium/wp-content/uploads/2021/01/buddy-logo-background.png");
+    background-size: 70%;
+    background-position: center center;
+    background-repeat: no-repeat; }
+    .hero-wrapper .hero-slider img {
+      width: 100%; }
+
+.indent {
+  text-indent: 3vw; }
+
+.dot {
+  display: block;
+  text-align: left;
+  width: 40px; }
+
+@media (max-width: 996px) {
+  .hero-wrapper {
+    grid-template-columns: 1fr; }
+    .hero-wrapper .hero-title {
+      justify-content: center; }
+      .hero-wrapper .hero-title h1 {
+        font-size: calc(8vw + 1rem); } }
 
 
 /*# sourceMappingURL=frontend.css.map*/

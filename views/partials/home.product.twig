@@ -1,18 +1,12 @@
 <section class="product with-padding">
   <div class="title-container">
-  <h2 >
-  Nos produits
-  </h2>
-
+    <h2>Nos produits</h2>
   </div>
   <div class="product-list-container">
-
-    {% for post in product  %}
-
-      <a href="{{post.link}}" data-color="#b3a8b3" data-imagelarge="{{ Image(post.product_image).src }}" data-imagesmall="{{ Image(post.product_image).src }}">{{ post.title }}</a>
-
+    {% for post in product %}
+      <a href="{{ post.link }}" data-color="#b3a8b3" data-imagelarge="{{ Image(post.product_image).src }}"
+         data-imagesmall="{{ Image(post.product_image).src }}">{{ post.title }}</a>
     {% endfor %}
-
   </div>
   <div class="portfolio__image--l">
     <div class="image_inside" style="background-image: url('')"></div>

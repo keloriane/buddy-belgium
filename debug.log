@@ -83,3 +83,4 @@
 [0119/172002.325:ERROR:crash_report_database_win.cc(455)] unexpected header
 [0120/113247.564:ERROR:crash_report_database_win.cc(455)] unexpected header
 [0120/133802.736:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0127/094942.791:ERROR:directory_reader_win.cc(43)] FindFirstFile: Le chemin d’accès spécifié est introuvable. (0x3)

@@ -13,3 +13,4 @@ $_ENV['AUTOLOAD_FOLDERS'] = [
 	$_ENV['PATH']->theme,
 	$_ENV['PATH']->config
 ];
+
