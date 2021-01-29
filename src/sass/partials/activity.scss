@@ -1,10 +1,11 @@
 .activity {
 	display: grid;
-	grid-template-columns: 1fr 6fr;
+	grid-template-columns: 1fr;
 	grid-column-gap: 50px;
 	width: 90%;
 	margin: 250px auto;
 	align-items: center;
+	grid-template-rows: 1fr 3fr;
 
 	.card-container {
 
@@ -12,26 +13,35 @@
 		gap: $gap;
 		flex-wrap: wrap;
 		width: 100%;
+		justify-content: center;
 
 
 
 		.card {
 			position: relative;
-			width: 100%;
-			max-width: 209.8px;
-			height: 510px;
+
 			text-decoration: none;
 			color: white;
+			max-width: 230px;
+			width: 100%;
+			height: 360.09px;
 			.white-title {
 				position: absolute;
-
+				width: 300px;
 				top: 47%;
-				width: 600px;
+
 
 				h2 {
-					font-family: Poppins , sans-serif;
-					-webkit-text-stroke: 1px white;
-					color: transparent;
+					font-family: Eczar , sans-serif;
+					opacity: 0;
+					text-align: center;
+					text-transform: uppercase;
+
+					font-size: calc(1vw + 2rem);
+					position: absolute;
+					color: #0d66c2;
+					font-weight: 800;
+
 				}
 			}
 
@@ -74,19 +84,21 @@
 			.hero-blurr {
 				width: 100%;
 				height: 100%;
-				mix-blend-mode: multiply;
+				mix-blend-mode: exclusion;
 				position: absolute;
-				background: #F97068;
 				top: 0;
+
 
 			}
 
 			.exclusion {
 				width: 100%;
 				height: 100%;
-				//mix-blend-mode: exclusion;
+				/*background-color: #E4A77B;
+				mix-blend-mode: exclusion;*/
 				position: absolute;
-				background: #F97068;
+
+
 				top: 0;
 			}
 
@@ -116,5 +128,21 @@
 			}
 		}
 		
+	}
+}
+
+
+@keyframes move {
+	0% {
+
+		transform: translate(0%, 0);
+	}
+	50% {
+		transform: translate(-50%, 0);
+
+	}
+	100% {
+		transform: translate(-100%, 0);
+
 	}
 }

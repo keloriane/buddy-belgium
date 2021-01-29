@@ -18,6 +18,10 @@ function initHover() {
     link.addEventListener('mouseenter', createHover);
     link.addEventListener('mouseleave', createHover);
   });
+  productList.addEventListener('mouseleave', () => {
+    gsap.to(allLinks, { autoAlpha: 1 });
+    gsap.set(lInside, { backgroundImage: `inherit` });
+  });
 }
 
 function translateLink() {
@@ -50,20 +54,33 @@ function translateLink() {
     }
   });
 }
+const productList = document.getElementsByClassName('product-list-container')[0];
+
+/*function productListHover(e) {
+  if(e.type === 'mouseleave') {
+    gsap.to(allLinks,{ autoAlpha:1})
+  }
+}*/
 
 function createHover(e) {
   if (e.type === 'mouseenter') {
+    console.log('enter');
     const { color, imagelarge, imagesmall } = e.target.dataset;
     const allSiblings = allLinks.filter((item) => item !== e.target);
     const tl = gsap.timeline();
     tl.set(lInside, { backgroundImage: `url(${imagelarge})` })
       .to(e.target, { color: '#3A7498', autoAlpha: 1 })
-      .to(allSiblings, { duration: 0.1, autoAlpha: 0.3, color: 'transparent', delay: -1 })
+      .set(allSiblings, { autoAlpha: 0.3, color: 'transparent', delay: -1 })
       .to(largeImage, { duration: 0.4, autoAlpha: 1 })
-      .to(lInside, { backgroundSize: '100%', duration: 0.5, delay: -1 });
+      .fromTo(
+        lInside,
+        { backgroundSize: '125%', duration: 0.5, delay: -1 },
+        { backgroundSize: '100%', duration: 0.5, delay: -1 }
+      );
   } else if (e.type === 'mouseleave') {
+    console.log('leave');
     const tl = gsap.timeline();
-    tl.set(lInside, { backgroundSize: '125%' });
+    tl.to([allLinks], { color: 'transparent', autoAlpha: 0.3 });
   }
 }
 

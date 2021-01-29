@@ -8,17 +8,21 @@
 	.info-container {
 		display: flex;
 		flex-direction: column;
-
-
-		h2 {
-			font-size: calc(3vw + 1rem);
+		.section-title {
 
 			span {
 				overflow: hidden;
 				display: flex;
+
+				h2 {
+					font-size: calc(3vw + 1rem);
+				}
 			}
 
 		}
+
+
+
 
 		h3 {
 			text-transform: uppercase;
@@ -75,6 +79,8 @@
 		.inner-text {
 			width: 100%;
 			max-width: 345px;
+			overflow: hidden;
+			height: 280px;
 			p {
 				font-family: $monoFont;
 				font-style: normal;
@@ -109,11 +115,14 @@
 			.info-text {
 				align-self: center;
 				margin-bottom: 50px;
+				overflow: hidden;
 			}
 		}
 		.text-container {
 			.inner-text {
 				max-width: 400px;
+				overflow: hidden;
+				height: 280px;
 			}
 		}
 

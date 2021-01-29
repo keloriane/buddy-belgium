@@ -10,10 +10,11 @@ body {
 
 }
 
-
-section {
-	height: 80vh;
+#product {
+	height: inherit;
 }
+
+
  /* Smooth Scrolling */
 #viewport {
 	overflow: hidden;
