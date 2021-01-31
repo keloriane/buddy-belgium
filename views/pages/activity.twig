@@ -2,9 +2,28 @@
 {% import getf('button') as button %}
 
 {% block body %}
-  {% include getf('menu') %}
+  {% include getf('navbar') %}
 
-  <div class="activities">
-
+  <div class="activity-page">
+    <div class="activity-page__inner">
+      <div class="activity-page__description">
+        <div class="activity-page__description__wrapper__title">
+          <div class="activity-page__description__title">
+          <span class="activity-page__description__title__top">
+            {{ activity.titleTop }}
+          </span>
+            <span class="activity-page__description__title__bottom">
+            {{ activity.titleBottom }}
+          </span>
+          </div>
+        </div>
+        <div class="activity-page__description__main-text">
+          <p>{{ activity.description }}</p>
+        </div>
+      </div>
+      <figure class="activity-page__figure">
+        <img src="{{ Image(activity.custom.image).src }}" alt=""/>
+      </figure>
+    </div>
   </div>
 {% endblock body %}

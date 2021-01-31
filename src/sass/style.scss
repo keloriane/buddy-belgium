@@ -18,16 +18,19 @@ Use it to make something cool, have fun, and share what you've learned with othe
 //--FONTS
 @import url('https://fonts.googleapis.com/css2?family=Cousine:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Eczar:wght@700&family=Poppins:wght@100;200;300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&display=swap');
 
 //**GLOBAL**//
 @import 'variable';
 @import 'reset';
 @import 'global';
+@import 'mixin';
 
 //**COMPONENTS**//
 
 //**PARTIALS**//
 @import 'partials/menu';
+@import 'partials/navbar';
 @import 'partials/home.parcours';
 @import 'partials/home.activity';
 @import 'partials/home.product';
@@ -36,7 +39,8 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 //**PAGES**//
 @import 'pages/home';
-
+@import 'pages/product';
+@import 'pages/activity';
 
 
 

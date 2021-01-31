@@ -1,12 +1,15 @@
 <?php
 /*** Template Name: Activity*/
-
+global $params;
 $context = Timber::context();
-$product = Gimy::customType(['post_type' => 'products']);
-$brands = Gimy::customType(['post_type' => 'marque']);
 
-$context['product'] = $product;
-$context['brands'] = $brands;
+$activities = Gimy::customType(['post_type' => 'activities']);
+$activity = array_filter($activities, function ($activity) use ($params) {
+	if ($activity->slug === $params['activity']) {
+		return $activity;
+	}
+});
 
-Timber::render('pages/activity.twig', $context);
+$context["activity"] = array_pop($activity);
+Timber::render('activity.twig', $context);
 

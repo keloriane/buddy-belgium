@@ -1,8 +1,11 @@
 body {
-	font-family: 'Eczar', serif;
 	overflow-x: hidden;
 	background-color: #FDFDFB;
 	overflow-y: scroll;
+}
+
+#product {
+	height: inherit;
 }
 
 section {

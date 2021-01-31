@@ -12,7 +12,10 @@ Routes::map('/example', function ($params) {
 	Routes::load('pages/example.php');
 });
 
+Routes::map('/products/:product', function($params){
+	Routes::load('pages/single_products.php',$params);
+});
+
 Routes::map('/activities/:activity', function ($params) {
 	Routes::load('pages/activity.php', $params);
 });
-

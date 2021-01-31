@@ -1,4 +1,13 @@
 $blue: #3A7498;
 $green: #C3D6A1;
 $gap: 24px;
-$monoFont: "Poppins" , monospace;
+$mainFont: "Poppins", monospace;
+$titleFont: "Eczar", monospace;
+$breakpoints: (
+	xs: 0,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px,
+	xxl: 1400px
+);

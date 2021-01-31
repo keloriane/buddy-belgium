@@ -1,4 +1,11 @@
 import { animationLoader } from './gsap/loader.gsap';
+import Swiper from 'swiper';
+import 'swiper/swiper-bundle.css';
+import './gsap/product.gsap';
+import './gsap/smoothScroll.js';
+import './gsap/parcours.gsap.js';
+import './gsap/service.gsap.js';
+import './gsap/activity.gsap.js';
 
 export const site = {
   _loaded: () => {
@@ -55,3 +62,14 @@ export const site = {
     }
   },
 };
+
+var swiper = new Swiper('.product-list-container', {
+  slidesPerView: 3,
+  spaceBetween: 30,
+  loop: true,
+  loopFillGroupWithBlank: true,
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+});
