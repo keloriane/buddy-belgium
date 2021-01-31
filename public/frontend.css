@@ -863,7 +863,7 @@ h2 {
     gap: 24px;
     flex-wrap: wrap;
     width: 100%;
-    justify-content: center; }
+    justify-content: space-evenly; }
     .activity .card-container .card {
       position: relative;
       text-decoration: none;
@@ -873,17 +873,22 @@ h2 {
       height: 360.09px; }
       .activity .card-container .card .white-title {
         position: absolute;
-        width: 300px;
-        top: 47%; }
+        width: 402px;
+        top: 47%;
+        left: -35%;
+        overflow: hidden;
+        height: 100px; }
         .activity .card-container .card .white-title h2 {
           font-family: Eczar , sans-serif;
-          opacity: 0;
+          opacity: 1;
           text-align: center;
           text-transform: uppercase;
+          -webkit-text-stroke: 2px #0d66c2;
           font-size: calc(1vw + 2rem);
           position: absolute;
-          color: #0d66c2;
-          font-weight: 800; }
+          color: white;
+          font-weight: 800;
+          z-index: 6; }
       .activity .card-container .card.wl .hero {
         background-image: url("http://localhost/buddy-belgium/wp-content/uploads/2021/01/whitelabelling.png"); }
       .activity .card-container .card.crea {
@@ -933,6 +938,13 @@ h2 {
     transform: translate(-50%, 0); }
   100% {
     transform: translate(-100%, 0); } }
+
+.card-overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+  position: absolute; }
 
 .progressbar {
   position: fixed;

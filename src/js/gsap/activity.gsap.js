@@ -14,16 +14,20 @@ gsap.to(['.crea', '.ser'], {
 
 const cards = document.querySelectorAll('.card');
 
+const cardArray = gsap.utils.toArray(cards);
+
+console.log(cardArray);
 cards.forEach((link, e) => {
   link.addEventListener('mouseenter', createHover);
+  link.addEventListener('mouseleave', createHover);
 });
 
 function createHover(e) {
+  const allSiblings = cardArray.filter((item) => item !== e.target);
+  console.log(allSiblings);
   if (e.type === 'mouseenter') {
     gsap.to(e.target.querySelector('.exclusion'), {
       duration: 0.2,
-      backgroundColor: '#EA4A77B',
-      mixBlendMode: 'color-burn',
     });
     gsap.fromTo(
       e.target.querySelector('h2'),
@@ -38,5 +42,24 @@ function createHover(e) {
         y: 0,
       }
     );
+    /* gsap.to(allSiblings, { duration: 0.1, opacity: 0.3 });*/
+  } else if (e.type === 'mouseleave') {
+    /*  gsap.fromTo(
+      e.target.querySelector('h2'),
+      {
+        opacity: 1,
+        y: 0,
+      },
+      {
+        duration: 0.2,
+        opacity: 0,
+        y: 200,
+      }
+    );
+    gsap.to(e.target.querySelector('.exclusion'), {
+      duration: 0.2,
+      backgroundColor: 'none',
+      mixBlendMode: 'none',
+    });*/
   }
 }
