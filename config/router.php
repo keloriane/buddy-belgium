@@ -19,3 +19,7 @@ Routes::map('/products/:product', function($params){
 Routes::map('/activities/:activity', function ($params) {
 	Routes::load('pages/activity.php', $params);
 });
+
+Routes::map('/intro', function ($params) {
+	Routes::load('pages/intro.php', $params);
+});

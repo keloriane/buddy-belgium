@@ -1,0 +1,26 @@
+.vat-question__text {
+	@include sub-title();
+	text-align: center;
+	color: $green;
+}
+
+.vat-question__choice {
+	@include sub-title();
+	text-align: center;
+	color: $blue;
+	background: none;
+	border: none;
+	&:focus {
+		outline: none;
+	}
+}
+
+.vat-question__slash {
+	@include sub-title();
+	color: $blue;
+}
+
+.vat-question__form {
+	margin-top: 32px;
+	@include flexCentred();
+}

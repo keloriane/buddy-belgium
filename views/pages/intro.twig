@@ -1,0 +1,22 @@
+{% extends getf('base') %}
+{% block body %}
+  <div class="intro">
+  <div class="intro__inner">
+    <div class="intro__left">
+      <h2 class="intro__main-title">
+        <span class="intro__main-title--white">The first</span>
+        <span class="intro__main-title--white">European</span>
+        <span class="intro__main-title--blue">Hub for legal</span>
+        <span class="intro__main-title--blue">Cannabis</span>
+      </h2>
+    </div>
+    <div class="intro__right">
+      {% if not display_form %}
+        {% include getf('intro.question') %}
+      {% endif %}
+      {% if display_form %}
+        {% include getf('intro.vat-question') %}
+      {% endif %}
+    </div>
+  </div>
+{% endblock body %}

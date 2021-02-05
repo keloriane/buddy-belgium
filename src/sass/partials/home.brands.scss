@@ -1,21 +1,8 @@
 .brand {
 	box-sizing: border-box;
 	position: relative;
-	overflow: hidden;
-}
-
-.brand__bg {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	z-index: -5;
-	overflow: hidden;
-	background: orange;
-}
-
-.brand__bg__img {
-	width: 100%;
-	object-fit: contain;
+	background: url("http://localhost/buddy-belgium/wp-content/uploads/2021/01/brand.png") no-repeat;
+	background-size: cover;
 }
 
 .brand__header {
@@ -25,6 +12,7 @@
 }
 
 .brand__header__title {
+	@include title;
 	color: #FFFFFF;
 	margin: 0 auto;
 	text-align: center;
@@ -37,25 +25,30 @@
 	font-family: Poppins, sans-serif;
 	font-weight: 200;
 	line-height: 150%;
-	@media (max-width: 560px) {
+	@include respond-below(sm) {
 		padding: 30px 20px;
 	}
 }
 
 .brand__logos {
 	margin: 0 auto;
-	display: flex;
-	flex-wrap: wrap;
-	@media (min-width: 780px) {
-		max-width: 900px;
-		justify-content: space-between;
-		align-items: center;
+	display: grid;
+	max-width: 1000px;
+	justify-items: center;
+	align-items: center;
+	padding-bottom: 64px;
+	grid-row-gap: 32px;
+	@include respond-between(sm, md) {
+		grid-template-columns: 1fr 1fr;
+		max-width: 500px;
+	}
+	@include respond-above(md) {
+		grid-template-columns: 1fr 1fr 1fr;
 	}
 }
 
 .brand__logos__wrapper {
-	max-width: 280px;
-	margin-top: 64px;
+	width: clamp(200px, 12vw, 280px);
 }
 
 .brand__logos__wrapper img {

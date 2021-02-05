@@ -45,7 +45,7 @@
 	font-family: $mainFont;
 	font-weight: 300;
 	line-height: 165%;
-	margin-top: clamp(120px, 12vw, 500px);
+	margin-top: clamp(120px, 12vw, 400px);
 	@include respond-above(md) {
 		max-width: 500px;
 	}
