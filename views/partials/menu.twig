@@ -1,4 +1,18 @@
-<nav>
+<div class="menu-nav">
+  <div class="title">
+    <h1>Buddy Belgium</h1>
+  </div>
+  <div class="logo-menu-container">
+
+  </div>
+  <div class="menu-action">
+    <button>
+      menu <span class="green">.</span>
+    </button>
+  </div>
+</div>
+
+<nav id="menu-burger">
     <ul class="nav-main">
         {% for item in menu.items %}
             <li class="nav-main-item {{ item.classes|join(' ') }}">

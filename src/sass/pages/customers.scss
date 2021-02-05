@@ -1,0 +1,26 @@
+.hero-header{
+	width: 100vw;
+	height: 90vh;
+	display: flex;
+	position: relative;
+	.blue-bg {
+		background-color: $blue;
+		width: 50%;
+		.hero-customer {
+			display: grid;
+			grid-template-columns: 1fr;
+		}
+
+	}
+		.header-background-image {
+			width: 50%;
+			background-size: cover;
+		}
+
+	.logo-container {
+		position: absolute;
+		left: 47%;
+		top: 44%;
+
+	}
+}
