@@ -1,21 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Cousine:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Eczar:wght@700&family=Poppins:wght@600;700&display=swap');
 body {
-	font-family: 'Eczar', serif;
 	overflow-x: hidden;
 	background-color: #FDFDFB;
 	overflow-y: scroll;
-
-
-
 }
 
 #product {
 	height: inherit;
 }
 
+section {
+	height: 80vh;
+}
 
- /* Smooth Scrolling */
+/* Smooth Scrolling */
 #viewport {
 	overflow: hidden;
 	position: fixed;
@@ -36,12 +33,13 @@ body {
 
 
 h1 h2 {
-	font-family: 'Eczar' , serif;
+	font-family: 'Eczar', serif;
 }
 
 h3 {
-	font-family: 'Cousine' , monospace;
+	font-family: 'Cousine', monospace;
 }
+
 h2 {
 	font-size: calc(3vw + 1rem);
 
@@ -56,10 +54,11 @@ h2 {
 .green {
 	color: $green;
 }
+
 .blue {
 	color: $blue;
 }
 
 .indent-2 {
-text-indent: calc( 25px * 1.5);
+	text-indent: calc(25px * 1.5);
 }

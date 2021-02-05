@@ -9,16 +9,5 @@ require_once 'helpers/autoloader.php';
 require_once 'config/assets.php';
 require_once 'config/timber.php';
 require_once 'config/router.php';
-add_theme_support('post-thumbnail');
-function create_product() {
-	register_post_type( 'products' ,[
-			'label' => 'products',
-			'public' => true,
-			'menu_position' => 3,
-			'supports' => ['title', 'editor',],
+require_once 'config/custom_types.php';
 
-
-		]
-	);
-}
-add_action('init' , 'create_product');

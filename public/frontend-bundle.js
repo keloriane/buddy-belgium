@@ -12716,7 +12716,19 @@ var Swiper = /*#__PURE__*/function () {
 
     if (!params) params = {};
     params = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_15__.extend)({}, params);
-    if (el && !params.el) params.el = el; // Swiper Instance
+    if (el && !params.el) params.el = el;
+
+    if (params.el && (0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.default)(params.el).length > 1) {
+      var swipers = [];
+      (0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.default)(params.el).each(function (containerEl) {
+        var newParams = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_15__.extend)({}, params, {
+          el: containerEl
+        });
+        swipers.push(new Swiper(newParams));
+      });
+      return swipers;
+    } // Swiper Instance
+
 
     var swiper = this;
     swiper.support = (0,_utils_get_support__WEBPACK_IMPORTED_MODULE_16__.getSupport)();
@@ -12774,46 +12786,10 @@ var Swiper = /*#__PURE__*/function () {
     } // Save Dom lib
 
 
-    swiper.$ = _utils_dom__WEBPACK_IMPORTED_MODULE_0__.default; // Find el
-
-    var $el = (0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.default)(swiper.params.el);
-    el = $el[0];
-
-    if (!el) {
-      return undefined;
-    }
-
-    if ($el.length > 1) {
-      var swipers = [];
-      $el.each(function (containerEl) {
-        var newParams = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_15__.extend)({}, params, {
-          el: containerEl
-        });
-        swipers.push(new Swiper(newParams));
-      });
-      return swipers;
-    }
-
-    el.swiper = swiper; // Find Wrapper
-
-    var $wrapperEl;
-
-    if (el && el.shadowRoot && el.shadowRoot.querySelector) {
-      $wrapperEl = (0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.default)(el.shadowRoot.querySelector("." + swiper.params.wrapperClass)); // Children needs to return slot items
-
-      $wrapperEl.children = function (options) {
-        return $el.children(options);
-      };
-    } else {
-      $wrapperEl = $el.children("." + swiper.params.wrapperClass);
-    } // Extend Swiper
-
+    swiper.$ = _utils_dom__WEBPACK_IMPORTED_MODULE_0__.default; // Extend Swiper
 
     (0,_utils_utils__WEBPACK_IMPORTED_MODULE_15__.extend)(swiper, {
-      $el: $el,
       el: el,
-      $wrapperEl: $wrapperEl,
-      wrapperEl: $wrapperEl[0],
       // Classes
       classNames: [],
       // Slides
@@ -12828,10 +12804,6 @@ var Swiper = /*#__PURE__*/function () {
       isVertical: function isVertical() {
         return swiper.params.direction === 'vertical';
       },
-      // RTL
-      rtl: el.dir.toLowerCase() === 'rtl' || $el.css('direction') === 'rtl',
-      rtlTranslate: swiper.params.direction === 'horizontal' && (el.dir.toLowerCase() === 'rtl' || $el.css('direction') === 'rtl'),
-      wrongRTL: $wrapperEl.css('display') === '-webkit-box',
       // Indexes
       activeIndex: 0,
       realIndex: 0,
@@ -12937,10 +12909,16 @@ var Swiper = /*#__PURE__*/function () {
   _proto.emitSlidesClasses = function emitSlidesClasses() {
     var swiper = this;
     if (!swiper.params._emitClasses || !swiper.el) return;
+    var updates = [];
     swiper.slides.each(function (slideEl) {
       var classNames = swiper.getSlideClasses(slideEl);
+      updates.push({
+        slideEl: slideEl,
+        classNames: classNames
+      });
       swiper.emit('_slideClass', slideEl, classNames);
     });
+    swiper.emit('_slideClasses', updates);
   };
 
   _proto.slidesPerViewDynamic = function slidesPerViewDynamic() {
@@ -13064,9 +13042,50 @@ var Swiper = /*#__PURE__*/function () {
     return swiper;
   };
 
-  _proto.init = function init() {
+  _proto.mount = function mount(el) {
     var swiper = this;
-    if (swiper.initialized) return;
+    if (swiper.mounted) return true; // Find el
+
+    var $el = (0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.default)(el || swiper.params.el);
+    el = $el[0];
+
+    if (!el) {
+      return false;
+    }
+
+    el.swiper = swiper; // Find Wrapper
+
+    var $wrapperEl;
+
+    if (el && el.shadowRoot && el.shadowRoot.querySelector) {
+      $wrapperEl = (0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.default)(el.shadowRoot.querySelector("." + swiper.params.wrapperClass)); // Children needs to return slot items
+
+      $wrapperEl.children = function (options) {
+        return $el.children(options);
+      };
+    } else {
+      $wrapperEl = $el.children("." + swiper.params.wrapperClass);
+    }
+
+    (0,_utils_utils__WEBPACK_IMPORTED_MODULE_15__.extend)(swiper, {
+      $el: $el,
+      el: el,
+      $wrapperEl: $wrapperEl,
+      wrapperEl: $wrapperEl[0],
+      mounted: true,
+      // RTL
+      rtl: el.dir.toLowerCase() === 'rtl' || $el.css('direction') === 'rtl',
+      rtlTranslate: swiper.params.direction === 'horizontal' && (el.dir.toLowerCase() === 'rtl' || $el.css('direction') === 'rtl'),
+      wrongRTL: $wrapperEl.css('display') === '-webkit-box'
+    });
+    return true;
+  };
+
+  _proto.init = function init(el) {
+    var swiper = this;
+    if (swiper.initialized) return swiper;
+    var mounted = swiper.mount(el);
+    if (mounted === false) return swiper;
     swiper.emit('beforeInit'); // Set breakpoint
 
     if (swiper.params.breakpoints) {
@@ -13112,6 +13131,7 @@ var Swiper = /*#__PURE__*/function () {
 
     swiper.emit('init');
     swiper.emit('afterInit');
+    return swiper;
   };
 
   _proto.destroy = function destroy(deleteInstance, cleanStyles) {

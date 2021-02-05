@@ -1,0 +1,21 @@
+.contact__wrapper {
+	max-width: 1500px;
+	margin: 0 auto;
+}
+
+.contact__title {
+	font-size: 67px;
+
+	.line1 {
+		color: $blue;
+	}
+
+	.line2 {
+		color: $green;
+	}
+
+	@media (min-width: 780px) {
+		margin-top: 64px;
+		margin-left: 80px;
+	}
+}

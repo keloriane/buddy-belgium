@@ -1,0 +1,25 @@
+<section class="brand">
+  <div class="brand__bg">
+    <img class="brand__bg__img" src="http://localhost/buddy-belgium/wp-content/uploads/2021/01/brand.png" alt="">
+  </div>
+  <div class="brand__header">
+    <div class="brand__header__title">
+      <h2>Toutes nos <br> marques</h2>
+    </div>
+    <div class="brand__header__text">
+      <p>
+        Buddy vous offre la possibilité de lancer votre propre marque de CBD en Belgique et au Luxembourg en moins d’un
+        mois. Laissez-vous guider en toute sérénité sur les aspects légaux et administratifs en bénéficiant d’un
+        encadrement personnalisé pour commercialiser au mieux ce produit innovant.
+      </p>
+    </div>
+  </div>
+  <div class="brand__logos">
+    {% for brand in brands %}
+      <div class="brand__logos__wrapper">
+        <img src="{{ Image(brand.custom.url).src }}" alt=""/>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+

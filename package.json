@@ -58,6 +58,6 @@
   },
   "dependencies": {
     "@barba/core": "^2.9.7",
-    "swiper": "^6.4.8"
+    "swiper": "^6.4.10"
   }
 }
