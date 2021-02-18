@@ -17017,6 +17017,29 @@ gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(container, {
 
 /***/ }),
 
+/***/ "./src/js/helpers.js":
+/*!***************************!*\
+  !*** ./src/js/helpers.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "delay": () => /* binding */ delay,
+/* harmony export */   "redirect": () => /* binding */ redirect
+/* harmony export */ });
+var delay = function delay(fn, ms) {
+  setTimeout(function () {
+    fn();
+  }, ms);
+};
+var redirect = function redirect(path) {
+  return window.location.href + path;
+};
+
+/***/ }),
+
 /***/ "./src/js/html.js":
 /*!************************!*\
   !*** ./src/js/html.js ***!
@@ -17029,17 +17052,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "html": () => /* binding */ html
 /* harmony export */ });
 var html = {
-  createElement: function createElement(tag) {
-    var innerHTML = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
-    var className = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
-    var element = document.createElement(tag);
-    element.innerHTML = innerHTML;
-
-    if (className !== '') {
-      element.classList.add(className);
-    }
-
-    return element;
+  removeClass: function removeClass(el, className) {
+    el.classList.remove(className);
+  },
+  addClass: function addClass(el, className) {
+    el.classList.add(className);
+  },
+  setInner: function setInner(el, content) {
+    el.innerHTML = content;
+  },
+  getValue: function getValue(event) {
+    return event.target.value;
   }
 };
 
@@ -17061,32 +17084,58 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var intro = {
-  buttonState: function buttonState() {
-    document.querySelector('.vat-number__form__submit').addEventListener('click', function (e) {
-      e.preventDefault();
-    });
+  input: document.querySelector('.vat-number__form__input'),
+  message: document.querySelector('.vat-number__form__message'),
+  submit_button: document.querySelector('.vat-number__form__submit'),
+  init: function init() {
+    intro.inputState();
   },
   inputState: function inputState() {
-    var message = document.querySelector('.vat-number__form__message');
-    var input = document.querySelector('.vat-number__form__input');
-    input.addEventListener('input', function (e) {
-      e.preventDefault();
-      var vat_number = e.target.value;
-      var check_response = (0,jsvat__WEBPACK_IMPORTED_MODULE_1__.checkVAT)(vat_number, jsvat__WEBPACK_IMPORTED_MODULE_1__.countries);
+    var _this = this;
+
+    this.input.addEventListener('input', function (event) {
+      event.preventDefault();
+      var vat_number_value = _html__WEBPACK_IMPORTED_MODULE_0__.html.getValue(event);
+      var check_response = (0,jsvat__WEBPACK_IMPORTED_MODULE_1__.checkVAT)(vat_number_value, jsvat__WEBPACK_IMPORTED_MODULE_1__.countries);
       var isValid = check_response.isValid;
 
-      if (!isValid) {
-        message.classList.add('error');
-        message.innerHTML = 'wrong vat number';
-        input.classList.add('error');
-      } else {
-        message.innerHTML = '';
-        message.classList.remove('error');
-        message.classList.add('success');
-        input.classList.remove('error');
-        input.classList.add('success');
-      }
+      _this.setVatInputMessage(isValid, vat_number_value);
     });
+  },
+  setVatInputMessage: function setVatInputMessage(isValid, vat_number) {
+    if (!isValid && vat_number !== "") {
+      _html__WEBPACK_IMPORTED_MODULE_0__.html.setInner(this.message, 'wrong vat number');
+      this.setVatInputErrorClasses();
+      this.submit_button.disabled = true;
+    } else if (isValid) {
+      _html__WEBPACK_IMPORTED_MODULE_0__.html.setInner(this.message, '');
+      this.setVatInputSuccessClasses();
+      this.submit_button.disabled = false;
+    } else {
+      _html__WEBPACK_IMPORTED_MODULE_0__.html.setInner(this.message, 'This field is required');
+      this.removeVatInputClasses();
+      this.submit_button.disabled = true;
+    }
+  },
+  setVatInputErrorClasses: function setVatInputErrorClasses() {
+    _html__WEBPACK_IMPORTED_MODULE_0__.html.addClass(this.input, 'vat-number__form__input--error');
+    _html__WEBPACK_IMPORTED_MODULE_0__.html.addClass(this.message, 'vat-number__form__message--error');
+  },
+  removeVatInputErrorClasses: function removeVatInputErrorClasses() {
+    _html__WEBPACK_IMPORTED_MODULE_0__.html.removeClass(this.input, 'vat-number__form__input--error');
+    _html__WEBPACK_IMPORTED_MODULE_0__.html.removeClass(this.message, 'vat-number__form__message--error');
+  },
+  setVatInputSuccessClasses: function setVatInputSuccessClasses() {
+    _html__WEBPACK_IMPORTED_MODULE_0__.html.removeClass(this.input, 'vat-number__form__input--error');
+    _html__WEBPACK_IMPORTED_MODULE_0__.html.removeClass(this.message, 'vat-number__form__message--error');
+    _html__WEBPACK_IMPORTED_MODULE_0__.html.addClass(this.input, 'vat-number__form__input--success');
+    _html__WEBPACK_IMPORTED_MODULE_0__.html.addClass(this.message, 'vat-number__form__message--success');
+  },
+  removeVatInputClasses: function removeVatInputClasses() {
+    _html__WEBPACK_IMPORTED_MODULE_0__.html.removeClass(this.input, 'vat-number__form__input--error');
+    _html__WEBPACK_IMPORTED_MODULE_0__.html.removeClass(this.message, 'vat-number__form__message--error');
+    _html__WEBPACK_IMPORTED_MODULE_0__.html.removeClass(this.input, 'vat-number__form__input--success');
+    _html__WEBPACK_IMPORTED_MODULE_0__.html.removeClass(this.message, 'vat-number__form__message--success');
   }
 };
 
@@ -17112,6 +17161,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _gsap_service_gsap_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./gsap/service.gsap.js */ "./src/js/gsap/service.gsap.js");
 /* harmony import */ var _gsap_activity_gsap_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./gsap/activity.gsap.js */ "./src/js/gsap/activity.gsap.js");
 /* harmony import */ var _intro__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./intro */ "./src/js/intro.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./helpers */ "./src/js/helpers.js");
+
 
 
 
@@ -17123,8 +17174,7 @@ __webpack_require__.r(__webpack_exports__);
 var site = {
   _loaded: function _loaded() {
     document.addEventListener('DOMContentLoaded', function () {
-      _intro__WEBPACK_IMPORTED_MODULE_7__.intro.inputState();
-      _intro__WEBPACK_IMPORTED_MODULE_7__.intro.buttonState();
+      _intro__WEBPACK_IMPORTED_MODULE_7__.intro.init();
     });
   },
   _beforeLeaving: function _beforeLeaving() {
@@ -17150,7 +17200,7 @@ var site = {
   \*****************************/
 /***/ (() => {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: File to import not found or unreadable: pages/test.\n        on line 1 of D:\\wamp64\\www\\buddy-belgium\\wp-content\\themes\\buddy-belgium\\src\\sass\\style.scss\n>> @import 'pages/test';\n\n   ^\n\n    at processResult (D:\\wamp64\\www\\buddy-belgium\\wp-content\\themes\\buddy-belgium\\node_modules\\webpack\\lib\\NormalModule.js:597:19)\n    at D:\\wamp64\\www\\buddy-belgium\\wp-content\\themes\\buddy-belgium\\node_modules\\webpack\\lib\\NormalModule.js:691:5\n    at D:\\wamp64\\www\\buddy-belgium\\wp-content\\themes\\buddy-belgium\\node_modules\\loader-runner\\lib\\LoaderRunner.js:399:11\n    at D:\\wamp64\\www\\buddy-belgium\\wp-content\\themes\\buddy-belgium\\node_modules\\loader-runner\\lib\\LoaderRunner.js:251:18\n    at context.callback (D:\\wamp64\\www\\buddy-belgium\\wp-content\\themes\\buddy-belgium\\node_modules\\loader-runner\\lib\\LoaderRunner.js:124:13)\n    at Object.callback (D:\\wamp64\\www\\buddy-belgium\\wp-content\\themes\\buddy-belgium\\node_modules\\sass-loader\\dist\\index.js:73:7)\n    at Object.done [as callback] (D:\\wamp64\\www\\buddy-belgium\\wp-content\\themes\\buddy-belgium\\node_modules\\neo-async\\async.js:8069:18)\n    at options.error (D:\\wamp64\\www\\buddy-belgium\\wp-content\\themes\\buddy-belgium\\node_modules\\node-sass\\lib\\index.js:294:32)");
 
 /***/ })
 

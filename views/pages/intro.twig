@@ -1,8 +1,11 @@
 {% extends getf('base') %}
 {% block body %}
   <div class="intro">
+  <img class="intro__top-left-logo" src="{{ logo_top_left }}" alt="">
+  <div class="intro__menu">menu</div>
   <div class="intro__inner">
     <div class="intro__left">
+      <div class="intro__left__test"></div>
       <h2 class="intro__main-title">
         <span class="intro__main-title--white">The first</span>
         <span class="intro__main-title--white">European</span>
@@ -10,6 +13,7 @@
         <span class="intro__main-title--blue">Cannabis</span>
       </h2>
     </div>
+    <img class="intro__center-logo" src="{{ logo_center }}" alt="">
     <div class="intro__right">
       {% if not display_form %}
         {% include getf('intro.question') %}

@@ -1,0 +1,23 @@
+.secondary-navbar {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	padding: 16px;
+	position: absolute;
+	top: 0;
+}
+
+.secondary-navbar__logo {
+	@include link;
+	text-transform: uppercase;
+}
+
+.secondary-navbar__menu{
+	@include link;
+	margin-right: 8px;
+}
+
+
+
+
+

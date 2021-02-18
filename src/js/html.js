@@ -1,11 +1,18 @@
 export const html = {
-  createElement: (tag, innerHTML = '', className = '') => {
-    let element = document.createElement(tag);
-    element.innerHTML = innerHTML;
-    if (className !== '') {
-      element.classList.add(className);
-    }
-    return element;
+  removeClass(el, className) {
+    el.classList.remove(className);
+  },
+
+  addClass(el, className) {
+    el.classList.add(className);
+  },
+
+  setInner(el, content) {
+    el.innerHTML = content;
+  },
+
+  getValue(event) {
+    return event.target.value
   }
 };
 

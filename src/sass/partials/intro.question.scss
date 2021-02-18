@@ -1,0 +1,67 @@
+.vat-number {
+
+}
+
+.vat-number__question__text {
+	@include sub-title();
+	text-align: center;
+	color: $green;
+}
+
+.vat-number__form {
+	@include flexCentred();
+	flex-direction: column;
+}
+
+.vat-number__form__input {
+	background: #FFFFFF;
+	border: 1px solid rgba(58, 116, 152, 0.2);
+	box-sizing: border-box;
+	height: 40px;
+	width: 60%;
+	margin-top: 32px;
+
+	&:focus {
+		outline: 0;
+	}
+}
+
+.vat-number__form__input--success {
+	border: 2px solid $success;
+}
+
+.vat-number__form__input--error {
+	border: 2px solid $error;
+}
+
+
+.vat-number__form__message {
+	margin-top: 8px;
+}
+
+.vat-number__form__message--success {
+	color: $success;
+}
+
+.vat-number__form__message--error {
+	color: $error;
+}
+
+.vat-number__form__submit {
+	background: $blue;
+	color: white;
+	margin-top: 16px;
+	height: 40px;
+	border: none;
+	width: 200px;
+
+	&:disabled {
+		opacity: 0.5;
+	}
+	&:focus{
+		outline: 0;
+	}
+}
+
+
+

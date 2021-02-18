@@ -1,6 +1,7 @@
 {
   "require": {
     "timber/timber": "1.18.2",
-    "digitalnature/php-ref": "dev-master"
+    "digitalnature/php-ref": "dev-master",
+    "ddeboer/vatin": "^2.2"
   }
 }

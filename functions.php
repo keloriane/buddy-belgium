@@ -1,5 +1,6 @@
 <?php
 //CONFIG VARIABLES
+session_start();
 require_once 'config/env.php';
 //COMPOSER AUTOLOADER
 require_once $_ENV['PATH']->theme . 'vendor/autoload.php';
