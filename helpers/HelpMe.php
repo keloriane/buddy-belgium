@@ -27,6 +27,15 @@ class HelpMe
 	{
 		return isset($_REQUEST[$name]) ? $_REQUEST[$name] : false;
 	}
+
+	public static function protectedRoute($condition, $goToRoute, $errorPage = 'pages/Unauthorized.php')
+	{
+		if ($condition) {
+			Routes::load($errorPage);
+		} else {
+			$goToRoute();
+		}
+	}
 }
 
 ?>

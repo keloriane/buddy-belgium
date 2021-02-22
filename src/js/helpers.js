@@ -3,3 +3,7 @@ export const delay = (fn, ms) => {
     fn()
   }, ms)
 }
+
+export const redirect = (path) => {
+  return window.location.href + path
+}

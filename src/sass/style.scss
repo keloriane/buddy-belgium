@@ -16,7 +16,6 @@ Use it to make something cool, have fun, and share what you've learned with othe
 */
 
 //--FONTS
-@import url('https://fonts.googleapis.com/css2?family=Cousine:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Eczar:wght@700&family=Poppins:wght@100;200;300;400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&display=swap');
 
@@ -31,18 +30,21 @@ Use it to make something cool, have fun, and share what you've learned with othe
 //**PARTIALS**//
 @import 'partials/menu';
 @import 'partials/navbar';
+@import 'partials/secondary-navbar';
 @import 'partials/home.parcours';
 @import 'partials/home.activity';
 @import 'partials/home.product';
 @import 'partials/home.brands';
 @import 'partials/home.contact';
 @import 'partials/intro.vat-question';
+@import 'partials/intro.question';
 
 //**PAGES**//
 @import 'pages/home';
 @import 'pages/intro';
 @import 'pages/product';
 @import 'pages/activity';
+@import 'pages/contact';
 @import 'pages/customers';
 
 

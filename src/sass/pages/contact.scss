@@ -1,0 +1,78 @@
+
+.contact {
+	position: relative;
+	height: 100vh;
+}
+
+.contact__top-center-logo {
+	z-index: -10;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	background-image: url("http://localhost/buddy-belgium/wp-content/uploads/2021/02/bigbuddy.png");
+	width: 804px;
+	height: 242px;
+	@include respond-below(lg) {
+		display: none;
+	}
+
+}
+
+.contact__inner {
+	display: flex;
+	height: 100%;
+	flex-direction: column;
+	@include respond-above(lg) {
+		flex-direction: row;
+	}
+	@include respond-below(sm) {
+		transform: scale(0.9);
+	}
+}
+
+.contact__right {
+	background: #F8F8F8;
+	@include flexCentred();
+	z-index: -30;
+}
+
+.contact__left {
+	@include flexCentred();
+}
+
+.contact__center-logo {
+	width: 99px;
+	height: 99px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	z-index: -20;
+	@include respond-below(lg) {
+		opacity: 80%;
+	}
+}
+
+.contact__main-title {
+	@include sub-title();
+	color: $blue;
+	@include respond-above(lg) {
+		flex-direction: row;
+	}
+}
+
+.contact__body {
+	max-width: 406px;
+	font-family: $mainFont;
+	font-weight: 200;
+	line-height: 26px;
+	letter-spacing: -0.01em;
+
+	.contact__body__contacts {
+		font-weight: 600;
+		color: $green;
+		margin-top: 48px;
+	}
+}
+

@@ -1,0 +1,29 @@
+{% extends getf('base') %}
+{% block body %}
+  <div class="contact">
+    {% include getf('secondary-navbar') %}
+    <div class="contact__top-center-logo"></div>
+    <div class="contact__inner">
+      <div class="contact__left">
+        <h2 class="contact__main-title">
+          <span class="contact__main-title--white">Un renseignement? Un</span>
+          <span class="contact__main-title--white">devis? Contactez-nous </span>
+          <span class="contact__main-title--blue">par mail ou par </span>
+          <span class="contact__main-title--blue">téléphone!</span>
+        </h2>
+      </div>
+      <img class="contact__center-logo" src="{{ logo_center }}" alt="">
+      <div class="contact__right">
+        <div class="contact__body">
+          <p class="contact__body__main-text">
+            Nos produits sont validés EU-CEG entrepositaire agréé & livraison par transporteur avec tracking de colis
+            dédouané en toute légalité avec la garantie d’un produit en dessous de 0,2% THC.
+          </p>
+          <p class="contact__body__contacts">
+            info@buddybelgium.com • +32 (0)478/93.47.07
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock body %}
