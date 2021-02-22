@@ -2,7 +2,7 @@
 @import url(https://fonts.googleapis.com/css2?family=Eczar:wght@700&family=Poppins:wght@100;200;300;400;600;700&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&display=swap);
 /**
- * Swiper 6.4.8
+ * Swiper 6.4.10
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
  *
@@ -10,7 +10,7 @@
  *
  * Released under the MIT License
  *
- * Released on: January 22, 2021
+ * Released on: January 29, 2021
  */
 @font-face {
   font-family: 'swiper-icons';
@@ -691,7 +691,8 @@ h2 {
   text-transform: uppercase;
   font-family: "Poppins", monospace;
   font-weight: 600;
-  color: #3A7498; }
+  color: #3A7498;
+  margin-right: 8px; }
 
 #parcours {
   display: grid;
@@ -801,7 +802,7 @@ h2 {
       height: 360.09px; }
       .activity .card-container .card .white-title {
         position: absolute;
-        width: 402px;
+        width: 470px;
         top: 47%;
         left: -35%;
         overflow: hidden;
@@ -832,7 +833,6 @@ h2 {
       .activity .card-container .card .hero-blurr {
         width: 100%;
         height: 100%;
-        mix-blend-mode: exclusion;
         position: absolute;
         top: 0; }
       .activity .card-container .card .exclusion {
@@ -974,19 +974,8 @@ section {
 .brand {
   box-sizing: border-box;
   position: relative;
-  overflow: hidden; }
-
-.brand__bg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: -5;
-  overflow: hidden;
-  background: orange; }
-
-.brand__bg__img {
-  width: 100%;
-  object-fit: contain; }
+  background: url("http://localhost/buddy-belgium/wp-content/uploads/2021/01/brand.png") no-repeat;
+  background-size: cover; }
 
 .brand__header {
   max-width: 700px;
@@ -994,6 +983,8 @@ section {
   padding-top: 80px; }
 
 .brand__header__title {
+  font-family: "Eczar", monospace;
+  font-size: clamp(3rem, 5vw, 7rem);
   color: #FFFFFF;
   margin: 0 auto;
   text-align: center; }
@@ -1005,23 +996,28 @@ section {
   font-family: Poppins, sans-serif;
   font-weight: 200;
   line-height: 150%; }
-  @media (max-width: 560px) {
+  @media (max-width: 575px) {
     .brand__header__text {
       padding: 30px 20px; } }
 
 .brand__logos {
   margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap; }
-  @media (min-width: 780px) {
+  display: grid;
+  max-width: 1000px;
+  justify-items: center;
+  align-items: center;
+  padding-bottom: 64px;
+  grid-row-gap: 32px; }
+  @media (min-width: 576px) and (max-width: 767px) {
     .brand__logos {
-      max-width: 900px;
-      justify-content: space-between;
-      align-items: center; } }
+      grid-template-columns: 1fr 1fr;
+      max-width: 500px; } }
+  @media (min-width: 768px) {
+    .brand__logos {
+      grid-template-columns: 1fr 1fr 1fr; } }
 
 .brand__logos__wrapper {
-  max-width: 280px;
-  margin-top: 64px; }
+  width: clamp(200px, 12vw, 280px); }
 
 .brand__logos__wrapper img {
   width: 100%; }
@@ -1040,6 +1036,33 @@ section {
     .contact__title {
       margin-top: 64px;
       margin-left: 80px; } }
+
+.vat-question__text {
+  font-family: "Eczar", monospace;
+  font-size: clamp(2rem, 3vw, 5rem);
+  text-align: center;
+  color: #C3D6A1; }
+
+.vat-question__choice {
+  font-family: "Eczar", monospace;
+  font-size: clamp(2rem, 3vw, 5rem);
+  text-align: center;
+  color: #3A7498;
+  background: none;
+  border: none; }
+  .vat-question__choice:focus {
+    outline: none; }
+
+.vat-question__slash {
+  font-family: "Eczar", monospace;
+  font-size: clamp(2rem, 3vw, 5rem);
+  color: #3A7498; }
+
+.vat-question__form {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
 
 .home {
   width: 100vw; }
@@ -1086,6 +1109,37 @@ section {
       justify-content: center; }
       .hero-wrapper .hero-title h1 {
         font-size: calc(8vw + 1rem); } }
+
+.intro {
+  height: 100vh; }
+
+.intro__inner {
+  display: flex;
+  width: 100%;
+  height: 100%; }
+
+.intro__left {
+  flex: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #3A7498; }
+
+.intro__right {
+  flex: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.intro__main-title {
+  font-family: "Eczar", monospace;
+  font-size: clamp(3rem, 5vw, 7rem); }
+
+.intro__main-title .intro__main-title--white {
+  color: white; }
+
+.intro__main-title .intro__main-title--blue {
+  color: #C3D6A1; }
 
 #product .product-headline {
   position: relative;
@@ -1202,7 +1256,7 @@ section {
   font-family: "Poppins", monospace;
   font-weight: 300;
   line-height: 165%;
-  margin-top: clamp(120px, 12vw, 500px); }
+  margin-top: clamp(120px, 12vw, 400px); }
   @media (min-width: 768px) {
     .activity-page__description__main-text {
       max-width: 500px; } }
@@ -1237,6 +1291,14 @@ section {
     position: absolute;
     left: 47%;
     top: 44%; }
+
+.slider-container {
+  display: flex;
+  gap: 50px;
+  overflow-x: scroll;
+  width: 3000px; }
+  .slider-container .slide__item {
+    overflow: hidden; }
 
 
 /*# sourceMappingURL=frontend.css.map*/

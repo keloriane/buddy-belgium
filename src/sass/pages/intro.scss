@@ -1,0 +1,34 @@
+.intro {
+	height: 100vh;
+}
+
+.intro__inner {
+	display: flex;
+	width: 100%;
+	height: 100%;
+}
+
+.intro__left {
+	flex: 50%;
+	@include flexCentred();
+	background: #3A7498;
+}
+
+.intro__right {
+	flex: 50%;
+	@include flexCentred();
+}
+
+.intro__main-title {
+	@include title();
+}
+
+.intro__main-title .intro__main-title--white {
+	color: white;
+}
+
+.intro__main-title .intro__main-title--blue {
+	color: $green;
+}
+
+

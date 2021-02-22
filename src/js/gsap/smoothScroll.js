@@ -2,9 +2,7 @@ import { gsap } from 'gsap/dist/gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
-function init() {
-  console.log('hello');
-}
+function init() {}
 
 window.addEventListener('load', () => {
   init();

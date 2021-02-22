@@ -58,6 +58,7 @@
   },
   "dependencies": {
     "@barba/core": "^2.9.7",
+    "jsvat": "^2.5.0",
     "swiper": "^6.4.10"
   }
 }
