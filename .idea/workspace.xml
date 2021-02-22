@@ -5,31 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4ea9f56-cfe0-4785-a501-546d584a348a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/swift.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/swift.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/router.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/router.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helpers/HelpMe.php" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/HelpMe.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/intro.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/intro.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/single_products.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/single_products.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/frontend-bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend-bundle.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/frontend-bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend-bundle.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/frontend.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/frontend.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/helpers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/html.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/html.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/intro.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/intro.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/site.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/mixin.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/mixin.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/pages/about.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/pages/about.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/pages/intro.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/pages/intro.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sass/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/variable.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/variable.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/intro.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/intro.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/partials/intro.vat-question.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/intro.vat-question.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +52,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/sass/partials" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../swift-starter" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="D:\wamp64\www\buddy\wp-content\themes\buddy-belgium\node_modules\prettier" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
@@ -136,7 +117,11 @@
       <workItem from="1613050909746" duration="1123000" />
       <workItem from="1613052842891" duration="2098000" />
       <workItem from="1613317728210" duration="812000" />
-      <workItem from="1613642311720" duration="7777000" />
+      <workItem from="1613642311720" duration="8579000" />
+      <workItem from="1613660662897" duration="1269000" />
+      <workItem from="1613724402904" duration="591000" />
+      <workItem from="1613985728042" duration="752000" />
+      <workItem from="1613988089276" duration="1106000" />
     </task>
     <servers />
   </component>

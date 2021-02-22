@@ -17200,7 +17200,7 @@ var site = {
   \*****************************/
 /***/ (() => {
 
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: File to import not found or unreadable: pages/test.\n        on line 1 of D:\\wamp64\\www\\buddy-belgium\\wp-content\\themes\\buddy-belgium\\src\\sass\\style.scss\n>> @import 'pages/test';\n\n   ^\n\n    at processResult (D:\\wamp64\\www\\buddy-belgium\\wp-content\\themes\\buddy-belgium\\node_modules\\webpack\\lib\\NormalModule.js:597:19)\n    at D:\\wamp64\\www\\buddy-belgium\\wp-content\\themes\\buddy-belgium\\node_modules\\webpack\\lib\\NormalModule.js:691:5\n    at D:\\wamp64\\www\\buddy-belgium\\wp-content\\themes\\buddy-belgium\\node_modules\\loader-runner\\lib\\LoaderRunner.js:399:11\n    at D:\\wamp64\\www\\buddy-belgium\\wp-content\\themes\\buddy-belgium\\node_modules\\loader-runner\\lib\\LoaderRunner.js:251:18\n    at context.callback (D:\\wamp64\\www\\buddy-belgium\\wp-content\\themes\\buddy-belgium\\node_modules\\loader-runner\\lib\\LoaderRunner.js:124:13)\n    at Object.callback (D:\\wamp64\\www\\buddy-belgium\\wp-content\\themes\\buddy-belgium\\node_modules\\sass-loader\\dist\\index.js:73:7)\n    at Object.done [as callback] (D:\\wamp64\\www\\buddy-belgium\\wp-content\\themes\\buddy-belgium\\node_modules\\neo-async\\async.js:8069:18)\n    at options.error (D:\\wamp64\\www\\buddy-belgium\\wp-content\\themes\\buddy-belgium\\node_modules\\node-sass\\lib\\index.js:294:32)");
+// extracted by mini-css-extract-plugin
 
 /***/ })
 

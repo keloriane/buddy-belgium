@@ -57,7 +57,12 @@
 	@include respond-below(md) {
 		height: 400px;
 		width: 100vw;
-		background: green;
+	}
+	@include respond-above(lg){
+		min-width: 500px;
+		max-width: 500px;
+		min-height: 600px;
+		max-height: 600px;
 	}
 }
 
