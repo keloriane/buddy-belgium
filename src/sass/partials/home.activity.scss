@@ -13,7 +13,8 @@
 		gap: $gap;
 		flex-wrap: wrap;
 		width: 100%;
-		justify-content: center;
+		justify-content: space-evenly;
+
 
 
 		.card {
@@ -24,11 +25,14 @@
 			max-width: 230px;
 			width: 100%;
 			height: 360.09px;
-
 			.white-title {
 				position: absolute;
-				width: 300px;
+
+				width: 470px;
 				top: 47%;
+				left: -35%;
+				overflow: hidden;
+				height: 100px;
 
 
 				h2 {
@@ -36,12 +40,12 @@
 					opacity: 0;
 					text-align: center;
 					text-transform: uppercase;
-
+					-webkit-text-stroke: 2px #0d66c2;
 					font-size: calc(1vw + 2rem);
 					position: absolute;
-					color: #0d66c2;
+					color: white;
 					font-weight: 800;
-
+					z-index: 6;
 				}
 			}
 
@@ -84,7 +88,7 @@
 			.hero-blurr {
 				width: 100%;
 				height: 100%;
-				mix-blend-mode: exclusion;
+
 				position: absolute;
 				top: 0;
 
@@ -111,27 +115,23 @@
 		}
 	}
 }
-
 @media (max-width: 996px) {
 	.activity {
 		grid-template-columns: 1fr;
-
 		.title-container {
 			h2 {
 				font-size: calc(6vw + 1rem) !important;
 			}
 		}
-
 		.card-container {
 			width: 100%;
 			max-width: 645px;
 			justify-content: center;
-
 			.card {
 				margin-top: 0px !important;
 			}
 		}
-
+		
 	}
 }
 
@@ -149,4 +149,13 @@
 		transform: translate(-100%, 0);
 
 	}
+}
+
+.card-overlay {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.4);
+	z-index: 1;
+	position: absolute;
+
 }

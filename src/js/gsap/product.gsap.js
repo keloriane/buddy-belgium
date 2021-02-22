@@ -1,6 +1,6 @@
 import { gsap } from 'gsap/dist/gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min';
-import Swiper from "swiper";
+import Swiper from 'swiper';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -93,7 +93,6 @@ function init() {
 window.addEventListener('load', function () {
   init();
 });
-
 
 var swiper = new Swiper('.product-list-container', {
   slidesPerView: 3,

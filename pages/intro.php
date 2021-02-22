@@ -13,7 +13,7 @@ $have_vat = HelpMe::get_request_value('vat');
 
 if ($method == 'GET' && $have_vat) {
 	if ($have_vat == 'no') {
-		HelpMe::redirect('/non_pro');
+		HelpMe::redirect('/customer');
 	}
 	if ($have_vat == 'yes') {
 		$context['display_form'] = true;

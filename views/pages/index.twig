@@ -5,40 +5,44 @@
   {% include getf('menu') %}
 
   <div class="home">
-  <div class="home-wrapper">
-    <section class="hero-wrapper">
-      <div class="hero-title">
-        <h1>
-          <div class="green indent line-content">
-            <div class="line">
+    <div class="home-wrapper">
+      <section class="hero-wrapper">
+        <div class="hero-title">
+          <h1>
+            <div class="green indent line-content">
+              <div class="line">
               The first <br>
+              </div>
             </div>
-          </div>
-          <div class="green line-content">
-            <div class="line">
+            <div class="green line-content">
+              <div class="line">
               European <br>
+              </div>
             </div>
-          </div>
-          <div class="blue line-content">
-            <div class="line">
+            <div class="blue line-content">
+              <div class="line">
               Hub for legal <br>
+              </div>
             </div>
-          </div>
-          <div class="blue indent line-content">
-            <div class="line">
+            <div class="blue indent line-content">
+              <div class="line">
               Cannabis.
+              </div>
             </div>
-          </div>
-        </h1>
-      </div>
-      <div class="hero-slider">
-        <img src="http://localhost/buddy-belgium/wp-content/uploads/2021/01/buddah-packs.png" alt="">
-      </div>
-    </section>
+          </h1>
+        </div>
+        <div class="hero-slider">
+          <img src="http://localhost/buddy-belgium/wp-content/uploads/2021/01/buddah-packs.png" alt="">
+        </div>
+      </section>
+    </div>
+
+
+{% include getf('home.parcours') %}
+{% include getf('home.activity') %}
+{% include getf('home.product') %}
+{% include getf('home.marques') %}
+{% include getf('home.contact') %}
+{% include getf('sliders') %}
   </div>
-  {% include getf('home.parcours') %}
-  {% include getf('home.activity') %}
-  {% include getf('home.product') %}
-  {% include getf('home.marques') %}
-  {% include getf('home.contact') %}
 {% endblock body %}
