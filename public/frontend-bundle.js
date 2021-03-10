@@ -16691,15 +16691,28 @@ function bindModuleMethods(instance, obj) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _js_site__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./js/site */ "./src/js/site.js");
+/* harmony import */ var swiper_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper/swiper-bundle.css */ "./node_modules/swiper/swiper-bundle.css");
+/* harmony import */ var swiper_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(swiper_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _sass_style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sass/style.scss */ "./src/sass/style.scss");
 /* harmony import */ var _sass_style_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_sass_style_scss__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _js_site__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./js/site */ "./src/js/site.js");
+/* harmony import */ var _js_gsap_product_gsap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/gsap/product.gsap */ "./src/js/gsap/product.gsap.js");
+/* harmony import */ var _js_gsap_smoothScroll_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./js/gsap/smoothScroll.js */ "./src/js/gsap/smoothScroll.js");
+/* harmony import */ var _js_gsap_parcours_gsap_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./js/gsap/parcours.gsap.js */ "./src/js/gsap/parcours.gsap.js");
+/* harmony import */ var _js_gsap_service_gsap_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./js/gsap/service.gsap.js */ "./src/js/gsap/service.gsap.js");
+/* harmony import */ var _js_gsap_activity_gsap_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./js/gsap/activity.gsap.js */ "./src/js/gsap/activity.gsap.js");
 
 
 
-_js_site__WEBPACK_IMPORTED_MODULE_0__.site._loaded();
 
-_js_site__WEBPACK_IMPORTED_MODULE_0__.site._beforeLeaving();
+
+
+
+
+
+_js_site__WEBPACK_IMPORTED_MODULE_2__.site._loaded();
+
+_js_site__WEBPACK_IMPORTED_MODULE_2__.site._beforeLeaving();
 
 /***/ }),
 
@@ -16715,6 +16728,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap/dist/ScrollTrigger.min */ "./node_modules/gsap/dist/ScrollTrigger.min.js");
 /* harmony import */ var gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_1__);
+var _this = undefined;
+
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -16729,94 +16744,95 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 
 
-gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().registerPlugin(gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger);
-gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().to(['.crea', '.ser'], {
-  duration: 1,
-  marginTop: 0,
-  scrollTrigger: {
-    trigger: '.activity',
-    start: 'center center',
-    end: 'bottom bottom'
-  }
-});
-var cards = document.querySelectorAll('.card');
-var cardArray = gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().utils.toArray(cards);
-console.log(cardArray);
-cards.forEach(function (link, e) {
-  link.addEventListener('mouseenter', createHover);
-  link.addEventListener('mouseleave', createHover);
-});
-
-function createHover(e) {
-  var allSiblings = cardArray.filter(function (item) {
-    return item !== e.target;
+document.addEventListener('DOMContentLoaded', function () {
+  gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().registerPlugin(gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger);
+  gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().to(['.crea', '.ser'], {
+    duration: 1,
+    marginTop: 0,
+    scrollTrigger: {
+      trigger: '.activity',
+      start: 'center center',
+      end: 'bottom bottom'
+    }
   });
-  console.log(allSiblings);
-
-  if (e.type === 'mouseenter') {
-    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().to(e.target.querySelector('.exclusion'), {
-      duration: 0.2
-    });
-    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().fromTo(e.target.querySelector('h2'), {
-      duration: 0.2,
-      opacity: 0,
-      y: 200
-    }, {
-      duration: 0.2,
-      opacity: 1,
-      y: 0
-    });
-    /* gsap.to(allSiblings, { duration: 0.1, opacity: 0.3 });*/
-  } else if (e.type === 'mouseleave') {
-    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().fromTo(e.target.querySelector('h2'), {
-      duration: 0.2,
-      opacity: 0,
-      y: 0
-    }, {
-      duration: 0.2,
-      opacity: 1,
-      y: 200
-    });
-    /*  gsap.to(e.target.querySelector('.exclusion'), {
-      duration: 0.2,
-      backgroundColor: 'none',
-      mixBlendMode: 'none',
-    });*/
-  }
-}
-
-undefined.dom = {};
-undefined.dom.el = document.querySelector('.js-slider');
-undefined.dom.container = undefined.dom.el.querySelector('.js-container');
-undefined.dom.items = undefined.dom.el.querySelectorAll('.js-item');
-undefined.dom.images = undefined.dom.el.querySelectorAll('.js-img-wrap');
-undefined.dom.progress = undefined.dom.el.querySelector('.js-progress');
-var max = -undefined.dom.container.offsetWidth + window.innerWidth;
-var progress = (scroll.state.last - 0) * 100 / (max - 0) / 100;
-undefined.dom.progress.style.transform = "scaleX(".concat(progress, ")");
-
-function setCache() {
-  var _this = this;
-
-  this.items = [];
-
-  _toConsumableArray(this.dom.items).forEach(function (el) {
-    var bounds = el.getBoundingClientRect();
-
-    _this.items.push({
-      img: el.querySelector('img'),
-      bounds: bounds,
-      x: 0
-    });
+  var cards = document.querySelectorAll('.card');
+  var cardArray = gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().utils.toArray(cards);
+  cards.forEach(function (link, e) {
+    link.addEventListener('mouseenter', createHover);
+    link.addEventListener('mouseleave', createHover);
   });
-}
 
-var _item = item,
-    bounds = _item.bounds;
-var inView = scrollLast + window.innerWidth >= bounds.left && scrollLast < bounds.right;
-var newMin = -(window.innerWidth / 12) * 3;
-var newMax = 0;
-item.x = (percentage - 0) / (100 - 0) * (newMax - newMin) + newMin;
+  function createHover(e) {
+    var allSiblings = cardArray.filter(function (item) {
+      return item !== e.target;
+    });
+    console.log(allSiblings);
+
+    if (e.type === 'mouseenter') {
+      gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().to(e.target.querySelector('.exclusion'), {
+        duration: 0.2
+      });
+      gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().fromTo(e.target.querySelector('h2'), {
+        duration: 0.2,
+        opacity: 0,
+        y: 200
+      }, {
+        duration: 0.2,
+        opacity: 1,
+        y: 0
+      });
+      /* gsap.to(allSiblings, { duration: 0.1, opacity: 0.3 });*/
+    } else if (e.type === 'mouseleave') {
+      gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().fromTo(e.target.querySelector('h2'), {
+        duration: 0.2,
+        opacity: 0,
+        y: 0
+      }, {
+        duration: 0.2,
+        opacity: 1,
+        y: 200
+      });
+      /*  gsap.to(e.target.querySelector('.exclusion'), {
+        duration: 0.2,
+        backgroundColor: 'none',
+        mixBlendMode: 'none',
+      });*/
+    }
+  }
+
+  _this.dom = {};
+  _this.dom.el = document.querySelector('.js-slider');
+  _this.dom.container = _this.dom.el.querySelector('.js-container');
+  _this.dom.items = _this.dom.el.querySelectorAll('.js-item');
+  _this.dom.images = _this.dom.el.querySelectorAll('.js-img-wrap');
+  _this.dom.progress = _this.dom.el.querySelector('.js-progress');
+  var max = -_this.dom.container.offsetWidth + window.innerWidth;
+  var progress = (scroll.state.last - 0) * 100 / (max - 0) / 100;
+  _this.dom.progress.style.transform = "scaleX(".concat(progress, ")");
+
+  function setCache() {
+    var _this2 = this;
+
+    this.items = [];
+
+    _toConsumableArray(this.dom.items).forEach(function (el) {
+      var bounds = el.getBoundingClientRect();
+
+      _this2.items.push({
+        img: el.querySelector('img'),
+        bounds: bounds,
+        x: 0
+      });
+    });
+  }
+
+  var _item = item,
+      bounds = _item.bounds;
+  var inView = scrollLast + window.innerWidth >= bounds.left && scrollLast < bounds.right;
+  var newMin = -(window.innerWidth / 12) * 3;
+  var newMax = 0;
+  item.x = (percentage - 0) / (100 - 0) * (newMax - newMin) + newMin;
+});
 
 /***/ }),
 
@@ -16885,14 +16901,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger);
-console.log('hello');
 var allLinks = gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.toArray('.product-list-container a');
 var pageBackground = document.querySelector('.fill-background');
 var largeImage = document.querySelector('.portfolio__image--l');
 var smallImage = document.querySelector('.portfolio__image--s');
 var lInside = document.querySelector('.portfolio__image--l .image_inside');
 var sInside = document.querySelector('.portfolio__image--s .image_inside');
-console.log(allLinks);
 
 function initHover() {
   allLinks.forEach(function (link) {
@@ -17084,29 +17098,6 @@ gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(container, {
 
 /***/ }),
 
-/***/ "./src/js/helpers.js":
-/*!***************************!*\
-  !*** ./src/js/helpers.js ***!
-  \***************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "delay": () => /* binding */ delay,
-/* harmony export */   "redirect": () => /* binding */ redirect
-/* harmony export */ });
-var delay = function delay(fn, ms) {
-  setTimeout(function () {
-    fn();
-  }, ms);
-};
-var redirect = function redirect(path) {
-  return window.location.href + path;
-};
-
-/***/ }),
-
 /***/ "./src/js/html.js":
 /*!************************!*\
   !*** ./src/js/html.js ***!
@@ -17118,6 +17109,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "html": () => /* binding */ html
 /* harmony export */ });
+
 var html = {
   removeClass: function removeClass(el, className) {
     el.classList.remove(className);
@@ -17130,6 +17122,11 @@ var html = {
   },
   getValue: function getValue(event) {
     return event.target.value;
+  },
+  domIsReady: function domIsReady(fn) {
+    document.addEventListener('DOMContentLoaded', function () {
+      fn();
+    });
   }
 };
 
@@ -17208,6 +17205,57 @@ var intro = {
 
 /***/ }),
 
+/***/ "./src/js/marques.js":
+/*!***************************!*\
+  !*** ./src/js/marques.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "marques": () => /* binding */ marques
+/* harmony export */ });
+/* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/esm/components/core/core-class.js");
+
+var marques = {
+  init: function init() {
+    this.configSlider();
+    console.log('folie');
+  },
+  configSlider: function configSlider() {
+    var swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__.default('.swiper-container', {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      // init: false,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      },
+      breakpoints: {
+        '@0.00': {
+          slidesPerView: 1,
+          spaceBetween: 10
+        },
+        '@0.75': {
+          slidesPerView: 2,
+          spaceBetween: 20
+        },
+        '@1.00': {
+          slidesPerView: 2,
+          spaceBetween: 40
+        },
+        '@1.50': {
+          slidesPerView: 2,
+          spaceBetween: 50
+        }
+      }
+    });
+  }
+};
+
+/***/ }),
+
 /***/ "./src/js/site.js":
 /*!************************!*\
   !*** ./src/js/site.js ***!
@@ -17219,33 +17267,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "site": () => /* binding */ site
 /* harmony export */ });
-/* harmony import */ var _html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./html */ "./src/js/html.js");
-/* harmony import */ var swiper_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! swiper/swiper-bundle.css */ "./node_modules/swiper/swiper-bundle.css");
-/* harmony import */ var swiper_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(swiper_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _gsap_product_gsap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./gsap/product.gsap */ "./src/js/gsap/product.gsap.js");
-/* harmony import */ var _gsap_smoothScroll_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./gsap/smoothScroll.js */ "./src/js/gsap/smoothScroll.js");
-/* harmony import */ var _gsap_parcours_gsap_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./gsap/parcours.gsap.js */ "./src/js/gsap/parcours.gsap.js");
-/* harmony import */ var _gsap_service_gsap_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./gsap/service.gsap.js */ "./src/js/gsap/service.gsap.js");
-/* harmony import */ var _gsap_activity_gsap_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./gsap/activity.gsap.js */ "./src/js/gsap/activity.gsap.js");
-/* harmony import */ var _intro__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./intro */ "./src/js/intro.js");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./helpers */ "./src/js/helpers.js");
-
-
-
-
-
-
-
+/* harmony import */ var _intro__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./intro */ "./src/js/intro.js");
+/* harmony import */ var _marques__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./marques */ "./src/js/marques.js");
 
 
 var site = {
   _loaded: function _loaded() {
     document.addEventListener('DOMContentLoaded', function () {
-      _intro__WEBPACK_IMPORTED_MODULE_7__.intro.init();
+      console.log('ok ok ok');
+      _marques__WEBPACK_IMPORTED_MODULE_1__.marques.init();
+      _intro__WEBPACK_IMPORTED_MODULE_0__.intro.init();
     });
   },
   _beforeLeaving: function _beforeLeaving() {
     window.addEventListener('beforeunload', function () {});
+  },
+  logP: function logP() {
+    console.log('log parcours');
   }
 };
 

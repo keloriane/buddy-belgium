@@ -1,0 +1,49 @@
+.marques__presentation{
+	overflow: hidden;
+	@include respond-below(md){
+		margin-bottom: 64px;
+	}
+}
+
+.marques__presentation__inner {
+	max-width: 920px;
+	margin: 0 auto;
+	@include respond-below(md) {
+		padding: 0px 20px;
+	}
+	@include respond-above(lg) {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 64px;
+	}
+}
+
+.marques__presentation__image-wrapper {
+	max-width: 290px;
+	margin-left: -8px;
+	@include respond-above(lg) {
+		min-width: 290px;
+	}
+}
+
+.marques__presentation__image {
+	width: 100%;
+}
+
+.marques__presentation__description {
+	max-width: 600px;
+}
+
+.marques__presentation__description__name {
+	color: $blue;
+	font-family: $titleFont;
+	font-size: 2.4rem;
+	margin-top: 16px;
+	margin-bottom: 16px;
+}
+
+.marques__presentation__description__text {
+	font-size: 1rem;
+	line-height: 1.4rem;
+	font-family: $mainFont;
+}

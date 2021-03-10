@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css2?family=Eczar:wght@700&family=Poppins:wght@100;200;300;400;600;700&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&display=swap);
 /**
  * Swiper 6.4.10
  * Most modern mobile touch slider and framework with hardware accelerated transitions
@@ -605,6 +606,13 @@ body {
 #product {
   height: inherit; }
 
+h1, h2, h3, .line1, .line2 {
+  font-family: "Eczar" , sans-serif;
+  font-weight: 1000; }
+
+.white {
+  color: white; }
+
 section {
   height: 80vh; }
 
@@ -645,6 +653,28 @@ h2 {
 .indent-2 {
   text-indent: calc(25px * 1.5); }
 
+.marques__presentation__slider {
+  display: flex;
+  flex-direction: row;
+  background: orangered;
+  max-width: 980px;
+  margin: 0 auto; }
+
+.marques__presentation__slider__item {
+  max-width: 400px; }
+
+.menu-nav {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  z-index: 1; }
+  .menu-nav .title h1 {
+    font-family: "Poppins" , sans-serif; }
+
+#menu-burger {
+  display: none; }
+
 .navbar {
   width: 100%;
   display: flex;
@@ -665,32 +695,6 @@ h2 {
     width: 100%; }
 
 .navbar__menu {
-  margin-top: 8px;
-  margin-left: 8px;
-  text-transform: uppercase;
-  font-family: "Poppins", monospace;
-  font-weight: 600;
-  color: #3A7498;
-  margin-right: 8px; }
-
-.secondary-navbar {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 16px;
-  position: absolute;
-  top: 0; }
-
-.secondary-navbar__logo {
-  margin-top: 8px;
-  margin-left: 8px;
-  text-transform: uppercase;
-  font-family: "Poppins", monospace;
-  font-weight: 600;
-  color: #3A7498;
-  text-transform: uppercase; }
-
-.secondary-navbar__menu {
   margin-top: 8px;
   margin-left: 8px;
   text-transform: uppercase;
@@ -797,7 +801,7 @@ h2 {
     gap: 24px;
     flex-wrap: wrap;
     width: 100%;
-    justify-content: center; }
+    justify-content: space-evenly; }
     .activity .card-container .card {
       position: relative;
       text-decoration: none;
@@ -807,17 +811,22 @@ h2 {
       height: 360.09px; }
       .activity .card-container .card .white-title {
         position: absolute;
-        width: 300px;
-        top: 47%; }
+        width: 470px;
+        top: 47%;
+        left: -35%;
+        overflow: hidden;
+        height: 100px; }
         .activity .card-container .card .white-title h2 {
           font-family: Eczar, sans-serif;
           opacity: 0;
           text-align: center;
           text-transform: uppercase;
+          -webkit-text-stroke: 2px #0d66c2;
           font-size: calc(1vw + 2rem);
           position: absolute;
-          color: #0d66c2;
-          font-weight: 800; }
+          color: white;
+          font-weight: 800;
+          z-index: 6; }
       .activity .card-container .card.wl .hero {
         background-image: url("http://localhost/buddy-belgium/wp-content/uploads/2021/01/whitelabelling.png"); }
       .activity .card-container .card.crea {
@@ -833,7 +842,6 @@ h2 {
       .activity .card-container .card .hero-blurr {
         width: 100%;
         height: 100%;
-        mix-blend-mode: exclusion;
         position: absolute;
         top: 0; }
       .activity .card-container .card .exclusion {
@@ -867,6 +875,13 @@ h2 {
     transform: translate(-50%, 0); }
   100% {
     transform: translate(-100%, 0); } }
+
+.card-overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+  position: absolute; }
 
 .progressbar {
   position: fixed;
@@ -1031,6 +1046,49 @@ section {
       margin-top: 64px;
       margin-left: 80px; } }
 
+.marques__presentation {
+  overflow: hidden; }
+  @media (max-width: 767px) {
+    .marques__presentation {
+      margin-bottom: 64px; } }
+
+.marques__presentation__inner {
+  max-width: 920px;
+  margin: 0 auto; }
+  @media (max-width: 767px) {
+    .marques__presentation__inner {
+      padding: 0px 20px; } }
+  @media (min-width: 992px) {
+    .marques__presentation__inner {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 64px; } }
+
+.marques__presentation__image-wrapper {
+  max-width: 290px;
+  margin-left: -8px; }
+  @media (min-width: 992px) {
+    .marques__presentation__image-wrapper {
+      min-width: 290px; } }
+
+.marques__presentation__image {
+  width: 100%; }
+
+.marques__presentation__description {
+  max-width: 600px; }
+
+.marques__presentation__description__name {
+  color: #3A7498;
+  font-family: "Eczar", monospace;
+  font-size: 2.4rem;
+  margin-top: 16px;
+  margin-bottom: 16px; }
+
+.marques__presentation__description__text {
+  font-size: 1rem;
+  line-height: 1.4rem;
+  font-family: "Poppins", monospace; }
+
 .vat-question__text {
   font-family: "Eczar", monospace;
   font-size: clamp(2rem, 3vw, 5rem);
@@ -1108,6 +1166,32 @@ section {
     opacity: 0.5; }
   .vat-number__form__submit:focus {
     outline: 0; }
+
+.secondary-navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  position: absolute;
+  top: 0; }
+
+.secondary-navbar__logo {
+  margin-top: 8px;
+  margin-left: 8px;
+  text-transform: uppercase;
+  font-family: "Poppins", monospace;
+  font-weight: 600;
+  color: #3A7498;
+  text-transform: uppercase; }
+
+.secondary-navbar__menu {
+  margin-top: 8px;
+  margin-left: 8px;
+  text-transform: uppercase;
+  font-family: "Poppins", monospace;
+  font-weight: 600;
+  color: #3A7498;
+  margin-right: 8px; }
 
 .home {
   width: 100vw; }
@@ -1426,6 +1510,33 @@ section {
     font-weight: 600;
     color: #C3D6A1;
     margin-top: 48px; }
+
+.hero-header {
+  width: 100vw;
+  height: 90vh;
+  display: flex;
+  position: relative; }
+  .hero-header .blue-bg {
+    background-color: #3A7498;
+    width: 50%; }
+    .hero-header .blue-bg .hero-customer {
+      display: grid;
+      grid-template-columns: 1fr; }
+  .hero-header .header-background-image {
+    width: 50%;
+    background-size: cover; }
+  .hero-header .logo-container {
+    position: absolute;
+    left: 47%;
+    top: 44%; }
+
+.slider-container {
+  display: flex;
+  gap: 50px;
+  overflow-x: scroll;
+  width: 3000px; }
+  .slider-container .slide__item {
+    overflow: hidden; }
 
 
 /*# sourceMappingURL=frontend.css.map*/

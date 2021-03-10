@@ -4,7 +4,6 @@ import Swiper from 'swiper';
 
 gsap.registerPlugin(ScrollTrigger);
 
-console.log('hello');
 const allLinks = gsap.utils.toArray('.product-list-container a');
 const pageBackground = document.querySelector('.fill-background');
 const largeImage = document.querySelector('.portfolio__image--l');
@@ -12,7 +11,6 @@ const smallImage = document.querySelector('.portfolio__image--s');
 const lInside = document.querySelector('.portfolio__image--l .image_inside');
 const sInside = document.querySelector('.portfolio__image--s .image_inside');
 
-console.log(allLinks);
 
 function initHover() {
   allLinks.forEach((link) => {

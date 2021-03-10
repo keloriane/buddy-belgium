@@ -1,0 +1,13 @@
+{% macro marques(products) %}
+  <div class="marques__presentation__slider splide" id="splide">
+    <div class="splide__track">
+      <ul class="splide__list">
+        {% for product in products %}
+          <div class="marques__presentation__slider__item swiper-slide">
+            <img src={{ Image(product.url).src }}>
+          </div>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endmacro %}

@@ -7,8 +7,6 @@ function create_product()
 			'public' => true,
 			'menu_position' => 3,
 			'supports' => ['title', 'editor',],
-
-
 		]
 	);
 }
