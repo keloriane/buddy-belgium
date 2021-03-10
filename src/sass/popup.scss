@@ -1,0 +1,21 @@
+.popup-message {
+	position: fixed;
+	background-color: white;
+	width: 200px ;
+	height: 100px;
+	bottom: 10px;
+	right: 10px;
+	z-index: 5;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	box-shadow: 5px 4px 4px 2px rgba(0, 0, 0, 0.25);
+	border-radius: 20px;
+	h3 {
+		a {
+			text-decoration: none;
+			color: #3A7498;
+		}
+	}
+}

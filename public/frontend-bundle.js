@@ -16715,18 +16715,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap/dist/ScrollTrigger.min */ "./node_modules/gsap/dist/ScrollTrigger.min.js");
 /* harmony import */ var gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_1__);
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
 
 
 gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().registerPlugin(gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger);
@@ -16741,6 +16729,22 @@ gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().to(['.crea', '.ser'], {
 });
 var cards = document.querySelectorAll('.card');
 var cardArray = gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().utils.toArray(cards);
+var productCards = document.querySelectorAll('.card-product');
+console.log(productCards);
+productCards.forEach(function (activity) {
+  activity.addEventListener('mouseenter', function (e) {
+    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().to(activity, {
+      duration: 0.05,
+      backgroundImage: "url(".concat(e.target.dataset.image, ")")
+    });
+  });
+  activity.addEventListener('mouseleave', function (e) {
+    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().to(activity, {
+      duration: 0.2,
+      backgroundImage: 'none'
+    });
+  });
+});
 console.log(cardArray);
 cards.forEach(function (link, e) {
   link.addEventListener('mouseenter', createHover);
@@ -16784,39 +16788,6 @@ function createHover(e) {
     });*/
   }
 }
-
-undefined.dom = {};
-undefined.dom.el = document.querySelector('.js-slider');
-undefined.dom.container = undefined.dom.el.querySelector('.js-container');
-undefined.dom.items = undefined.dom.el.querySelectorAll('.js-item');
-undefined.dom.images = undefined.dom.el.querySelectorAll('.js-img-wrap');
-undefined.dom.progress = undefined.dom.el.querySelector('.js-progress');
-var max = -undefined.dom.container.offsetWidth + window.innerWidth;
-var progress = (scroll.state.last - 0) * 100 / (max - 0) / 100;
-undefined.dom.progress.style.transform = "scaleX(".concat(progress, ")");
-
-function setCache() {
-  var _this = this;
-
-  this.items = [];
-
-  _toConsumableArray(this.dom.items).forEach(function (el) {
-    var bounds = el.getBoundingClientRect();
-
-    _this.items.push({
-      img: el.querySelector('img'),
-      bounds: bounds,
-      x: 0
-    });
-  });
-}
-
-var _item = item,
-    bounds = _item.bounds;
-var inView = scrollLast + window.innerWidth >= bounds.left && scrollLast < bounds.right;
-var newMin = -(window.innerWidth / 12) * 3;
-var newMax = 0;
-item.x = (percentage - 0) / (100 - 0) * (newMax - newMin) + newMin;
 
 /***/ }),
 

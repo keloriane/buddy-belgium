@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css2?family=Eczar:wght@700&family=Poppins:wght@100;200;300;400;600;700&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&display=swap);
 /**
  * Swiper 6.4.10
  * Most modern mobile touch slider and framework with hardware accelerated transitions
@@ -605,6 +606,13 @@ body {
 #product {
   height: inherit; }
 
+h1, h2, h3, .line1, .line2 {
+  font-family: "Eczar" , sans-serif;
+  font-weight: 1000; }
+
+.white {
+  color: white; }
+
 section {
   height: 80vh; }
 
@@ -644,6 +652,18 @@ h2 {
 
 .indent-2 {
   text-indent: calc(25px * 1.5); }
+
+.menu-nav {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  z-index: 1; }
+  .menu-nav .title h1 {
+    font-family: "Poppins" , sans-serif; }
+
+#menu-burger {
+  display: none; }
 
 .navbar {
   width: 100%;
@@ -784,20 +804,23 @@ h2 {
       overflow: hidden;
       height: 280px; } }
 
+figure {
+  display: flex; }
+
 .activity {
   display: grid;
   grid-template-columns: 1fr;
   grid-column-gap: 50px;
   width: 90%;
-  margin: 250px auto;
+  margin: 350px auto;
   align-items: center;
-  grid-template-rows: 1fr 3fr; }
+  grid-template-rows: 1fr 3fr;
+  height: inherit; }
   .activity .card-container {
     display: flex;
-    gap: 24px;
     flex-wrap: wrap;
     width: 100%;
-    justify-content: center; }
+    justify-content: space-evenly; }
     .activity .card-container .card {
       position: relative;
       text-decoration: none;
@@ -807,17 +830,22 @@ h2 {
       height: 360.09px; }
       .activity .card-container .card .white-title {
         position: absolute;
-        width: 300px;
-        top: 47%; }
+        width: 470px;
+        top: 47%;
+        left: -35%;
+        overflow: hidden;
+        height: 100px; }
         .activity .card-container .card .white-title h2 {
           font-family: Eczar, sans-serif;
           opacity: 0;
           text-align: center;
           text-transform: uppercase;
+          -webkit-text-stroke: 2px #0d66c2;
           font-size: calc(1vw + 2rem);
           position: absolute;
-          color: #0d66c2;
-          font-weight: 800; }
+          color: white;
+          font-weight: 800;
+          z-index: 6; }
       .activity .card-container .card.wl .hero {
         background-image: url("http://localhost/buddy-belgium/wp-content/uploads/2021/01/whitelabelling.png"); }
       .activity .card-container .card.crea {
@@ -833,7 +861,6 @@ h2 {
       .activity .card-container .card .hero-blurr {
         width: 100%;
         height: 100%;
-        mix-blend-mode: exclusion;
         position: absolute;
         top: 0; }
       .activity .card-container .card .exclusion {
@@ -860,6 +887,100 @@ h2 {
       .activity .card-container .card {
         margin-top: 0px !important; } }
 
+.card-product {
+  width: 100%;
+  max-width: 398px;
+  display: flex;
+  background-size: cover;
+  height: 385px;
+  transition: all .2s ease-in;
+  padding-left: 40px;
+  padding-right: 40px; }
+  .card-product .overlay {
+    /*	background: linear-gradient(57.07deg, rgba(0, 0, 0, 0.68) 22.65%, rgba(255, 255, 255, 0) 100.13%);
+		width: 315px;
+		height: 385px;
+		position: absolute;
+		z-index: -1;*/ }
+  .card-product .card-container {
+    display: flex;
+    flex-direction: column;
+    transition: all 1s ease-in; }
+    .card-product .card-container .card-button a {
+      transition: all .2s ease-in;
+      padding-left: 30px;
+      padding-right: 30px;
+      width: 127px;
+      height: 50px;
+      background: none;
+      border: none;
+      text-align: center;
+      font-family: "Proxima Nova", sans-serif;
+      text-decoration: none;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 14.4892px;
+      line-height: 14px;
+      display: flex;
+      align-items: center;
+      text-transform: uppercase;
+      color: #C3D6A1; }
+  .card-product .card-title {
+    display: flex;
+    transition: all .2s ease-in; }
+    .card-product .card-title h3 {
+      transition: all .2s ease-in;
+      font-family: "Eczar", serif;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 40.6671px;
+      line-height: 40px;
+      text-transform: uppercase;
+      color: #3A7498; }
+  .card-product .card-text-content {
+    width: 184px; }
+    .card-product .card-text-content p {
+      font-family: Proxima Nova, sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 11.3585px;
+      line-height: 154%;
+      /* or 17px */
+      letter-spacing: 0.01em;
+      text-transform: capitalize;
+      color: rgba(12, 27, 51, 0.7); }
+  .card-product:hover .card-container .overlay {
+    display: block;
+    background: linear-gradient(57.07deg, rgba(0, 0, 0, 0.68) 22.65%, rgba(255, 255, 255, 0) 100.13%); }
+  .card-product:hover .card-container .card-title {
+    transition: all .2s ease-in; }
+    .card-product:hover .card-container .card-title h3 {
+      transition: all .2s ease-in;
+      font-family: Eczar, serif;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 40.6671px;
+      line-height: 40px;
+      text-transform: uppercase;
+      color: #FFFFFF; }
+  .card-product:hover .card-container .card-text-content p {
+    transition: all .2s ease-in;
+    font-family: Proxima Nova, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 11.3585px;
+    line-height: 154%;
+    /* or 17px */
+    letter-spacing: 0.01em;
+    text-transform: capitalize;
+    color: #FFFFFF; }
+  .card-product:hover .card-container .card-button a {
+    background-color: #3A7498;
+    color: white;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 127px; }
+
 @keyframes move {
   0% {
     transform: translate(0%, 0); }
@@ -867,6 +988,13 @@ h2 {
     transform: translate(-50%, 0); }
   100% {
     transform: translate(-100%, 0); } }
+
+.card-overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+  position: absolute; }
 
 .progressbar {
   position: fixed;
@@ -968,8 +1096,19 @@ section {
 .brand {
   box-sizing: border-box;
   position: relative;
-  background: url("http://localhost/buddy-belgium/wp-content/uploads/2021/01/brand.png") no-repeat;
-  background-size: cover; }
+  background: url("http://localhost/buddy-belgium/wp-content/uploads/2021/03/trimming-weed-3-1024x768-1.png") no-repeat;
+  background-size: cover;
+  height: 770px;
+  z-index: -1; }
+  .brand .brand-bg {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, #3A7498 37.5%, rgba(58, 116, 152, 0.942708) 60.42%, rgba(58, 116, 152, 0.5) 75%, rgba(58, 116, 152, 0.3) 100%);
+    mix-blend-mode: normal;
+    opacity: 0.8;
+    position: absolute;
+    top: 0;
+    z-index: -1; }
 
 .brand__header {
   max-width: 700px;
@@ -1015,6 +1154,18 @@ section {
 
 .brand__logos__wrapper img {
   width: 100%; }
+
+.when-i-see-my-ex {
+  opacity: 0;
+  display: none;
+  color: rgba(0, 0, 0, 0);
+  visibility: hidden;
+  backface-visibility: hidden;
+  z-index: -1000;
+  position: absolute;
+  top: -10000%;
+  left: 10000%;
+  transform: translateY(10000%); }
 
 .contact__wrapper {
   max-width: 1500px;
@@ -1108,6 +1259,24 @@ section {
     opacity: 0.5; }
   .vat-number__form__submit:focus {
     outline: 0; }
+
+.popup-message {
+  position: fixed;
+  background-color: white;
+  width: 200px;
+  height: 100px;
+  bottom: 10px;
+  right: 10px;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 5px 4px 4px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 20px; }
+  .popup-message h3 a {
+    text-decoration: none;
+    color: #3A7498; }
 
 .home {
   width: 100vw; }
@@ -1426,6 +1595,33 @@ section {
     font-weight: 600;
     color: #C3D6A1;
     margin-top: 48px; }
+
+.hero-header {
+  width: 100vw;
+  height: 90vh;
+  display: flex;
+  position: relative; }
+  .hero-header .blue-bg {
+    background-color: #3A7498;
+    width: 50%; }
+    .hero-header .blue-bg .hero-customer {
+      display: grid;
+      grid-template-columns: 1fr; }
+  .hero-header .header-background-image {
+    width: 50%;
+    background-size: cover; }
+  .hero-header .logo-container {
+    position: absolute;
+    left: 47%;
+    top: 44%; }
+
+.slider-container {
+  display: flex;
+  gap: 50px;
+  overflow-x: scroll;
+  width: 3000px; }
+  .slider-container .slide__item {
+    overflow: hidden; }
 
 
 /*# sourceMappingURL=frontend.css.map*/

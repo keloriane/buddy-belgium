@@ -1,20 +1,24 @@
+figure {
+	display: flex;
+}
+
 .activity {
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-column-gap: 50px;
 	width: 90%;
-	margin: 250px auto;
+	margin: 350px auto;
 	align-items: center;
 	grid-template-rows: 1fr 3fr;
+	height: inherit;
 
 	.card-container {
 
 		display: flex;
-		gap: $gap;
+
 		flex-wrap: wrap;
 		width: 100%;
 		justify-content: space-evenly;
-
 
 
 		.card {
@@ -25,6 +29,7 @@
 			max-width: 230px;
 			width: 100%;
 			height: 360.09px;
+
 			.white-title {
 				position: absolute;
 
@@ -115,23 +120,181 @@
 		}
 	}
 }
+
 @media (max-width: 996px) {
 	.activity {
 		grid-template-columns: 1fr;
+
 		.title-container {
 			h2 {
 				font-size: calc(6vw + 1rem) !important;
 			}
 		}
+
 		.card-container {
 			width: 100%;
 			max-width: 645px;
 			justify-content: center;
+
 			.card {
 				margin-top: 0px !important;
 			}
 		}
-		
+
+	}
+}
+
+
+.card-product {
+	width: 100%;
+	max-width: 398px;
+	display: flex;
+
+	background-size: cover;
+	height: 385px;
+	transition: all .2s ease-in;
+	padding-left: 40px;
+	padding-right: 40px;
+
+	.overlay {
+
+	/*	background: linear-gradient(57.07deg, rgba(0, 0, 0, 0.68) 22.65%, rgba(255, 255, 255, 0) 100.13%);
+		width: 315px;
+		height: 385px;
+		position: absolute;
+		z-index: -1;*/
+
+	}
+
+	.card-container {
+		display: flex;
+		flex-direction: column;
+
+		transition: all 1s ease-in;
+
+		.card-button {
+			a {
+				transition: all .2s ease-in;
+				padding-left: 30px;
+				padding-right: 30px;
+				width: 127px;
+
+				height: 50px;
+				background: none;
+				border: none;
+				text-align: center;
+
+
+				font-family: "Proxima Nova", sans-serif;
+				text-decoration: none;
+
+				font-style: normal;
+				font-weight: bold;
+				font-size: 14.4892px;
+				line-height: 14px;
+				display: flex;
+				align-items: center;
+
+				text-transform: uppercase;
+
+				color: $green;
+
+
+			}
+		}
+	}
+
+	.card-title {
+		display: flex;
+
+		transition: all .2s ease-in;
+
+		h3 {
+			transition: all .2s ease-in;
+			font-family: "Eczar", serif;
+			font-style: normal;
+			font-weight: bold;
+			font-size: 40.6671px;
+			line-height: 40px;
+			text-transform: uppercase;
+
+			color: #3A7498;
+
+		}
+	}
+
+	.card-text-content {
+		width: 184px;
+
+		p {
+
+			font-family: Proxima Nova, sans-serif;
+			font-style: normal;
+			font-weight: normal;
+			font-size: 11.3585px;
+			line-height: 154%;
+			/* or 17px */
+
+			letter-spacing: 0.01em;
+			text-transform: capitalize;
+
+			color: rgba(12, 27, 51, 0.7);
+		}
+	}
+
+	&:hover {
+
+		.card-container {
+
+			.overlay {
+				display: block;
+				background: linear-gradient(57.07deg, rgba(0, 0, 0, 0.68) 22.65%, rgba(255, 255, 255, 0) 100.13%);
+
+			}
+
+			.card-title {
+				transition: all .2s ease-in;
+				h3 {
+					transition: all .2s ease-in;
+					font-family: Eczar, serif;
+					font-style: normal;
+					font-weight: bold;
+					font-size: 40.6671px;
+					line-height: 40px;
+					text-transform: uppercase;
+
+					color: #FFFFFF;
+
+				}
+			}
+
+			.card-text-content {
+				p {
+					transition: all .2s ease-in;
+					font-family: Proxima Nova, sans-serif;
+					font-style: normal;
+					font-weight: 600;
+					font-size: 11.3585px;
+					line-height: 154%;
+					/* or 17px */
+
+					letter-spacing: 0.01em;
+					text-transform: capitalize;
+
+					color: #FFFFFF;
+				}
+			}
+			.card-button {
+				a {
+					background-color: $blue;
+					color: white;
+					padding-left: 30px;
+					padding-right: 30px;
+					width: 127px;
+				}
+			}
+
+		}
 	}
 }
 
@@ -154,7 +317,7 @@
 .card-overlay {
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0,0,0,0.4);
+	background-color: rgba(0, 0, 0, 0.4);
 	z-index: 1;
 	position: absolute;
 

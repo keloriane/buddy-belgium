@@ -15,6 +15,17 @@ gsap.to(['.crea', '.ser'], {
 const cards = document.querySelectorAll('.card');
 
 const cardArray = gsap.utils.toArray(cards);
+const productCards = document.querySelectorAll('.card-product');
+console.log(productCards);
+
+productCards.forEach((activity) => {
+  activity.addEventListener('mouseenter', function (e) {
+    gsap.to(activity, { duration: 0.05, backgroundImage: `url(${e.target.dataset.image})` });
+  });
+  activity.addEventListener('mouseleave', function (e) {
+    gsap.to(activity, { duration: 0.2, backgroundImage: 'none' });
+  });
+});
 
 console.log(cardArray);
 cards.forEach((link, e) => {
@@ -65,32 +76,3 @@ function createHover(e) {
     });*/
   }
 }
-
-this.dom = {};
-this.dom.el = document.querySelector('.js-slider');
-this.dom.container = this.dom.el.querySelector('.js-container');
-this.dom.items = this.dom.el.querySelectorAll('.js-item');
-this.dom.images = this.dom.el.querySelectorAll('.js-img-wrap');
-this.dom.progress = this.dom.el.querySelector('.js-progress');
-const max = -this.dom.container.offsetWidth + window.innerWidth;
-const progress = ((scroll.state.last - 0) * 100) / (max - 0) / 100;
-
-this.dom.progress.style.transform = `scaleX(${progress})`;
-function setCache() {
-  this.items = [];
-  [...this.dom.items].forEach((el) => {
-    const bounds = el.getBoundingClientRect();
-
-    this.items.push({
-      img: el.querySelector('img'),
-      bounds,
-      x: 0,
-    });
-  });
-}
-
-const { bounds } = item;
-const inView = scrollLast + window.innerWidth >= bounds.left && scrollLast < bounds.right;
-const newMin = -(window.innerWidth / 12) * 3;
-const newMax = 0;
-item.x = ((percentage - 0) / (100 - 0)) * (newMax - newMin) + newMin;
