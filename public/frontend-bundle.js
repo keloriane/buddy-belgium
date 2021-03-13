@@ -16737,6 +16737,13 @@ productCards.forEach(function (activity) {
       duration: 0.05,
       backgroundImage: "url(".concat(e.target.dataset.image, ")")
     });
+    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().fromTo(activity, {
+      duration: 15,
+      backgroundSize: '100%'
+    }, {
+      duration: 130,
+      backgroundSize: '350%'
+    });
   });
   activity.addEventListener('mouseleave', function (e) {
     gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().to(activity, {

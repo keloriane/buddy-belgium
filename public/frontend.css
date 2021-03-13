@@ -891,9 +891,7 @@ figure {
   width: 100%;
   max-width: 398px;
   display: flex;
-  background-size: cover;
   height: 385px;
-  transition: all .2s ease-in;
   padding-left: 40px;
   padding-right: 40px; }
   .card-product .overlay {
@@ -1036,7 +1034,7 @@ section {
     text-align: center; }
 
 .portfolio .chapter {
-  color: #3A7498;
+  color: blue;
   top: 0; }
 
 .product-list-container {
