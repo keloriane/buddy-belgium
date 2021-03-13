@@ -31,7 +31,7 @@ Routes::map('/activities', function ($params) use ($protectionCondition) {
 	HelpMe::protectedRoute($protectionCondition, $route);
 });
 
-Routes::map('/activities/:activity', function ($params) use ($protectionCondition) {
+Routes::map('/pro/activities/:activity', function ($params) use ($protectionCondition) {
 	$route = function () use ($params) {
 		Routes::load('pages/activity.php', $params);
 	};

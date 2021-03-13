@@ -656,9 +656,9 @@ h2 {
 .marques__presentation__slider {
   display: flex;
   flex-direction: row;
-  background: orangered;
   max-width: 980px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  overflow: hidden; }
 
 .marques__presentation__slider__item {
   max-width: 400px; }
@@ -788,17 +788,20 @@ h2 {
       overflow: hidden;
       height: 280px; } }
 
+figure {
+  display: flex; }
+
 .activity {
   display: grid;
   grid-template-columns: 1fr;
   grid-column-gap: 50px;
   width: 90%;
-  margin: 250px auto;
+  margin: 350px auto;
   align-items: center;
-  grid-template-rows: 1fr 3fr; }
+  grid-template-rows: 1fr 3fr;
+  height: inherit; }
   .activity .card-container {
     display: flex;
-    gap: 24px;
     flex-wrap: wrap;
     width: 100%;
     justify-content: space-evenly; }
@@ -867,6 +870,100 @@ h2 {
       justify-content: center; }
       .activity .card-container .card {
         margin-top: 0px !important; } }
+
+.card-product {
+  width: 100%;
+  max-width: 398px;
+  display: flex;
+  background-size: cover;
+  height: 385px;
+  transition: all .2s ease-in;
+  padding-left: 40px;
+  padding-right: 40px; }
+  .card-product .overlay {
+    /*	background: linear-gradient(57.07deg, rgba(0, 0, 0, 0.68) 22.65%, rgba(255, 255, 255, 0) 100.13%);
+		width: 315px;
+		height: 385px;
+		position: absolute;
+		z-index: -1;*/ }
+  .card-product .card-container {
+    display: flex;
+    flex-direction: column;
+    transition: all 1s ease-in; }
+    .card-product .card-container .card-button a {
+      transition: all .2s ease-in;
+      padding-left: 30px;
+      padding-right: 30px;
+      width: 127px;
+      height: 50px;
+      background: none;
+      border: none;
+      text-align: center;
+      font-family: "Proxima Nova", sans-serif;
+      text-decoration: none;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 14.4892px;
+      line-height: 14px;
+      display: flex;
+      align-items: center;
+      text-transform: uppercase;
+      color: #C3D6A1; }
+  .card-product .card-title {
+    display: flex;
+    transition: all .2s ease-in; }
+    .card-product .card-title h3 {
+      transition: all .2s ease-in;
+      font-family: "Eczar", serif;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 40.6671px;
+      line-height: 40px;
+      text-transform: uppercase;
+      color: #3A7498; }
+  .card-product .card-text-content {
+    width: 184px; }
+    .card-product .card-text-content p {
+      font-family: Proxima Nova, sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 11.3585px;
+      line-height: 154%;
+      /* or 17px */
+      letter-spacing: 0.01em;
+      text-transform: capitalize;
+      color: rgba(12, 27, 51, 0.7); }
+  .card-product:hover .card-container .overlay {
+    display: block;
+    background: linear-gradient(57.07deg, rgba(0, 0, 0, 0.68) 22.65%, rgba(255, 255, 255, 0) 100.13%); }
+  .card-product:hover .card-container .card-title {
+    transition: all .2s ease-in; }
+    .card-product:hover .card-container .card-title h3 {
+      transition: all .2s ease-in;
+      font-family: Eczar, serif;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 40.6671px;
+      line-height: 40px;
+      text-transform: uppercase;
+      color: #FFFFFF; }
+  .card-product:hover .card-container .card-text-content p {
+    transition: all .2s ease-in;
+    font-family: Proxima Nova, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 11.3585px;
+    line-height: 154%;
+    /* or 17px */
+    letter-spacing: 0.01em;
+    text-transform: capitalize;
+    color: #FFFFFF; }
+  .card-product:hover .card-container .card-button a {
+    background-color: #3A7498;
+    color: white;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 127px; }
 
 @keyframes move {
   0% {
@@ -983,8 +1080,19 @@ section {
 .brand {
   box-sizing: border-box;
   position: relative;
-  background: url("http://localhost/buddy-belgium/wp-content/uploads/2021/01/brand.png") no-repeat;
-  background-size: cover; }
+  background: url("http://localhost/buddy-belgium/wp-content/uploads/2021/03/trimming-weed-3-1024x768-1.png") no-repeat;
+  background-size: cover;
+  height: 770px;
+  z-index: -1; }
+  .brand .brand-bg {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, #3A7498 37.5%, rgba(58, 116, 152, 0.942708) 60.42%, rgba(58, 116, 152, 0.5) 75%, rgba(58, 116, 152, 0.3) 100%);
+    mix-blend-mode: normal;
+    opacity: 0.8;
+    position: absolute;
+    top: 0;
+    z-index: -1; }
 
 .brand__header {
   max-width: 700px;
@@ -1031,6 +1139,18 @@ section {
 .brand__logos__wrapper img {
   width: 100%; }
 
+.when-i-see-my-ex {
+  opacity: 0;
+  display: none;
+  color: rgba(0, 0, 0, 0);
+  visibility: hidden;
+  backface-visibility: hidden;
+  z-index: -1000;
+  position: absolute;
+  top: -10000%;
+  left: 10000%;
+  transform: translateY(10000%); }
+
 .contact__wrapper {
   max-width: 1500px;
   margin: 0 auto; }
@@ -1047,26 +1167,38 @@ section {
       margin-left: 80px; } }
 
 .marques__presentation {
-  overflow: hidden; }
+  overflow: hidden;
+  font-weight: 300; }
   @media (max-width: 767px) {
     .marques__presentation {
       margin-bottom: 64px; } }
+  @media (min-width: 768px) {
+    .marques__presentation {
+      padding: 32px; } }
+  .marques__presentation:nth-child(even) {
+    background: #f6f6f6; }
 
 .marques__presentation__inner {
-  max-width: 920px;
-  margin: 0 auto; }
+  max-width: 1000px;
+  margin: 32px auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center; }
   @media (max-width: 767px) {
     .marques__presentation__inner {
       padding: 0px 20px; } }
   @media (min-width: 992px) {
     .marques__presentation__inner {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 64px; } }
+      margin-bottom: 32px;
+      padding: 64px; } }
 
 .marques__presentation__image-wrapper {
   max-width: 290px;
-  margin-left: -8px; }
+  margin-left: -8px;
+  align-self: center; }
   @media (min-width: 992px) {
     .marques__presentation__image-wrapper {
       min-width: 290px; } }
@@ -1075,14 +1207,8 @@ section {
   width: 100%; }
 
 .marques__presentation__description {
+  margin-top: 32px;
   max-width: 600px; }
-
-.marques__presentation__description__name {
-  color: #3A7498;
-  font-family: "Eczar", monospace;
-  font-size: 2.4rem;
-  margin-top: 16px;
-  margin-bottom: 16px; }
 
 .marques__presentation__description__text {
   font-size: 1rem;
@@ -1166,6 +1292,24 @@ section {
     opacity: 0.5; }
   .vat-number__form__submit:focus {
     outline: 0; }
+
+.popup-message {
+  position: fixed;
+  background-color: white;
+  width: 200px;
+  height: 100px;
+  bottom: 10px;
+  right: 10px;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 5px 4px 4px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 20px; }
+  .popup-message h3 a {
+    text-decoration: none;
+    color: #3A7498; }
 
 .secondary-navbar {
   width: 100%;
@@ -1529,6 +1673,35 @@ section {
     position: absolute;
     left: 47%;
     top: 44%; }
+
+.marques__scroll-menu {
+  display: inline-block;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Eczar", monospace;
+  color: #3A7498;
+  font-size: 24px;
+  padding: 40px 0; }
+
+.marques__scroll-menu__list {
+  display: flex;
+  gap: 24px;
+  flex-direction: row; }
+
+.marques__scroll-menu__list__link:hover {
+  cursor: pointer;
+  color: #C3D6A1; }
+
+.marques__scroll-to-top {
+  position: fixed;
+  bottom: 32px;
+  left: 32px;
+  font-family: "Eczar", monospace;
+  color: #3A7498;
+  font-size: 16px; }
+  .marques__scroll-to-top:hover {
+    cursor: pointer; }
 
 .slider-container {
   display: flex;

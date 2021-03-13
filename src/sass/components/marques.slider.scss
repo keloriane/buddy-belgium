@@ -1,9 +1,9 @@
 .marques__presentation__slider{
 	display: flex;
 	flex-direction: row;
-	background: orangered;
 	max-width: 980px;
 	margin: 0 auto;
+	overflow: hidden;
 }
 
 .marques__presentation__slider__item{

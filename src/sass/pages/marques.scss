@@ -2,3 +2,37 @@
 
 }
 
+.marques__scroll-menu {
+	display: inline-block;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	font-family: $titleFont;
+	color: $blue;
+	font-size: 24px;
+	padding: 40px 0;
+}
+
+
+.marques__scroll-menu__list {
+	display: flex;
+	gap: 24px;
+	flex-direction: row;
+}
+
+.marques__scroll-menu__list__link:hover {
+	cursor: pointer;
+	color: $green;
+}
+
+.marques__scroll-to-top {
+	position: fixed;
+	bottom: 32px;
+	left: 32px;
+	font-family: $titleFont;
+	color: $blue;
+	font-size: 16px;
+	&:hover {
+		cursor: pointer;
+	}
+}

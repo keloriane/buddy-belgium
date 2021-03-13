@@ -1,15 +1,23 @@
 import {Swiper} from "swiper";
+import {gsap} from 'gsap/dist/gsap';
+import ScrollToPlugin from "gsap/ScrollToPlugin";
+import {includeJs} from "./helpers";
+
 
 export const marques = {
-
   init() {
-    this.configSlider()
-    console.log('folie')
+    if (includeJs('marques')) {
+      this.configSlider()
+      this.scrollToBrands()
+      this.scrollToTop()
+    } else {
+      this.displayScrollToTop(false)
+    }
   },
 
   configSlider() {
     const swiper = new Swiper('.swiper-container', {
-      slidesPerView: 1,
+      slidesPerView: 3,
       spaceBetween: 10,
       // init: false,
       pagination: {
@@ -18,24 +26,51 @@ export const marques = {
       },
       breakpoints: {
         '@0.00': {
-          slidesPerView: 1,
-          spaceBetween: 10,
+          slidesPerView: 2,
         },
         '@0.75': {
           slidesPerView: 2,
-          spaceBetween: 20,
         },
         '@1.00': {
           slidesPerView: 2,
-          spaceBetween: 40,
         },
         '@1.50': {
           slidesPerView: 2,
-          spaceBetween: 50,
         },
       }
     });
   },
+
+  scrollToBrands() {
+    gsap.registerPlugin(ScrollToPlugin);
+    let brands = document.querySelectorAll('.marques__scroll-menu__list__link')
+    brands.forEach(brand => {
+      brand.addEventListener('click', (e) => {
+        e.preventDefault()
+        let sectionId = '#' + brand.outerText
+        this.scrollTo(brand, 0.3, sectionId)
+      })
+    })
+  },
+
+  scrollToTop() {
+    gsap.registerPlugin(ScrollToPlugin);
+    let link = document.querySelector('.marques__scroll-to-top')
+    link.addEventListener('click', (e) => {
+      e.preventDefault()
+      this.scrollTo(link, 0.3, {y: 0})
+    })
+  },
+
+  displayScrollToTop(display) {
+    let link = document.querySelector('.marques__scroll-to-top')
+    console.log(link)
+    link.style.display = display ? "block" : "none"
+  },
+
+  scrollTo(el, duration, scrollTo) {
+    gsap.to(window, {duration, scrollTo})
+  }
 };
 
 

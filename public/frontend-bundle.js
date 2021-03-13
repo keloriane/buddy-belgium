@@ -1794,6 +1794,263 @@ var scroll = shortcut('scroll');
 
 /***/ }),
 
+/***/ "./node_modules/gsap/ScrollToPlugin.js":
+/*!*********************************************!*\
+  !*** ./node_modules/gsap/ScrollToPlugin.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ScrollToPlugin": () => /* binding */ ScrollToPlugin,
+/* harmony export */   "default": () => /* binding */ ScrollToPlugin
+/* harmony export */ });
+/*!
+ * ScrollToPlugin 3.6.0
+ * https://greensock.com
+ *
+ * @license Copyright 2008-2021, GreenSock. All rights reserved.
+ * Subject to the terms at https://greensock.com/standard-license or for
+ * Club GreenSock members, the agreement issued with that membership.
+ * @author: Jack Doyle, jack@greensock.com
+*/
+
+/* eslint-disable */
+var gsap,
+    _coreInitted,
+    _window,
+    _docEl,
+    _body,
+    _toArray,
+    _config,
+    _windowExists = function _windowExists() {
+  return typeof window !== "undefined";
+},
+    _getGSAP = function _getGSAP() {
+  return gsap || _windowExists() && (gsap = window.gsap) && gsap.registerPlugin && gsap;
+},
+    _isString = function _isString(value) {
+  return typeof value === "string";
+},
+    _isFunction = function _isFunction(value) {
+  return typeof value === "function";
+},
+    _max = function _max(element, axis) {
+  var dim = axis === "x" ? "Width" : "Height",
+      scroll = "scroll" + dim,
+      client = "client" + dim;
+  return element === _window || element === _docEl || element === _body ? Math.max(_docEl[scroll], _body[scroll]) - (_window["inner" + dim] || _docEl[client] || _body[client]) : element[scroll] - element["offset" + dim];
+},
+    _buildGetter = function _buildGetter(e, axis) {
+  //pass in an element and an axis ("x" or "y") and it'll return a getter function for the scroll position of that element (like scrollTop or scrollLeft, although if the element is the window, it'll use the pageXOffset/pageYOffset or the documentElement's scrollTop/scrollLeft or document.body's. Basically this streamlines things and makes a very fast getter across browsers.
+  var p = "scroll" + (axis === "x" ? "Left" : "Top");
+
+  if (e === _window) {
+    if (e.pageXOffset != null) {
+      p = "page" + axis.toUpperCase() + "Offset";
+    } else {
+      e = _docEl[p] != null ? _docEl : _body;
+    }
+  }
+
+  return function () {
+    return e[p];
+  };
+},
+    _clean = function _clean(value, index, target, targets) {
+  _isFunction(value) && (value = value(index, target, targets));
+
+  if (typeof value !== "object") {
+    return _isString(value) && value !== "max" && value.charAt(1) !== "=" ? {
+      x: value,
+      y: value
+    } : {
+      y: value
+    }; //if we don't receive an object as the parameter, assume the user intends "y".
+  } else if (value.nodeType) {
+    return {
+      y: value,
+      x: value
+    };
+  } else {
+    var result = {},
+        p;
+
+    for (p in value) {
+      p !== "onAutoKill" && (result[p] = _isFunction(value[p]) ? value[p](index, target, targets) : value[p]);
+    }
+
+    return result;
+  }
+},
+    _getOffset = function _getOffset(element, container) {
+  element = _toArray(element)[0];
+
+  if (!element || !element.getBoundingClientRect) {
+    return console.warn("scrollTo target doesn't exist. Using 0") || {
+      x: 0,
+      y: 0
+    };
+  }
+
+  var rect = element.getBoundingClientRect(),
+      isRoot = !container || container === _window || container === _body,
+      cRect = isRoot ? {
+    top: _docEl.clientTop - (_window.pageYOffset || _docEl.scrollTop || _body.scrollTop || 0),
+    left: _docEl.clientLeft - (_window.pageXOffset || _docEl.scrollLeft || _body.scrollLeft || 0)
+  } : container.getBoundingClientRect(),
+      offsets = {
+    x: rect.left - cRect.left,
+    y: rect.top - cRect.top
+  };
+
+  if (!isRoot && container) {
+    //only add the current scroll position if it's not the window/body.
+    offsets.x += _buildGetter(container, "x")();
+    offsets.y += _buildGetter(container, "y")();
+  }
+
+  return offsets;
+},
+    _parseVal = function _parseVal(value, target, axis, currentVal, offset) {
+  return !isNaN(value) && typeof value !== "object" ? parseFloat(value) - offset : _isString(value) && value.charAt(1) === "=" ? parseFloat(value.substr(2)) * (value.charAt(0) === "-" ? -1 : 1) + currentVal - offset : value === "max" ? _max(target, axis) - offset : Math.min(_max(target, axis), _getOffset(value, target)[axis] - offset);
+},
+    _initCore = function _initCore() {
+  gsap = _getGSAP();
+
+  if (_windowExists() && gsap && document.body) {
+    _window = window;
+    _body = document.body;
+    _docEl = document.documentElement;
+    _toArray = gsap.utils.toArray;
+    gsap.config({
+      autoKillThreshold: 7
+    });
+    _config = gsap.config();
+    _coreInitted = 1;
+  }
+};
+
+var ScrollToPlugin = {
+  version: "3.6.0",
+  name: "scrollTo",
+  rawVars: 1,
+  register: function register(core) {
+    gsap = core;
+
+    _initCore();
+  },
+  init: function init(target, value, tween, index, targets) {
+    _coreInitted || _initCore();
+    var data = this;
+    data.isWin = target === _window;
+    data.target = target;
+    data.tween = tween;
+    value = _clean(value, index, target, targets);
+    data.vars = value;
+    data.autoKill = !!value.autoKill;
+    data.getX = _buildGetter(target, "x");
+    data.getY = _buildGetter(target, "y");
+    data.x = data.xPrev = data.getX();
+    data.y = data.yPrev = data.getY();
+
+    if (value.x != null) {
+      data.add(data, "x", data.x, _parseVal(value.x, target, "x", data.x, value.offsetX || 0), index, targets, Math.round);
+
+      data._props.push("scrollTo_x");
+    } else {
+      data.skipX = 1;
+    }
+
+    if (value.y != null) {
+      data.add(data, "y", data.y, _parseVal(value.y, target, "y", data.y, value.offsetY || 0), index, targets, Math.round);
+
+      data._props.push("scrollTo_y");
+    } else {
+      data.skipY = 1;
+    }
+  },
+  render: function render(ratio, data) {
+    var pt = data._pt,
+        target = data.target,
+        tween = data.tween,
+        autoKill = data.autoKill,
+        xPrev = data.xPrev,
+        yPrev = data.yPrev,
+        isWin = data.isWin,
+        x,
+        y,
+        yDif,
+        xDif,
+        threshold;
+
+    while (pt) {
+      pt.r(ratio, pt.d);
+      pt = pt._next;
+    }
+
+    x = isWin || !data.skipX ? data.getX() : xPrev;
+    y = isWin || !data.skipY ? data.getY() : yPrev;
+    yDif = y - yPrev;
+    xDif = x - xPrev;
+    threshold = _config.autoKillThreshold;
+
+    if (data.x < 0) {
+      //can't scroll to a position less than 0! Might happen if someone uses a Back.easeOut or Elastic.easeOut when scrolling back to the top of the page (for example)
+      data.x = 0;
+    }
+
+    if (data.y < 0) {
+      data.y = 0;
+    }
+
+    if (autoKill) {
+      //note: iOS has a bug that throws off the scroll by several pixels, so we need to check if it's within 7 pixels of the previous one that we set instead of just looking for an exact match.
+      if (!data.skipX && (xDif > threshold || xDif < -threshold) && x < _max(target, "x")) {
+        data.skipX = 1; //if the user scrolls separately, we should stop tweening!
+      }
+
+      if (!data.skipY && (yDif > threshold || yDif < -threshold) && y < _max(target, "y")) {
+        data.skipY = 1; //if the user scrolls separately, we should stop tweening!
+      }
+
+      if (data.skipX && data.skipY) {
+        tween.kill();
+        data.vars.onAutoKill && data.vars.onAutoKill.apply(tween, data.vars.onAutoKillParams || []);
+      }
+    }
+
+    if (isWin) {
+      _window.scrollTo(!data.skipX ? data.x : x, !data.skipY ? data.y : y);
+    } else {
+      data.skipY || (target.scrollTop = data.y);
+      data.skipX || (target.scrollLeft = data.x);
+    }
+
+    data.xPrev = data.x;
+    data.yPrev = data.y;
+  },
+  kill: function kill(property) {
+    var both = property === "scrollTo";
+
+    if (both || property === "scrollTo_x") {
+      this.skipX = 1;
+    }
+
+    if (both || property === "scrollTo_y") {
+      this.skipY = 1;
+    }
+  }
+};
+ScrollToPlugin.max = _max;
+ScrollToPlugin.getOffset = _getOffset;
+ScrollToPlugin.buildGetter = _buildGetter;
+_getGSAP() && gsap.registerPlugin(ScrollToPlugin);
+
+
+/***/ }),
+
 /***/ "./node_modules/gsap/ScrollTrigger.js":
 /*!********************************************!*\
   !*** ./node_modules/gsap/ScrollTrigger.js ***!
@@ -16702,13 +16959,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_gsap_service_gsap_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./js/gsap/service.gsap.js */ "./src/js/gsap/service.gsap.js");
 /* harmony import */ var _js_gsap_activity_gsap_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./js/gsap/activity.gsap.js */ "./src/js/gsap/activity.gsap.js");
 
+ //PAGES
+
+ //GSAP
 
 
 
 
 
-
-
+ //WEBSITE INITIALIZATION
 
 _js_site__WEBPACK_IMPORTED_MODULE_2__.site._loaded();
 
@@ -16728,111 +16987,79 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap/dist/ScrollTrigger.min */ "./node_modules/gsap/dist/ScrollTrigger.min.js");
 /* harmony import */ var gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_1__);
-var _this = undefined;
-
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 
-
-document.addEventListener('DOMContentLoaded', function () {
-  gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().registerPlugin(gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger);
-  gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().to(['.crea', '.ser'], {
-    duration: 1,
-    marginTop: 0,
-    scrollTrigger: {
-      trigger: '.activity',
-      start: 'center center',
-      end: 'bottom bottom'
-    }
-  });
-  var cards = document.querySelectorAll('.card');
-  var cardArray = gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().utils.toArray(cards);
-  cards.forEach(function (link, e) {
-    link.addEventListener('mouseenter', createHover);
-    link.addEventListener('mouseleave', createHover);
-  });
-
-  function createHover(e) {
-    var allSiblings = cardArray.filter(function (item) {
-      return item !== e.target;
-    });
-    console.log(allSiblings);
-
-    if (e.type === 'mouseenter') {
-      gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().to(e.target.querySelector('.exclusion'), {
-        duration: 0.2
-      });
-      gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().fromTo(e.target.querySelector('h2'), {
-        duration: 0.2,
-        opacity: 0,
-        y: 200
-      }, {
-        duration: 0.2,
-        opacity: 1,
-        y: 0
-      });
-      /* gsap.to(allSiblings, { duration: 0.1, opacity: 0.3 });*/
-    } else if (e.type === 'mouseleave') {
-      gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().fromTo(e.target.querySelector('h2'), {
-        duration: 0.2,
-        opacity: 0,
-        y: 0
-      }, {
-        duration: 0.2,
-        opacity: 1,
-        y: 200
-      });
-      /*  gsap.to(e.target.querySelector('.exclusion'), {
-        duration: 0.2,
-        backgroundColor: 'none',
-        mixBlendMode: 'none',
-      });*/
-    }
+gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().registerPlugin(gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger);
+gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().to(['.crea', '.ser'], {
+  duration: 1,
+  marginTop: 0,
+  scrollTrigger: {
+    trigger: '.activity',
+    start: 'center center',
+    end: 'bottom bottom'
   }
-
-  _this.dom = {};
-  _this.dom.el = document.querySelector('.js-slider');
-  _this.dom.container = _this.dom.el.querySelector('.js-container');
-  _this.dom.items = _this.dom.el.querySelectorAll('.js-item');
-  _this.dom.images = _this.dom.el.querySelectorAll('.js-img-wrap');
-  _this.dom.progress = _this.dom.el.querySelector('.js-progress');
-  var max = -_this.dom.container.offsetWidth + window.innerWidth;
-  var progress = (scroll.state.last - 0) * 100 / (max - 0) / 100;
-  _this.dom.progress.style.transform = "scaleX(".concat(progress, ")");
-
-  function setCache() {
-    var _this2 = this;
-
-    this.items = [];
-
-    _toConsumableArray(this.dom.items).forEach(function (el) {
-      var bounds = el.getBoundingClientRect();
-
-      _this2.items.push({
-        img: el.querySelector('img'),
-        bounds: bounds,
-        x: 0
-      });
-    });
-  }
-
-  var _item = item,
-      bounds = _item.bounds;
-  var inView = scrollLast + window.innerWidth >= bounds.left && scrollLast < bounds.right;
-  var newMin = -(window.innerWidth / 12) * 3;
-  var newMax = 0;
-  item.x = (percentage - 0) / (100 - 0) * (newMax - newMin) + newMin;
 });
+var cards = document.querySelectorAll('.card');
+var cardArray = gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().utils.toArray(cards);
+var productCards = document.querySelectorAll('.card-product');
+console.log(productCards);
+productCards.forEach(function (activity) {
+  activity.addEventListener('mouseenter', function (e) {
+    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().to(activity, {
+      duration: 0.05,
+      backgroundImage: "url(".concat(e.target.dataset.image, ")")
+    });
+  });
+  activity.addEventListener('mouseleave', function (e) {
+    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().to(activity, {
+      duration: 0.2,
+      backgroundImage: 'none'
+    });
+  });
+});
+console.log(cardArray);
+cards.forEach(function (link, e) {
+  link.addEventListener('mouseenter', createHover);
+  link.addEventListener('mouseleave', createHover);
+});
+
+function createHover(e) {
+  var allSiblings = cardArray.filter(function (item) {
+    return item !== e.target;
+  });
+  console.log(allSiblings);
+
+  if (e.type === 'mouseenter') {
+    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().to(e.target.querySelector('.exclusion'), {
+      duration: 0.2
+    });
+    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().fromTo(e.target.querySelector('h2'), {
+      duration: 0.2,
+      opacity: 0,
+      y: 200
+    }, {
+      duration: 0.2,
+      opacity: 1,
+      y: 0
+    });
+    /* gsap.to(allSiblings, { duration: 0.1, opacity: 0.3 });*/
+  } else if (e.type === 'mouseleave') {
+    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().fromTo(e.target.querySelector('h2'), {
+      duration: 0.2,
+      opacity: 0,
+      y: 0
+    }, {
+      duration: 0.2,
+      opacity: 1,
+      y: 200
+    });
+    /*  gsap.to(e.target.querySelector('.exclusion'), {
+      duration: 0.2,
+      backgroundColor: 'none',
+      mixBlendMode: 'none',
+    });*/
+  }
+}
 
 /***/ }),
 
@@ -17098,6 +17325,37 @@ gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(container, {
 
 /***/ }),
 
+/***/ "./src/js/helpers.js":
+/*!***************************!*\
+  !*** ./src/js/helpers.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "delay": () => /* binding */ delay,
+/* harmony export */   "redirect": () => /* binding */ redirect,
+/* harmony export */   "baseUrl": () => /* binding */ baseUrl,
+/* harmony export */   "includeJs": () => /* binding */ includeJs
+/* harmony export */ });
+var delay = function delay(fn, ms) {
+  setTimeout(function () {
+    fn();
+  }, ms);
+};
+var redirect = function redirect(path) {
+  return window.location.href + path;
+};
+var baseUrl = function baseUrl() {
+  return window.location.href;
+};
+var includeJs = function includeJs(currentPage) {
+  return baseUrl().split('/').includes(currentPage);
+};
+
+/***/ }),
+
 /***/ "./src/js/html.js":
 /*!************************!*\
   !*** ./src/js/html.js ***!
@@ -17145,14 +17403,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./html */ "./src/js/html.js");
 /* harmony import */ var jsvat__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jsvat */ "./node_modules/jsvat/lib/es6/index.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers */ "./src/js/helpers.js");
+
 
 
 var intro = {
+  pageName: 'intro',
   input: document.querySelector('.vat-number__form__input'),
   message: document.querySelector('.vat-number__form__message'),
   submit_button: document.querySelector('.vat-number__form__submit'),
   init: function init() {
-    intro.inputState();
+    if ((0,_helpers__WEBPACK_IMPORTED_MODULE_2__.includeJs)(this.pageName)) {
+      intro.inputState();
+    }
   },
   inputState: function inputState() {
     var _this = this;
@@ -17216,16 +17479,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "marques": () => /* binding */ marques
 /* harmony export */ });
-/* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/esm/components/core/core-class.js");
+/* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/esm/components/core/core-class.js");
+/* harmony import */ var gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap/dist/gsap */ "./node_modules/gsap/dist/gsap.js");
+/* harmony import */ var gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! gsap/ScrollToPlugin */ "./node_modules/gsap/ScrollToPlugin.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helpers */ "./src/js/helpers.js");
+
+
+
 
 var marques = {
   init: function init() {
-    this.configSlider();
-    console.log('folie');
+    if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.includeJs)('marques')) {
+      this.configSlider();
+      this.scrollToBrands();
+      this.scrollToTop();
+    } else {
+      this.displayScrollToTop(false);
+    }
   },
   configSlider: function configSlider() {
-    var swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__.default('.swiper-container', {
-      slidesPerView: 1,
+    var swiper = new swiper__WEBPACK_IMPORTED_MODULE_1__.default('.swiper-container', {
+      slidesPerView: 3,
       spaceBetween: 10,
       // init: false,
       pagination: {
@@ -17234,22 +17509,56 @@ var marques = {
       },
       breakpoints: {
         '@0.00': {
-          slidesPerView: 1,
-          spaceBetween: 10
+          slidesPerView: 2
         },
         '@0.75': {
-          slidesPerView: 2,
-          spaceBetween: 20
+          slidesPerView: 2
         },
         '@1.00': {
-          slidesPerView: 2,
-          spaceBetween: 40
+          slidesPerView: 2
         },
         '@1.50': {
-          slidesPerView: 2,
-          spaceBetween: 50
+          slidesPerView: 2
         }
       }
+    });
+  },
+  scrollToBrands: function scrollToBrands() {
+    var _this = this;
+
+    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_2__.gsap.registerPlugin(gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_3__.default);
+    var brands = document.querySelectorAll('.marques__scroll-menu__list__link');
+    brands.forEach(function (brand) {
+      brand.addEventListener('click', function (e) {
+        e.preventDefault();
+        var sectionId = '#' + brand.outerText;
+
+        _this.scrollTo(brand, 0.3, sectionId);
+      });
+    });
+  },
+  scrollToTop: function scrollToTop() {
+    var _this2 = this;
+
+    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_2__.gsap.registerPlugin(gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_3__.default);
+    var link = document.querySelector('.marques__scroll-to-top');
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      _this2.scrollTo(link, 0.3, {
+        y: 0
+      });
+    });
+  },
+  displayScrollToTop: function displayScrollToTop(display) {
+    var link = document.querySelector('.marques__scroll-to-top');
+    console.log(link);
+    link.style.display = display ? "block" : "none";
+  },
+  scrollTo: function scrollTo(el, duration, _scrollTo) {
+    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_2__.gsap.to(window, {
+      duration: duration,
+      scrollTo: _scrollTo
     });
   }
 };
@@ -17269,12 +17578,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _intro__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./intro */ "./src/js/intro.js");
 /* harmony import */ var _marques__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./marques */ "./src/js/marques.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers */ "./src/js/helpers.js");
+
 
 
 var site = {
   _loaded: function _loaded() {
     document.addEventListener('DOMContentLoaded', function () {
-      console.log('ok ok ok');
       _marques__WEBPACK_IMPORTED_MODULE_1__.marques.init();
       _intro__WEBPACK_IMPORTED_MODULE_0__.intro.init();
     });

@@ -1,6 +1,15 @@
 {% extends getf('base') %}
 {% block body %}
   <div class="marques">
+    <div class="marques__scroll-menu">
+      <ul class="marques__scroll-menu__list">
+        {% for brand in brands %}
+          <li class="marques__scroll-menu__list__link">
+            {{ brand.name }}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
     {% include getf('marques.presentation') %}
   </div>
 {% endblock body %}

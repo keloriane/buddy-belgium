@@ -1,11 +1,11 @@
 import {intro} from "./intro";
 import {marques} from "./marques";
+import {baseUrl} from "./helpers";
 
 
 export const site = {
   _loaded: () => {
     document.addEventListener('DOMContentLoaded', () => {
-      console.log('ok ok ok')
       marques.init();
       intro.init();
     });
