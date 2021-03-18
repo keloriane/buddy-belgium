@@ -1794,6 +1794,263 @@ var scroll = shortcut('scroll');
 
 /***/ }),
 
+/***/ "./node_modules/gsap/ScrollToPlugin.js":
+/*!*********************************************!*\
+  !*** ./node_modules/gsap/ScrollToPlugin.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ScrollToPlugin": () => /* binding */ ScrollToPlugin,
+/* harmony export */   "default": () => /* binding */ ScrollToPlugin
+/* harmony export */ });
+/*!
+ * ScrollToPlugin 3.6.0
+ * https://greensock.com
+ *
+ * @license Copyright 2008-2021, GreenSock. All rights reserved.
+ * Subject to the terms at https://greensock.com/standard-license or for
+ * Club GreenSock members, the agreement issued with that membership.
+ * @author: Jack Doyle, jack@greensock.com
+*/
+
+/* eslint-disable */
+var gsap,
+    _coreInitted,
+    _window,
+    _docEl,
+    _body,
+    _toArray,
+    _config,
+    _windowExists = function _windowExists() {
+  return typeof window !== "undefined";
+},
+    _getGSAP = function _getGSAP() {
+  return gsap || _windowExists() && (gsap = window.gsap) && gsap.registerPlugin && gsap;
+},
+    _isString = function _isString(value) {
+  return typeof value === "string";
+},
+    _isFunction = function _isFunction(value) {
+  return typeof value === "function";
+},
+    _max = function _max(element, axis) {
+  var dim = axis === "x" ? "Width" : "Height",
+      scroll = "scroll" + dim,
+      client = "client" + dim;
+  return element === _window || element === _docEl || element === _body ? Math.max(_docEl[scroll], _body[scroll]) - (_window["inner" + dim] || _docEl[client] || _body[client]) : element[scroll] - element["offset" + dim];
+},
+    _buildGetter = function _buildGetter(e, axis) {
+  //pass in an element and an axis ("x" or "y") and it'll return a getter function for the scroll position of that element (like scrollTop or scrollLeft, although if the element is the window, it'll use the pageXOffset/pageYOffset or the documentElement's scrollTop/scrollLeft or document.body's. Basically this streamlines things and makes a very fast getter across browsers.
+  var p = "scroll" + (axis === "x" ? "Left" : "Top");
+
+  if (e === _window) {
+    if (e.pageXOffset != null) {
+      p = "page" + axis.toUpperCase() + "Offset";
+    } else {
+      e = _docEl[p] != null ? _docEl : _body;
+    }
+  }
+
+  return function () {
+    return e[p];
+  };
+},
+    _clean = function _clean(value, index, target, targets) {
+  _isFunction(value) && (value = value(index, target, targets));
+
+  if (typeof value !== "object") {
+    return _isString(value) && value !== "max" && value.charAt(1) !== "=" ? {
+      x: value,
+      y: value
+    } : {
+      y: value
+    }; //if we don't receive an object as the parameter, assume the user intends "y".
+  } else if (value.nodeType) {
+    return {
+      y: value,
+      x: value
+    };
+  } else {
+    var result = {},
+        p;
+
+    for (p in value) {
+      p !== "onAutoKill" && (result[p] = _isFunction(value[p]) ? value[p](index, target, targets) : value[p]);
+    }
+
+    return result;
+  }
+},
+    _getOffset = function _getOffset(element, container) {
+  element = _toArray(element)[0];
+
+  if (!element || !element.getBoundingClientRect) {
+    return console.warn("scrollTo target doesn't exist. Using 0") || {
+      x: 0,
+      y: 0
+    };
+  }
+
+  var rect = element.getBoundingClientRect(),
+      isRoot = !container || container === _window || container === _body,
+      cRect = isRoot ? {
+    top: _docEl.clientTop - (_window.pageYOffset || _docEl.scrollTop || _body.scrollTop || 0),
+    left: _docEl.clientLeft - (_window.pageXOffset || _docEl.scrollLeft || _body.scrollLeft || 0)
+  } : container.getBoundingClientRect(),
+      offsets = {
+    x: rect.left - cRect.left,
+    y: rect.top - cRect.top
+  };
+
+  if (!isRoot && container) {
+    //only add the current scroll position if it's not the window/body.
+    offsets.x += _buildGetter(container, "x")();
+    offsets.y += _buildGetter(container, "y")();
+  }
+
+  return offsets;
+},
+    _parseVal = function _parseVal(value, target, axis, currentVal, offset) {
+  return !isNaN(value) && typeof value !== "object" ? parseFloat(value) - offset : _isString(value) && value.charAt(1) === "=" ? parseFloat(value.substr(2)) * (value.charAt(0) === "-" ? -1 : 1) + currentVal - offset : value === "max" ? _max(target, axis) - offset : Math.min(_max(target, axis), _getOffset(value, target)[axis] - offset);
+},
+    _initCore = function _initCore() {
+  gsap = _getGSAP();
+
+  if (_windowExists() && gsap && document.body) {
+    _window = window;
+    _body = document.body;
+    _docEl = document.documentElement;
+    _toArray = gsap.utils.toArray;
+    gsap.config({
+      autoKillThreshold: 7
+    });
+    _config = gsap.config();
+    _coreInitted = 1;
+  }
+};
+
+var ScrollToPlugin = {
+  version: "3.6.0",
+  name: "scrollTo",
+  rawVars: 1,
+  register: function register(core) {
+    gsap = core;
+
+    _initCore();
+  },
+  init: function init(target, value, tween, index, targets) {
+    _coreInitted || _initCore();
+    var data = this;
+    data.isWin = target === _window;
+    data.target = target;
+    data.tween = tween;
+    value = _clean(value, index, target, targets);
+    data.vars = value;
+    data.autoKill = !!value.autoKill;
+    data.getX = _buildGetter(target, "x");
+    data.getY = _buildGetter(target, "y");
+    data.x = data.xPrev = data.getX();
+    data.y = data.yPrev = data.getY();
+
+    if (value.x != null) {
+      data.add(data, "x", data.x, _parseVal(value.x, target, "x", data.x, value.offsetX || 0), index, targets, Math.round);
+
+      data._props.push("scrollTo_x");
+    } else {
+      data.skipX = 1;
+    }
+
+    if (value.y != null) {
+      data.add(data, "y", data.y, _parseVal(value.y, target, "y", data.y, value.offsetY || 0), index, targets, Math.round);
+
+      data._props.push("scrollTo_y");
+    } else {
+      data.skipY = 1;
+    }
+  },
+  render: function render(ratio, data) {
+    var pt = data._pt,
+        target = data.target,
+        tween = data.tween,
+        autoKill = data.autoKill,
+        xPrev = data.xPrev,
+        yPrev = data.yPrev,
+        isWin = data.isWin,
+        x,
+        y,
+        yDif,
+        xDif,
+        threshold;
+
+    while (pt) {
+      pt.r(ratio, pt.d);
+      pt = pt._next;
+    }
+
+    x = isWin || !data.skipX ? data.getX() : xPrev;
+    y = isWin || !data.skipY ? data.getY() : yPrev;
+    yDif = y - yPrev;
+    xDif = x - xPrev;
+    threshold = _config.autoKillThreshold;
+
+    if (data.x < 0) {
+      //can't scroll to a position less than 0! Might happen if someone uses a Back.easeOut or Elastic.easeOut when scrolling back to the top of the page (for example)
+      data.x = 0;
+    }
+
+    if (data.y < 0) {
+      data.y = 0;
+    }
+
+    if (autoKill) {
+      //note: iOS has a bug that throws off the scroll by several pixels, so we need to check if it's within 7 pixels of the previous one that we set instead of just looking for an exact match.
+      if (!data.skipX && (xDif > threshold || xDif < -threshold) && x < _max(target, "x")) {
+        data.skipX = 1; //if the user scrolls separately, we should stop tweening!
+      }
+
+      if (!data.skipY && (yDif > threshold || yDif < -threshold) && y < _max(target, "y")) {
+        data.skipY = 1; //if the user scrolls separately, we should stop tweening!
+      }
+
+      if (data.skipX && data.skipY) {
+        tween.kill();
+        data.vars.onAutoKill && data.vars.onAutoKill.apply(tween, data.vars.onAutoKillParams || []);
+      }
+    }
+
+    if (isWin) {
+      _window.scrollTo(!data.skipX ? data.x : x, !data.skipY ? data.y : y);
+    } else {
+      data.skipY || (target.scrollTop = data.y);
+      data.skipX || (target.scrollLeft = data.x);
+    }
+
+    data.xPrev = data.x;
+    data.yPrev = data.y;
+  },
+  kill: function kill(property) {
+    var both = property === "scrollTo";
+
+    if (both || property === "scrollTo_x") {
+      this.skipX = 1;
+    }
+
+    if (both || property === "scrollTo_y") {
+      this.skipY = 1;
+    }
+  }
+};
+ScrollToPlugin.max = _max;
+ScrollToPlugin.getOffset = _getOffset;
+ScrollToPlugin.buildGetter = _buildGetter;
+_getGSAP() && gsap.registerPlugin(ScrollToPlugin);
+
+
+/***/ }),
+
 /***/ "./node_modules/gsap/ScrollTrigger.js":
 /*!********************************************!*\
   !*** ./node_modules/gsap/ScrollTrigger.js ***!
@@ -16691,15 +16948,30 @@ function bindModuleMethods(instance, obj) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _js_site__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./js/site */ "./src/js/site.js");
+/* harmony import */ var swiper_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper/swiper-bundle.css */ "./node_modules/swiper/swiper-bundle.css");
+/* harmony import */ var swiper_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(swiper_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _sass_style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sass/style.scss */ "./src/sass/style.scss");
 /* harmony import */ var _sass_style_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_sass_style_scss__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _js_site__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./js/site */ "./src/js/site.js");
+/* harmony import */ var _js_gsap_product_gsap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/gsap/product.gsap */ "./src/js/gsap/product.gsap.js");
+/* harmony import */ var _js_gsap_smoothScroll_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./js/gsap/smoothScroll.js */ "./src/js/gsap/smoothScroll.js");
+/* harmony import */ var _js_gsap_parcours_gsap_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./js/gsap/parcours.gsap.js */ "./src/js/gsap/parcours.gsap.js");
+/* harmony import */ var _js_gsap_service_gsap_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./js/gsap/service.gsap.js */ "./src/js/gsap/service.gsap.js");
+/* harmony import */ var _js_gsap_activity_gsap_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./js/gsap/activity.gsap.js */ "./src/js/gsap/activity.gsap.js");
+
+ //PAGES
+
+ //GSAP
 
 
 
-_js_site__WEBPACK_IMPORTED_MODULE_0__.site._loaded();
 
-_js_site__WEBPACK_IMPORTED_MODULE_0__.site._beforeLeaving();
+
+ //WEBSITE INITIALIZATION
+
+_js_site__WEBPACK_IMPORTED_MODULE_2__.site._loaded();
+
+_js_site__WEBPACK_IMPORTED_MODULE_2__.site._beforeLeaving();
 
 /***/ }),
 
@@ -16796,6 +17068,31 @@ function createHover(e) {
   }
 }
 
+var menuButton = document.getElementById('burger');
+var menu = document.getElementById('menu-burger');
+var close = document.getElementsByClassName('close');
+var isOpen = false;
+console.log(menuButton);
+console.log(close[0]);
+menuButton.addEventListener('click', function (e) {
+  isOpen = !isOpen;
+
+  if (isOpen === true) {
+    menu.style.display = 'flex';
+  } else if (isOpen === false) {
+    menu.style.display = 'none';
+  }
+});
+close[0].addEventListener('click', function () {
+  isOpen = !isOpen;
+
+  if (isOpen === true) {
+    menu.style.display = 'flex';
+  } else if (isOpen === false) {
+    menu.style.display = 'none';
+  }
+});
+
 /***/ }),
 
 /***/ "./src/js/gsap/parcours.gsap.js":
@@ -16863,14 +17160,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger);
-console.log('hello');
 var allLinks = gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.toArray('.product-list-container a');
 var pageBackground = document.querySelector('.fill-background');
 var largeImage = document.querySelector('.portfolio__image--l');
 var smallImage = document.querySelector('.portfolio__image--s');
 var lInside = document.querySelector('.portfolio__image--l .image_inside');
 var sInside = document.querySelector('.portfolio__image--s .image_inside');
-console.log(allLinks);
 
 function initHover() {
   allLinks.forEach(function (link) {
@@ -17072,7 +17367,9 @@ gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(container, {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "delay": () => /* binding */ delay,
-/* harmony export */   "redirect": () => /* binding */ redirect
+/* harmony export */   "redirect": () => /* binding */ redirect,
+/* harmony export */   "baseUrl": () => /* binding */ baseUrl,
+/* harmony export */   "includeJs": () => /* binding */ includeJs
 /* harmony export */ });
 var delay = function delay(fn, ms) {
   setTimeout(function () {
@@ -17081,6 +17378,12 @@ var delay = function delay(fn, ms) {
 };
 var redirect = function redirect(path) {
   return window.location.href + path;
+};
+var baseUrl = function baseUrl() {
+  return window.location.href;
+};
+var includeJs = function includeJs(currentPage) {
+  return baseUrl().split('/').includes(currentPage);
 };
 
 /***/ }),
@@ -17096,6 +17399,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "html": () => /* binding */ html
 /* harmony export */ });
+
 var html = {
   removeClass: function removeClass(el, className) {
     el.classList.remove(className);
@@ -17108,6 +17412,11 @@ var html = {
   },
   getValue: function getValue(event) {
     return event.target.value;
+  },
+  domIsReady: function domIsReady(fn) {
+    document.addEventListener('DOMContentLoaded', function () {
+      fn();
+    });
   }
 };
 
@@ -17126,14 +17435,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./html */ "./src/js/html.js");
 /* harmony import */ var jsvat__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jsvat */ "./node_modules/jsvat/lib/es6/index.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers */ "./src/js/helpers.js");
+
 
 
 var intro = {
+  pageName: 'intro',
   input: document.querySelector('.vat-number__form__input'),
   message: document.querySelector('.vat-number__form__message'),
   submit_button: document.querySelector('.vat-number__form__submit'),
   init: function init() {
-    intro.inputState();
+    if ((0,_helpers__WEBPACK_IMPORTED_MODULE_2__.includeJs)(this.pageName)) {
+      intro.inputState();
+    }
   },
   inputState: function inputState() {
     var _this = this;
@@ -17186,6 +17500,103 @@ var intro = {
 
 /***/ }),
 
+/***/ "./src/js/marques.js":
+/*!***************************!*\
+  !*** ./src/js/marques.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "marques": () => /* binding */ marques
+/* harmony export */ });
+/* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/esm/components/core/core-class.js");
+/* harmony import */ var gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap/dist/gsap */ "./node_modules/gsap/dist/gsap.js");
+/* harmony import */ var gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! gsap/ScrollToPlugin */ "./node_modules/gsap/ScrollToPlugin.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helpers */ "./src/js/helpers.js");
+
+
+
+
+var marques = {
+  init: function init() {
+    if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.includeJs)('marques')) {
+      this.configSlider();
+      this.scrollToBrands();
+      this.scrollToTop();
+    } else {
+      this.displayScrollToTop(false);
+    }
+  },
+  configSlider: function configSlider() {
+    var swiper = new swiper__WEBPACK_IMPORTED_MODULE_1__.default('.swiper-container', {
+      slidesPerView: 3,
+      spaceBetween: 10,
+      // init: false,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      },
+      breakpoints: {
+        '@0.00': {
+          slidesPerView: 2
+        },
+        '@0.75': {
+          slidesPerView: 2
+        },
+        '@1.00': {
+          slidesPerView: 2
+        },
+        '@1.50': {
+          slidesPerView: 2
+        }
+      }
+    });
+  },
+  scrollToBrands: function scrollToBrands() {
+    var _this = this;
+
+    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_2__.gsap.registerPlugin(gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_3__.default);
+    var brands = document.querySelectorAll('.marques__scroll-menu__list__link');
+    brands.forEach(function (brand) {
+      brand.addEventListener('click', function (e) {
+        e.preventDefault();
+        var sectionId = '#' + brand.outerText;
+
+        _this.scrollTo(brand, 0.3, sectionId);
+      });
+    });
+  },
+  scrollToTop: function scrollToTop() {
+    var _this2 = this;
+
+    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_2__.gsap.registerPlugin(gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_3__.default);
+    var link = document.querySelector('.marques__scroll-to-top');
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      _this2.scrollTo(link, 0.3, {
+        y: 0
+      });
+    });
+  },
+  displayScrollToTop: function displayScrollToTop(display) {
+    var link = document.querySelector('.marques__scroll-to-top');
+    console.log(link);
+    link.style.display = display ? "block" : "none";
+  },
+  scrollTo: function scrollTo(el, duration, _scrollTo) {
+    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_2__.gsap.to(window, {
+      duration: duration,
+      scrollTo: _scrollTo
+    });
+  }
+};
+
+/***/ }),
+
 /***/ "./src/js/site.js":
 /*!************************!*\
   !*** ./src/js/site.js ***!
@@ -17197,33 +17608,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "site": () => /* binding */ site
 /* harmony export */ });
-/* harmony import */ var _html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./html */ "./src/js/html.js");
-/* harmony import */ var swiper_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! swiper/swiper-bundle.css */ "./node_modules/swiper/swiper-bundle.css");
-/* harmony import */ var swiper_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(swiper_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _gsap_product_gsap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./gsap/product.gsap */ "./src/js/gsap/product.gsap.js");
-/* harmony import */ var _gsap_smoothScroll_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./gsap/smoothScroll.js */ "./src/js/gsap/smoothScroll.js");
-/* harmony import */ var _gsap_parcours_gsap_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./gsap/parcours.gsap.js */ "./src/js/gsap/parcours.gsap.js");
-/* harmony import */ var _gsap_service_gsap_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./gsap/service.gsap.js */ "./src/js/gsap/service.gsap.js");
-/* harmony import */ var _gsap_activity_gsap_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./gsap/activity.gsap.js */ "./src/js/gsap/activity.gsap.js");
-/* harmony import */ var _intro__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./intro */ "./src/js/intro.js");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./helpers */ "./src/js/helpers.js");
-
-
-
-
-
-
+/* harmony import */ var _intro__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./intro */ "./src/js/intro.js");
+/* harmony import */ var _marques__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./marques */ "./src/js/marques.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers */ "./src/js/helpers.js");
 
 
 
 var site = {
   _loaded: function _loaded() {
     document.addEventListener('DOMContentLoaded', function () {
-      _intro__WEBPACK_IMPORTED_MODULE_7__.intro.init();
+      _marques__WEBPACK_IMPORTED_MODULE_1__.marques.init();
+      _intro__WEBPACK_IMPORTED_MODULE_0__.intro.init();
     });
   },
   _beforeLeaving: function _beforeLeaving() {
     window.addEventListener('beforeunload', function () {});
+  },
+  logP: function logP() {
+    console.log('log parcours');
   }
 };
 

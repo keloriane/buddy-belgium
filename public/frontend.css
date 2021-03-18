@@ -653,6 +653,16 @@ h2 {
 .indent-2 {
   text-indent: calc(25px * 1.5); }
 
+.marques__presentation__slider {
+  display: flex;
+  flex-direction: row;
+  max-width: 980px;
+  margin: 0 auto;
+  overflow: hidden; }
+
+.marques__presentation__slider__item {
+  max-width: 400px; }
+
 .menu-nav {
   position: fixed;
   display: flex;
@@ -664,6 +674,44 @@ h2 {
 
 #menu-burger {
   display: none; }
+
+.menu-action {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  background-color: #fdfdfb; }
+  .menu-action div {
+    color: #3A7498;
+    font-size: 32px;
+    padding: 20px;
+    font-family: "Proxima Nova" , sans-serif;
+    font-weight: 800;
+    cursor: pointer; }
+
+#menu-burger {
+  width: 100%;
+  height: 100vh;
+  background-color: #3A7498;
+  color: white;
+  position: fixed;
+  z-index: 10; }
+  #menu-burger .nav-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column; }
+    #menu-burger .nav-main li {
+      margin-top: 20px; }
+      #menu-burger .nav-main li a {
+        color: white;
+        font-family: "Proxima Nova" , sans-serif;
+        font-weight: 800;
+        font-size: 32px;
+        text-decoration: none; }
+        #menu-burger .nav-main li a:hover {
+          color: #C3D6A1; }
 
 .navbar {
   width: 100%;
@@ -693,41 +741,20 @@ h2 {
   color: #3A7498;
   margin-right: 8px; }
 
-.secondary-navbar {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 16px;
-  position: absolute;
-  top: 0; }
-
-.secondary-navbar__logo {
-  margin-top: 8px;
-  margin-left: 8px;
-  text-transform: uppercase;
-  font-family: "Poppins", monospace;
-  font-weight: 600;
-  color: #3A7498;
-  text-transform: uppercase; }
-
-.secondary-navbar__menu {
-  margin-top: 8px;
-  margin-left: 8px;
-  text-transform: uppercase;
-  font-family: "Poppins", monospace;
-  font-weight: 600;
-  color: #3A7498;
-  margin-right: 8px; }
+#burger {
+  z-index: 10000;
+  position: fixed; }
 
 #parcours {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.5fr;
   grid-column-gap: 24px;
-  width: 90%;
+  width: 70%;
   margin: 200px auto; }
   #parcours .info-container {
     display: flex;
-    flex-direction: column; }
+    flex-direction: column;
+    align-self: flex-start; }
     #parcours .info-container .section-title span {
       overflow: hidden;
       display: flex; }
@@ -741,7 +768,7 @@ h2 {
       width: 100%;
       max-width: 396px;
       margin-top: 60px;
-      align-self: flex-end; }
+      align-self: center; }
       #parcours .info-container .info-text p {
         font-family: "Poppins", monospace;
         font-style: normal;
@@ -812,13 +839,12 @@ figure {
   grid-template-columns: 1fr;
   grid-column-gap: 50px;
   width: 90%;
-  margin: 350px auto;
+  margin: 120px auto;
   align-items: center;
   grid-template-rows: 1fr 3fr;
   height: inherit; }
   .activity .card-container {
     display: flex;
-    flex-wrap: wrap;
     width: 100%;
     justify-content: space-evenly; }
     .activity .card-container .card {
@@ -994,6 +1020,10 @@ figure {
   z-index: 1;
   position: absolute; }
 
+@media (max-width: 1305px) {
+  .activity .card-container {
+    flex-wrap: wrap; } }
+
 .progressbar {
   position: fixed;
   top: 0;
@@ -1097,7 +1127,7 @@ section {
   background: url("http://localhost/buddy-belgium/wp-content/uploads/2021/03/trimming-weed-3-1024x768-1.png") no-repeat;
   background-size: cover;
   height: 770px;
-  z-index: -1; }
+  z-index: 1; }
   .brand .brand-bg {
     width: 100%;
     height: 100%;
@@ -1106,7 +1136,7 @@ section {
     opacity: 0.8;
     position: absolute;
     top: 0;
-    z-index: -1; }
+    z-index: -2; }
 
 .brand__header {
   max-width: 700px;
@@ -1179,6 +1209,111 @@ section {
     .contact__title {
       margin-top: 64px;
       margin-left: 80px; } }
+
+.contact {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .contact .form__container {
+    max-width: 1280px;
+    width: 100%;
+    margin: auto;
+    height: 800px;
+    min-height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .contact .form__container form {
+      display: flex;
+      flex-direction: column;
+      padding: 25px;
+      width: 100%;
+      align-content: space-evenly;
+      justify-content: space-around;
+      font-family: "Proxima Nova" , sans-serif;
+      font-weight: 500;
+      font-size: 19px;
+      color: #3A7498; }
+      .contact .form__container form input {
+        width: 100%;
+        max-width: 880px;
+        height: 40px;
+        border: 2px solid #C3D6A1;
+        font-family: "Proxima Nova" , sans-serif; }
+      .contact .form__container form textarea {
+        height: 300px;
+        max-width: 880px;
+        font-family: "Proxima Nova" , sans-serif;
+        border: 2px solid #C3D6A1; }
+      .contact .form__container form .sub-button {
+        max-width: 120px;
+        background: none;
+        border: none;
+        text-transform: uppercase;
+        color: #3A7498;
+        font-weight: 800; }
+
+.call-to-action-brand {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center; }
+  .call-to-action-brand a {
+    color: white;
+    font-family: Proxima Nova, sans-serif;
+    text-decoration: none;
+    font-size: 30px; }
+    .call-to-action-brand a:hover {
+      color: #C3D6A1; }
+
+.marques__presentation {
+  overflow: hidden;
+  font-weight: 300; }
+  @media (max-width: 767px) {
+    .marques__presentation {
+      margin-bottom: 64px; } }
+  @media (min-width: 768px) {
+    .marques__presentation {
+      padding: 32px; } }
+  .marques__presentation:nth-child(even) {
+    background: #f6f6f6; }
+
+.marques__presentation__inner {
+  max-width: 1000px;
+  margin: 32px auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center; }
+  @media (max-width: 767px) {
+    .marques__presentation__inner {
+      padding: 0px 20px; } }
+  @media (min-width: 992px) {
+    .marques__presentation__inner {
+      margin-bottom: 32px;
+      padding: 64px; } }
+
+.marques__presentation__image-wrapper {
+  max-width: 290px;
+  margin-left: -8px;
+  align-self: center; }
+  @media (min-width: 992px) {
+    .marques__presentation__image-wrapper {
+      min-width: 290px; } }
+
+.marques__presentation__image {
+  width: 100%; }
+
+.marques__presentation__description {
+  margin-top: 32px;
+  max-width: 600px; }
+
+.marques__presentation__description__text {
+  font-size: 1rem;
+  line-height: 1.4rem;
+  font-family: "Poppins", monospace; }
 
 .vat-question__text {
   font-family: "Eczar", monospace;
@@ -1275,6 +1410,32 @@ section {
   .popup-message h3 a {
     text-decoration: none;
     color: #3A7498; }
+
+.secondary-navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  position: absolute;
+  top: 0; }
+
+.secondary-navbar__logo {
+  margin-top: 8px;
+  margin-left: 8px;
+  text-transform: uppercase;
+  font-family: "Poppins", monospace;
+  font-weight: 600;
+  color: #3A7498;
+  text-transform: uppercase; }
+
+.secondary-navbar__menu {
+  margin-top: 8px;
+  margin-left: 8px;
+  text-transform: uppercase;
+  font-family: "Poppins", monospace;
+  font-weight: 600;
+  color: #3A7498;
+  margin-right: 8px; }
 
 .home {
   width: 100vw; }
@@ -1612,6 +1773,35 @@ section {
     position: absolute;
     left: 47%;
     top: 44%; }
+
+.marques__scroll-menu {
+  display: inline-block;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Eczar", monospace;
+  color: #3A7498;
+  font-size: 24px;
+  padding: 40px 0; }
+
+.marques__scroll-menu__list {
+  display: flex;
+  gap: 24px;
+  flex-direction: row; }
+
+.marques__scroll-menu__list__link:hover {
+  cursor: pointer;
+  color: #C3D6A1; }
+
+.marques__scroll-to-top {
+  position: fixed;
+  bottom: 32px;
+  left: 32px;
+  font-family: "Eczar", monospace;
+  color: #3A7498;
+  font-size: 16px; }
+  .marques__scroll-to-top:hover {
+    cursor: pointer; }
 
 .slider-container {
   display: flex;

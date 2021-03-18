@@ -45,6 +45,13 @@ Routes::map('/pro', function () use ($protectionCondition) {
 	HelpMe::protectedRoute($protectionCondition, $route);
 });
 
+Routes::map('/marques', function () use ($protectionCondition) {
+	$route = function () {
+		Routes::load('pages/marques.php');
+	};
+	HelpMe::protectedRoute($protectionCondition, $route);
+});
+
 
 Routes::map('/', function ($params) {
 	Routes::load('pages/intro.php', $params);

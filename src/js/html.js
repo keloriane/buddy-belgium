@@ -1,3 +1,5 @@
+import {gsap} from "gsap/dist/gsap";
+
 export const html = {
   removeClass(el, className) {
     el.classList.remove(className);
@@ -13,6 +15,12 @@ export const html = {
 
   getValue(event) {
     return event.target.value
+  },
+
+  domIsReady(fn) {
+    document.addEventListener('DOMContentLoaded', () => {
+        fn();
+    });
   }
 };
 

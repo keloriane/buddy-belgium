@@ -1,0 +1,17 @@
+{% import getf('marques.slider') as slider %}
+    {% for brand in brands %}
+      <div class="marques__presentation" id="{{ brand.name }}">
+        <div class="marques__presentation__inner">
+          <div class="marques__presentation__image-wrapper">
+            <img src="{{ Image(brand.url).src }}" class="marques__presentation__image"/>
+          </div>
+          <div class="marques__presentation__description">
+            <p class="marques__presentation__description__text">{{ brand.description }}</p>
+          </div>
+        </div>
+        <div class="marques__presentation__products">
+          {{ slider.marques(brand.products) }}
+        </div>
+      </div>
+    {% endfor %}
+

@@ -1,13 +1,17 @@
 import {html} from './html'
 import {checkVAT, countries} from 'jsvat';
+import {includeJs} from "./helpers";
 
 export const intro = {
+  pageName: 'intro',
   input: document.querySelector('.vat-number__form__input'),
   message: document.querySelector('.vat-number__form__message'),
   submit_button: document.querySelector('.vat-number__form__submit'),
 
   init() {
-    intro.inputState();
+    if (includeJs(this.pageName)) {
+      intro.inputState();
+    }
   },
 
 

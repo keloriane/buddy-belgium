@@ -1,11 +1,29 @@
 {% extends getf('base') %}
 {% block body %}
   <div class="contact">
-    {% include getf('secondary-navbar') %}
-    <div class="form__container">
 
+
+    <div class="form__container">
+   {#   <form action="post">
+        <label for="nom">Nom</label>
+        <input type="text" name="nom" aria-label="nom" required placeholder="Nom">
+        <label for="prenom">Prénom</label>
+        <input type="text" name="prenom" aria-label="prenom" required placeholder="Prénom">
+        <label for="email">Mail</label>
+        <input type="email" name="email" aria-label="email" required placeholder="mail">
+        <label for="tva">TVA</label>
+        <input type="number" name="email" aria-label="tva" placeholder="numéro de TVA">
+        <label for="comment">Commentaire</label>
+        <textarea type="text" name="text" aria-label="comment" required placeholder="Commentaire"></textarea>
+        <input type="submit" value="envoyer" class="sub-button">
+      </form>#}
+
+      {% filter shortcodes %}
+        [contact-form-7 id="167" title="Contact form 1"]
+      {% endfilter %}
     </div>
-    <div class="contact__top-center-logo"></div>
+  </div>
+   {# <div class="contact__top-center-logo"></div>
     <div class="contact__inner">
       <div class="contact__left">
         <h2 class="contact__main-title">
@@ -28,5 +46,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </div>#}
 {% endblock body %}
