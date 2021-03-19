@@ -598,11 +598,6 @@ input {
   -webkit-appearance: none;
   border-radius: 0; }
 
-body {
-  overflow-x: hidden;
-  background-color: #FDFDFB;
-  overflow-y: scroll; }
-
 #product {
   height: inherit; }
 
@@ -617,21 +612,6 @@ section {
   height: 80vh; }
 
 /* Smooth Scrolling */
-#viewport {
-  overflow: hidden;
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0; }
-
-#scroll-container {
-  position: absolute;
-  overflow: hidden;
-  width: 100%;
-  will-change: transform;
-  backface-visibility: hidden; }
-
 h1 h2 {
   font-family: 'Eczar', serif; }
 
@@ -652,6 +632,14 @@ h2 {
 
 .indent-2 {
   text-indent: calc(25px * 1.5); }
+
+footer {
+  height: 200px;
+  width: 100vw;
+  background-color: #3A7498; }
+
+body {
+  overflow-x: hidden; }
 
 .marques__presentation__slider {
   display: flex;
@@ -1223,6 +1211,9 @@ section {
     display: flex;
     justify-content: center;
     align-items: center; }
+    .contact .form__container p {
+      display: flex;
+      flex-direction: column; }
     .contact .form__container form {
       display: flex;
       flex-direction: column;
@@ -1236,15 +1227,16 @@ section {
       color: #3A7498; }
       .contact .form__container form input {
         width: 100%;
-        max-width: 880px;
+        max-width: 400px;
         height: 40px;
         border: 2px solid #C3D6A1;
         font-family: "Proxima Nova" , sans-serif; }
       .contact .form__container form textarea {
         height: 300px;
-        max-width: 880px;
+        max-width: 840px;
         font-family: "Proxima Nova" , sans-serif;
-        border: 2px solid #C3D6A1; }
+        border: 2px solid #C3D6A1;
+        width: 100%; }
       .contact .form__container form .sub-button {
         max-width: 120px;
         background: none;
@@ -1252,6 +1244,11 @@ section {
         text-transform: uppercase;
         color: #3A7498;
         font-weight: 800; }
+
+.block-input {
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%; }
 
 .call-to-action-brand {
   width: 100%;
@@ -1698,6 +1695,12 @@ section {
   @media (max-width: 991px) {
     .contact__top-center-logo {
       display: none; } }
+
+.block-input {
+  display: flex; }
+
+.input-container {
+  width: 440px; }
 
 .contact__inner {
   display: flex;

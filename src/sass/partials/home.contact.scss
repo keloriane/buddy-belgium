@@ -32,6 +32,11 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		p {
+			display: flex;
+			flex-direction: column;
+
+		}
 		form {
 			display: flex;
 			flex-direction: column;
@@ -47,7 +52,7 @@
 
 			input {
 				width: 100%;
-				max-width: 880px;
+				max-width: 400px;
 				height: 40px;
 				border: 2px solid $green;
 				font-family: "Proxima Nova" , sans-serif;
@@ -55,9 +60,10 @@
 			}
 			textarea {
 				height: 300px;
-				max-width: 880px;
+				max-width: 840px;
 				font-family: "Proxima Nova" , sans-serif;
 				border: 2px solid $green;
+				width: 100%;
 
 			}
 			.sub-button {
@@ -71,6 +77,12 @@
 			}
 		}
 	}
+}
+
+.block-input {
+	justify-content: space-between;
+	flex-wrap: wrap;
+	width: 100%;
 }
 .call-to-action-brand {
 	width: 100%;
