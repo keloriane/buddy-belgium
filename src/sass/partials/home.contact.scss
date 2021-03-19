@@ -19,3 +19,71 @@
 		margin-left: 80px;
 	}
 }
+.contact {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	.form__container {
+		max-width: 1280px;
+		width: 100%;
+		margin: auto;
+		height: 800px;
+		min-height: auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		form {
+			display: flex;
+			flex-direction: column;
+			padding: 25px;
+			width: 100%;
+			align-content: space-evenly;
+			justify-content: space-around;
+			font-family: "Proxima Nova" , sans-serif;
+			font-weight: 500;
+			font-size: 19px;
+			color: $blue;
+
+
+			input {
+				width: 100%;
+				max-width: 880px;
+				height: 40px;
+				border: 2px solid $green;
+				font-family: "Proxima Nova" , sans-serif;
+
+			}
+			textarea {
+				height: 300px;
+				max-width: 880px;
+				font-family: "Proxima Nova" , sans-serif;
+				border: 2px solid $green;
+
+			}
+			.sub-button {
+				max-width: 120px;
+				background: none;
+				border: none;
+				text-transform: uppercase;
+				color: $blue;
+				font-weight: 800;
+
+			}
+		}
+	}
+}
+.call-to-action-brand {
+	width: 100%;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	a {
+		color: white;
+		font-family: Proxima Nova, sans-serif;
+		text-decoration: none;
+		font-size: 30px;
+		&:hover {
+			color: $green;
+		}
+	}
+}

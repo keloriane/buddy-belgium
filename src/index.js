@@ -8,8 +8,7 @@ import './js/gsap/smoothScroll.js';
 import './js/gsap/parcours.gsap.js';
 import './js/gsap/service.gsap.js';
 import './js/gsap/activity.gsap.js';
+import {websiteIndexLocalUrl} from "./config";
 //WEBSITE INITIALIZATION
 site._loaded();
 site._beforeLeaving();
-
-

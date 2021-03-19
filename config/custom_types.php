@@ -11,6 +11,17 @@ function create_product()
 	);
 }
 
+function create_category()
+{
+	register_post_type('category', [
+			'label' => 'Category',
+			'public' => true,
+			'menu_position' => 3,
+			'supports' => ['title'],
+		]
+	);
+}
+
 function create_brands()
 {
 	$args = array(
@@ -71,5 +82,6 @@ function create_activities()
 }
 
 add_action('init', 'create_product');
+add_action('init', 'create_category');
 add_action('init', 'create_brands');
 add_action('init', 'create_activities');

@@ -12,22 +12,22 @@
           <h1>
             <div class="green indent line-content">
               <div class="line">
-              The first <br>
+                The first <br>
               </div>
             </div>
             <div class="green line-content">
               <div class="line">
-              European <br>
+                European <br>
               </div>
             </div>
             <div class="blue line-content">
               <div class="line">
-              Hub for legal <br>
+                Hub for legal <br>
               </div>
             </div>
             <div class="blue indent line-content">
               <div class="line">
-              Cannabis.
+                Cannabis.
               </div>
             </div>
           </h1>
@@ -37,14 +37,10 @@
         </div>
       </section>
     </div>
-
-
-{% include getf('home.parcours') %}
-{% include getf('home.activity') %}
-{% include getf('home.product') %}
-
-{% include getf('home.marques') %}
-{% include getf('home.contact') %}
-
+    {% include getf('home.parcours') %}
+    {% include getf('home.activity') %}
+    {% include getf('home.category') %}
+    {% include getf('home.marques') %}
+    {% include getf('home.contact') %}
   </div>
 {% endblock body %}

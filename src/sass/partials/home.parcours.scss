@@ -1,13 +1,14 @@
 #parcours {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr 1.5fr;
 	grid-column-gap: $gap;
-	width: 90%;
+	width: 70%;
 	margin: 200px auto;
 
 	.info-container {
 		display: flex;
 		flex-direction: column;
+		align-self: flex-start;
 		.section-title {
 
 			span {
@@ -34,7 +35,7 @@
 			width: 100%;
 			max-width: 396px;
 			margin-top: 60px;
-			align-self: flex-end;
+			align-self: center;
 
 			p {
 				font-family: $mainFont;

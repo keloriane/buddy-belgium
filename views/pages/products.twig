@@ -1,79 +1,28 @@
 {% extends getf('base') %}
+{% import getf('productsList.slider') as slider %}
 {% block body %}
-
-
-
-  <section id="product">
-    <div class="product-headline">
-      <div class="product-headline-image">
-        <div class="circle-background" style="
-          background: {{ product_details.color }};
-      " >
-
-        </div>
-        <img src="{{ Image(product_details.product_image).src }}" alt="">
-
+  <div id="category">
+    <div class="category__headline">
+      <div class="category__headline__wrapper-image">
+        <img class="category__headline__image" src="{{ Image(category.image).src }}" alt="">
       </div>
-      <div class="product-headline-informations">
-        <div class="title-container">
-          <h2 class="blue">
-              {{ product_details.post_title }}
-          </h2>
-          <h2 class="green">Feel calm</h2>
-
+      <div class="category__headline__information">
+        <div class="category__headline__information__title-container">
+          <h2 class="category__headline__information__title blue">{{ category.name }}</h2>
+          <h2 class="category__headline__information__title green">Feel calm</h2>
         </div>
-        <div class="text-container">
-          <p>
-              {{product_details.product_description}}
+        <div class="category__headline__description-container">
+          <p class="category__headline__description">
+            {{ category.description }}
           </p>
         </div>
       </div>
     </div>
-    <div class="product-details">
-      <div class="details-text-container">
-        <div class="text-container">
-          <p>
-            Notre activité principale qui consistait jusqu’alors
-            à vendre des fleurs en vrac aux magasins
-            spécialisés a donc radicalement changé suite à ce
-            changement de législation. Nous passés maîtres
-            dans l’art du conditionnement de fleurs séchées en proposant des emballages uniques sur le
-            marché belge pour notre réseau de milliers de
-            points de vente tabac du pays.
-          </p>
-        </div>
-        <div class="text-container">
-        <p>
-          Notre activité principale qui consistait jusqu’alors
-          à vendre des fleurs en vrac aux magasins
-          spécialisés a donc radicalement changé suite à ce
-          changement de législation. Nous passés maîtres
-          dans l’art du conditionnement de fleurs séchées en proposant des emballages uniques sur le
-          marché belge pour notre réseau de milliers de
-          points de vente tabac du pays.
-        </p>
-        </div>
-
-      </div>
+    <div class="category__slider__container">
+      <div class="category__slider__title-bg">Product List</div>
+      {{ slider.productsList(category.products) }}
     </div>
-    <div class="product-list-container swiper-container">
-      <ul class='swiper-wrapper'>
-        <li class="swiper-slide">
-          <img src="http://localhost/buddy-belgium/wp-content/uploads/2021/01/buddha-lemon.png" alt="">
-        </li>
-        <li class="swiper-slide" >
-          <img src="http://localhost/buddy-belgium/wp-content/uploads/2021/01/Buddha_sky.png" alt="">
-        </li>
-        <li class="swiper-slide">
-          <img src="http://localhost/buddy-belgium/wp-content/uploads/2021/01/Buddha_cheese.png" alt="">
-        </li>
-        <li class="swiper-slide">
-          <img src="http://localhost/buddy-belgium/wp-content/uploads/2021/01/Buddha_gum.png" alt="">
-        </li>
-
-      </ul>
-    </div>
-  </section>
-
-
+  </div>
 {% endblock body %}
+
+

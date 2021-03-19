@@ -2,8 +2,6 @@ import gsap from 'gsap/dist/gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min';
 gsap.registerPlugin(ScrollTrigger);
 
-console.log('parcours');
-
 function init() {
   const innerText = document.querySelectorAll('.inner-text');
   gsap.from('span h2', {
