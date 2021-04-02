@@ -17,7 +17,7 @@ Routes::map('/example', function () use ($protectionCondition) {
 
 });
 
-Routes::map('/products/:product', function ($params) use ($protectionCondition) {
+Routes::map('/category/:category', function ($params) use ($protectionCondition) {
 	$route = function () use ($params) {
 		Routes::load('pages/single_products.php', $params);
 	};

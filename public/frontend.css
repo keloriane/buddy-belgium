@@ -641,6 +641,19 @@ footer {
 body {
   overflow-x: hidden; }
 
+.menu-nav {
+  top: 0; }
+
+.category__slider__item {
+  display: flex;
+  justify-content: center; }
+  .category__slider__item img {
+    max-width: 200px; }
+
+.category__headline__wrapper-image {
+  display: flex;
+  align-items: center; }
+
 .marques__presentation__slider {
   display: flex;
   flex-direction: row;
@@ -1114,7 +1127,6 @@ section {
   position: relative;
   background: url("http://localhost/buddy-belgium/wp-content/uploads/2021/03/trimming-weed-3-1024x768-1.png") no-repeat;
   background-size: cover;
-  height: 770px;
   z-index: 1; }
   .brand .brand-bg {
     width: 100%;
@@ -1390,24 +1402,6 @@ section {
   .vat-number__form__submit:focus {
     outline: 0; }
 
-.popup-message {
-  position: fixed;
-  background-color: white;
-  width: 200px;
-  height: 100px;
-  bottom: 10px;
-  right: 10px;
-  z-index: 5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  box-shadow: 5px 4px 4px 2px rgba(0, 0, 0, 0.25);
-  border-radius: 20px; }
-  .popup-message h3 a {
-    text-decoration: none;
-    color: #3A7498; }
-
 .secondary-navbar {
   width: 100%;
   display: flex;
@@ -1434,8 +1428,33 @@ section {
   color: #3A7498;
   margin-right: 8px; }
 
+.popup-message {
+  position: fixed;
+  background-color: white;
+  width: 200px;
+  height: 100px;
+  bottom: 10px;
+  right: 10px;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 5px 4px 4px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 20px; }
+  .popup-message h3 a {
+    text-decoration: none;
+    color: #3A7498; }
+
 .home {
   width: 100vw; }
+
+.social-media {
+  height: 100%;
+  position: absolute; }
+  .social-media ul {
+    display: flex;
+    flex-flow: column; }
 
 .line-content {
   overflow: hidden; }
@@ -1542,80 +1561,54 @@ section {
 .intro__main-title .intro__main-title--blue {
   color: #C3D6A1; }
 
-#product .product-headline {
+.category__headline {
+  display: flex;
+  flex-direction: column; }
+  @media (min-width: 768px) {
+    .category__headline {
+      flex-direction: row;
+      gap: 50px;
+      margin: 160px auto 0;
+      max-width: 1500px; } }
+
+.category__headline__wrapper-image {
+  max-width: 800px; }
+
+.category__headline__image {
+  width: 100%; }
+
+@media (max-width: 767px) {
+  .category__headline__information__title-container {
+    padding: 0px 20px; } }
+
+.category__headline__information__title {
+  font-size: clamp(5rem, 10vw, 7rem); }
+
+.category__headline__description-container {
+  margin-top: 40px;
+  max-width: 500px;
+  font-weight: 300;
+  font-family: "Poppins", monospace;
+  line-height: 180%; }
+  @media (max-width: 767px) {
+    .category__headline__description-container {
+      padding: 0px 20px; } }
+
+.category__headline__information__title-container {
+  margin-top: 32px; }
+
+.category__slider__container {
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 50px;
-  align-items: center;
-  justify-items: center;
-  width: 80%;
-  margin: auto;
-  height: 750px; }
-  #product .product-headline .product-headline-image {
-    width: 100%;
-    max-width: 550px; }
-    #product .product-headline .product-headline-image img {
-      width: 100%; }
-    #product .product-headline .product-headline-image .circle-background {
-      width: 497px;
-      height: 497px;
-      position: absolute;
-      background: #F5DFB4;
-      border-radius: 100%;
-      z-index: -1;
-      left: 9%;
-      top: 20%; }
-  #product .product-headline .product-headline-informations .text-container p {
-    font-family: sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 27px;
-    /* or 169% */
-    color: rgba(12, 27, 51, 0.7); }
+  max-width: 1000px;
+  margin: 80px auto 0; }
 
-#product .product-details .details-text-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 30px;
-  width: 60%;
-  margin: auto; }
-  #product .product-details .details-text-container .text-container p {
-    font-family: sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 27px;
-    /* or 169% */
-    color: rgba(12, 27, 51, 0.7); }
-
-#product .product-list-container {
-  width: 80%;
-  margin: 100px auto; }
-  #product .product-list-container ul {
-    display: flex;
-    width: 100%; }
-    #product .product-list-container ul li img {
-      width: 100%;
-      min-width: 300px; }
-
-@media (max-width: 996px) {
-  #product .product-headline {
-    grid-template-columns: 1fr; }
-  #product .product-details .details-text-container {
-    width: 100%;
-    margin: 100px auto;
-    grid-column-gap: 1fr; }
-  .product-list-container {
-    width: 80%;
-    margin: 100px auto; }
-    .product-list-container a {
-      text-align: center; }
-    .product-list-container ul {
-      display: flex;
-      width: 100%;
-      gap: 50px; } }
+.category__slider__title-bg {
+  position: absolute;
+  top: -50px;
+  font-size: 10rem;
+  font-family: "Eczar", monospace;
+  color: #3A7498;
+  opacity: 0.03; }
 
 .activity-page__inner {
   display: flex;
@@ -1805,6 +1798,55 @@ section {
   font-size: 16px; }
   .marques__scroll-to-top:hover {
     cursor: pointer; }
+
+.category__headline {
+  display: flex;
+  flex-direction: column; }
+  @media (min-width: 768px) {
+    .category__headline {
+      flex-direction: row;
+      gap: 50px;
+      margin: 160px auto 0;
+      max-width: 1500px; } }
+
+.category__headline__wrapper-image {
+  max-width: 800px; }
+
+.category__headline__image {
+  width: 100%; }
+
+@media (max-width: 767px) {
+  .category__headline__information__title-container {
+    padding: 0px 20px; } }
+
+.category__headline__information__title {
+  font-size: clamp(5rem, 10vw, 7rem); }
+
+.category__headline__description-container {
+  margin-top: 40px;
+  max-width: 500px;
+  font-weight: 300;
+  font-family: "Poppins", monospace;
+  line-height: 180%; }
+  @media (max-width: 767px) {
+    .category__headline__description-container {
+      padding: 0px 20px; } }
+
+.category__headline__information__title-container {
+  margin-top: 32px; }
+
+.category__slider__container {
+  position: relative;
+  max-width: 1000px;
+  margin: 80px auto 0; }
+
+.category__slider__title-bg {
+  position: absolute;
+  top: -50px;
+  font-size: 10rem;
+  font-family: "Eczar", monospace;
+  color: #3A7498;
+  opacity: 0.03; }
 
 .slider-container {
   display: flex;

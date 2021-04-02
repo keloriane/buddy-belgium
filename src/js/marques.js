@@ -64,7 +64,6 @@ export const marques = {
 
   displayScrollToTop(display) {
     let link = document.querySelector('.marques__scroll-to-top')
-    console.log(link)
     link.style.display = display ? "block" : "none"
   },
 

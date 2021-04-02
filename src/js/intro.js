@@ -1,6 +1,6 @@
 import {html} from './html'
 import {checkVAT, countries} from 'jsvat';
-import {includeJs} from "./helpers";
+import {includeJs, isCurrentPageIndex, isIndex} from "./helpers";
 
 export const intro = {
   pageName: 'intro',
@@ -9,20 +9,23 @@ export const intro = {
   submit_button: document.querySelector('.vat-number__form__submit'),
 
   init() {
-    if (includeJs(this.pageName)) {
-      intro.inputState();
+    if (isCurrentPageIndex(true)) {
+      console.log('in')
+      this.inputState();
+      this.hidePopup()
     }
   },
 
-
   inputState() {
-    this.input.addEventListener('input', (event) => {
-      event.preventDefault();
-      let vat_number_value = html.getValue(event);
-      let check_response = checkVAT(vat_number_value, countries);
-      let {isValid} = check_response;
-      this.setVatInputMessage(isValid, vat_number_value);
-    });
+    if(this.input){
+      this.input.addEventListener('input', (event) => {
+        event.preventDefault();
+        let vat_number_value = html.getValue(event);
+        let check_response = checkVAT(vat_number_value, countries);
+        let {isValid} = check_response;
+        this.setVatInputMessage(isValid, vat_number_value);
+      });
+    }
   },
 
   setVatInputMessage: function (isValid, vat_number) {
@@ -62,6 +65,11 @@ export const intro = {
     html.removeClass(this.message, 'vat-number__form__message--error');
     html.removeClass(this.input, 'vat-number__form__input--success');
     html.removeClass(this.message, 'vat-number__form__message--success');
+  },
+
+  hidePopup() {
+    const popUp = document.querySelector('.popup-message')
+    popUp.style.display = 'none'
   }
 };
 

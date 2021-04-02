@@ -63,3 +63,19 @@ footer {
 body {
 	overflow-x: hidden;
 }
+.menu-nav {
+	top: 0;
+}
+
+.category__slider__item {
+	display: flex;
+	justify-content: center;
+	img {
+		max-width: 200px;
+	}
+}
+
+.category__headline__wrapper-image {
+	display: flex;
+	align-items: center;
+}

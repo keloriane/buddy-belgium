@@ -16,7 +16,6 @@ const cards = document.querySelectorAll('.card');
 
 const cardArray = gsap.utils.toArray(cards);
 const productCards = document.querySelectorAll('.card-product');
-console.log(productCards);
 
 productCards.forEach((activity) => {
   activity.addEventListener('mouseenter', function (e) {
@@ -28,7 +27,6 @@ productCards.forEach((activity) => {
   });
 });
 
-console.log(cardArray);
 cards.forEach((link, e) => {
   link.addEventListener('mouseenter', createHover);
   link.addEventListener('mouseleave', createHover);
@@ -36,7 +34,6 @@ cards.forEach((link, e) => {
 
 function createHover(e) {
   const allSiblings = cardArray.filter((item) => item !== e.target);
-  console.log(allSiblings);
   if (e.type === 'mouseenter') {
     gsap.to(e.target.querySelector('.exclusion'), {
       duration: 0.2,
@@ -82,9 +79,6 @@ const menuButton = document.getElementById('burger');
 const menu = document.getElementById('menu-burger');
 const close = document.getElementsByClassName('close');
 let isOpen = false;
-console.log(menuButton);
-console.log(close[0]);
-
 menuButton.addEventListener('click', function (e) {
   isOpen = !isOpen;
   if (isOpen === true) {

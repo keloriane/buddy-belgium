@@ -40,17 +40,18 @@ Use it to make something cool, have fun, and share what you've learned with othe
 @import 'partials/marques.presentation';
 @import 'partials/intro.vat-question';
 @import 'partials/intro.question';
-@import './popup';
 @import 'partials/secondary-navbar';
+@import './popup';
 
 //**PAGES**//
 @import 'pages/home';
 @import 'pages/intro';
-@import 'pages/product';
+@import 'pages/category';
 @import 'pages/activity';
 @import 'pages/contact';
 @import 'pages/customers';
 @import 'pages/marques';
+@import 'pages/category';
 
 
 
