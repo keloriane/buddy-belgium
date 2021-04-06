@@ -648,7 +648,8 @@ body {
   display: flex;
   justify-content: center; }
   .category__slider__item img {
-    max-width: 200px; }
+    min-height: 200px;
+    max-height: 200px; }
 
 .category__headline__wrapper-image {
   display: flex;
@@ -663,6 +664,10 @@ body {
 
 .marques__presentation__slider__item {
   max-width: 400px; }
+
+.marques__presentation__slider__item img {
+  max-height: 250px;
+  min-height: 250px; }
 
 .menu-nav {
   position: fixed;
@@ -1077,7 +1082,7 @@ section {
   color: transparent;
   -webkit-text-stroke: 1px #3A7498;
   text-decoration: none;
-  font-size: 5.4vw;
+  font-size: 4.4vw;
   margin: auto;
   letter-spacing: 0.2vw;
   line-height: 1.5; }

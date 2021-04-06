@@ -4,7 +4,7 @@
     <div class="swiper-wrapper">
       {% for product in products %}
         <div class="marques__presentation__slider__item swiper-slide">
-          <img src={{ Image(product.url).src }}>
+          <img src={{ Image(product.product_image).src }}>
         </div>
       {% endfor %}
     </div>

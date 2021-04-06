@@ -1,12 +1,11 @@
-import {Swiper} from "swiper";
-import {includeJs} from "./helpers";
-
+import { Swiper } from 'swiper';
+import { includeJs } from './helpers';
 
 export const category = {
   init() {
-    console.log(includeJs('category'))
+    console.log(includeJs('category'));
     if (includeJs('category')) {
-      this.configSlider()
+      this.configSlider();
     }
   },
 
@@ -32,9 +31,7 @@ export const category = {
         '@1.50': {
           slidesPerView: 4,
         },
-      }
+      },
     });
   },
 };
-
-
