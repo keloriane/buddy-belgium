@@ -1,5 +1,5 @@
 <?php
-/*** Template Name: Home Page*/
+/** Template Name: Home Page*/
 
 $context = Timber::context();
 $product = Gimy::customType(['post_type' => 'category']);
@@ -8,5 +8,6 @@ $activity = Gimy::customType(['post_type' => 'activities']);
 $context['product'] = $product;
 $context['brands'] = $brands;
 $context['activity'] = $activity;
+var_dump(Gimy::post());
 Timber::render('/index.twig', $context);
 
