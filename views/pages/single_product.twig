@@ -1,0 +1,21 @@
+{% extends getf('base') %}
+{% import getf('productsList.slider') as slider %}
+{% block body %}
+  <div id="single-product">
+    <div class="single-product__headline">
+      <div class="single-product__headline__wrapper-image">
+        <img class="single-product__headline__image" src="{{ Image(product.custom.product_image).src }}" alt="">
+      </div>
+      <div class="single-product__headline__information">
+        <div class="single-product__headline__information__title-container">
+          <h2 class="single-product__headline__information__title blue">{{ product.post_title }}</h2>
+        </div>
+        <div class="single-product__headline__description-container">
+          <p class="single-product__headline__description">
+            {{ product.product_description }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock body %}

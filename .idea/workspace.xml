@@ -5,9 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4ea9f56-cfe0-4785-a501-546d584a348a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/views/pages/single_product.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/custom_types.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/custom_types.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/router.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/router.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/marques.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/marques.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/single_products.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/frontend-bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend-bundle.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/frontend-bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend-bundle.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/frontend.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/frontend.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/category.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/category.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/gsap/smoothScroll.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/gsap/smoothScroll.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sass/components/marques.slider.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/components/marques.slider.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sass/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/global.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sass/pages/contact.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/pages/contact.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sass/pages/home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/pages/home.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sass/partials/home.brands.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/partials/home.brands.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sass/partials/home.contact.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/partials/home.contact.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sass/partials/home.product.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/partials/home.product.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sass/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/components/marques.slider.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/components/marques.slider.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/components/productsList.slider.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/components/productsList.slider.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/contact.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/contact.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/customers.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/customers.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/index.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/index.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/product-single.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/products.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/category.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/partials/activity.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/activity.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/partials/header.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/header.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/partials/home.category.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/home.category.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/partials/home.contact.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/home.contact.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/partials/home.parcours.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/home.parcours.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +86,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../swift-starter" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pages" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="D:\wamp64\www\buddy\wp-content\themes\buddy-belgium\node_modules\prettier" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
@@ -63,11 +95,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\wamp64\www\buddy-belgium\wp-content\themes\buddy-belgium\pages" />
       <recent name="D:\wamp64\www\buddy-belgium\wp-content\themes\buddy-belgium\src\js" />
       <recent name="D:\wamp64\www\buddy-belgium\wp-content\themes\buddy-belgium\views\components" />
       <recent name="D:\wamp64\www\buddy-belgium\wp-content\themes\buddy-belgium\src\sass\partials" />
       <recent name="D:\wamp64\www\buddy-belgium\wp-content\themes\buddy-belgium\views\partials" />
-      <recent name="D:\wamp64\www\buddy-belgium\wp-content\themes\buddy-belgium\src\sass\pages" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\wamp64\www\buddy-belgium\wp-content\themes\buddy-belgium\views\pages" />
@@ -134,6 +166,9 @@
       <workItem from="1616665712435" duration="687000" />
       <workItem from="1616748470290" duration="642000" />
       <workItem from="1617361012119" duration="4973000" />
+      <workItem from="1617719000649" duration="13989000" />
+      <workItem from="1617801739913" duration="3315000" />
+      <workItem from="1617805954104" duration="13000" />
     </task>
     <servers />
   </component>

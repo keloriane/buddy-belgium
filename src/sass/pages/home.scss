@@ -1,6 +1,15 @@
 .home {
 	width: 100vw;
 }
+.social-media {
+	height: 100%;
+	position: absolute;
+	ul {
+		display: flex;
+		flex-flow: column;
+
+	}
+}
 .line-content {
 	overflow: hidden;
 }

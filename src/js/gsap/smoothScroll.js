@@ -1,3 +1,4 @@
+/*
 import { gsap } from 'gsap/dist/gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
@@ -26,3 +27,4 @@ gsap.to(container, {
     invalidateOnRefresh: true,
   },
 });
+*/

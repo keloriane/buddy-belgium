@@ -7,6 +7,10 @@ function create_product()
 			'public' => true,
 			'menu_position' => 3,
 			'supports' => ['title', 'editor',],
+			'show_in_graphql' => true,
+			'hierarchical' => true,
+			'graphql_single_name' => 'product',
+			'graphql_plural_name' => 'products',
 		]
 	);
 }
@@ -18,6 +22,10 @@ function create_category()
 			'public' => true,
 			'menu_position' => 3,
 			'supports' => ['title'],
+			'show_in_graphql' => true,
+			'hierarchical' => true,
+			'graphql_single_name' => 'category',
+			'graphql_plural_name' => 'categories',
 		]
 	);
 }
@@ -46,6 +54,8 @@ function create_brands()
 			'search_items' => 'Search Marques',
 			'not_found' => 'No marques found',
 			'not_found_in_trash' => 'No marques found in Trash',
+				'menu_name' => __( 'Docs', 'brand' ),
+
 		),
 	);
 	register_post_type('marque', $args);
@@ -61,6 +71,10 @@ function create_activities()
 			'slug' => 'activities',
 			'with_front' => false
 		),
+		'show_in_graphql' => true,
+		'hierarchical' => true,
+		'graphql_single_name' => 'document',
+		'graphql_plural_name' => 'documents',
 		'supports' => array(
 			'title',
 			'revisions'

@@ -19,7 +19,14 @@ Routes::map('/example', function () use ($protectionCondition) {
 
 Routes::map('/category/:category', function ($params) use ($protectionCondition) {
 	$route = function () use ($params) {
-		Routes::load('pages/single_products.php', $params);
+		Routes::load('pages/category.php', $params);
+	};
+	HelpMe::protectedRoute($protectionCondition, $route);
+});
+
+Routes::map('/products/:product', function ($params) use ($protectionCondition) {
+	$route = function () use ($params) {
+		Routes::load('pages/single_product.php', $params);
 	};
 	HelpMe::protectedRoute($protectionCondition, $route);
 });
