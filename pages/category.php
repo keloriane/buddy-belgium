@@ -4,17 +4,12 @@
 
 global $params;
 
-
 $context = Timber::context();
-
-
-
 $categoryArray = Gimy::customType(
 	[
 		'post_type' => 'category',
 		's' => ucfirst($params["category"])
 	]);
-
 
 $category = array_shift($categoryArray);
 $products = Gimy::customType(['post_type' => 'products']);
@@ -31,11 +26,8 @@ foreach ($products as $product) {
 	$count=0;
 	if ($categoryId === $productCategoryId) {
 		$currentCategory->products[] = $product;
-
-
 	}
 }
-
 
 $category_products[] = $currentCategory;
 $context['category'] = $currentCategory;

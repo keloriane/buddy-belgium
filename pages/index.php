@@ -1,5 +1,5 @@
 <?php
-/*** Template Name: Home Page*/
+/** Template Name: Home Page*/
 
 $context = Timber::context();
 $product = Gimy::customType(['post_type' => 'category']);

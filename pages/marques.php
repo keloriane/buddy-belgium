@@ -7,6 +7,8 @@ $products = Gimy::customType(['post_type' => 'products']);
 $customProduct = new stdClass();
 $brand_products =  [];
 
+r($products);
+
 foreach ($brands as $brand) {
 	$currentBrand = new stdClass();
 	$currentBrand->name = $brand->post_title;
