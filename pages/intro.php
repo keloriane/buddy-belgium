@@ -12,10 +12,10 @@ $context['logo_top_left'] = 'http://localhost/buddy-belgium/wp-content/uploads/2
 $have_vat = HelpMe::get_request_value('vat');
 
 if ($method == 'GET' && $have_vat) {
-	if ($have_vat == 'no') {
+	if ($have_vat == 'je suis particulier ?') {
 		HelpMe::redirect('/customer');
 	}
-	if ($have_vat == 'yes') {
+	if ($have_vat == 'je suis professionnel ?') {
 		$context['display_form'] = true;
 	}
 }

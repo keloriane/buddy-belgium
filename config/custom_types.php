@@ -95,7 +95,35 @@ function create_activities()
 	register_post_type('activities', $args);
 }
 
+
+function produits_vrac () {
+	register_post_type('products', [
+			'label' => 'Produits vrac',
+			'public' => true,
+			'menu_position' => 5,
+			'supports' => ['title', 'editor',],
+			'show_in_graphql' => true,
+			'hierarchical' => true,
+			'graphql_single_name' => 'product',
+			'graphql_plural_name' => 'products',
+		]
+	);
+}function produits_paquet () {
+	register_post_type('products', [
+			'label' => 'Produits paquet',
+			'public' => true,
+			'menu_position' => 6,
+			'supports' => ['title', 'editor',],
+			'show_in_graphql' => true,
+			'hierarchical' => true,
+			'graphql_single_name' => 'product',
+			'graphql_plural_name' => 'products',
+		]
+	);
+}
 add_action('init', 'create_product');
 add_action('init', 'create_category');
-add_action('init', 'create_brands');
 add_action('init', 'create_activities');
+add_action('init', 'produits_vrac');
+add_action('init', 'produits_paquet');
+

@@ -20,7 +20,9 @@ const productCards = document.querySelectorAll('.card-product');
 productCards.forEach((activity) => {
   activity.addEventListener('mouseenter', function (e) {
     gsap.to(activity, { duration: 0.05, backgroundImage: `url(${e.target.dataset.image})` });
+    /*
     gsap.fromTo(activity, { duration: 15, backgroundSize: '100%' }, { duration: 130, backgroundSize: '350%' });
+*/
   });
   activity.addEventListener('mouseleave', function (e) {
     gsap.to(activity, { duration: 0.2, backgroundImage: 'none' });

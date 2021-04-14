@@ -84,18 +84,3 @@
 	flex-wrap: wrap;
 	width: 100%;
 }
-.call-to-action-brand {
-	width: 100%;
-	text-align: center;
-	display: flex;
-	justify-content: center;
-	a {
-		color: white;
-		font-family: Proxima Nova, sans-serif;
-		text-decoration: none;
-		font-size: 30px;
-		&:hover {
-			color: $green;
-		}
-	}
-}

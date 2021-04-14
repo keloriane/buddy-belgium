@@ -2,6 +2,16 @@
 
 }
 
+.vat-question__form {
+	@include flexCentred();
+	flex-direction: column;
+	input {
+		cursor: pointer;
+		text-transform: uppercase;
+		font-weight: 800;
+	}
+}
+
 .vat-number__question__text {
 	@include sub-title();
 	text-align: center;
@@ -65,3 +75,13 @@
 
 
 
+
+.asterisque {
+	width: 400px;
+	margin: 60px auto;
+	p {
+		text-align: center;
+		font-family: $titleFont;
+		color: $blue;
+	}
+}

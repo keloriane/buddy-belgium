@@ -602,18 +602,24 @@ input {
   height: inherit; }
 
 h1, h2, h3, .line1, .line2 {
-  font-family: "Eczar" , sans-serif;
+  font-family: "Poppins", monospace, sans-serif;
   font-weight: 1000; }
 
 .white {
   color: white; }
+
+span {
+  height: 72px; }
+
+.line {
+  height: 90px; }
 
 section {
   height: 80vh; }
 
 /* Smooth Scrolling */
 h1 h2 {
-  font-family: 'Eczar', serif; }
+  font-family: "Poppins", monospace, serif; }
 
 h3 {
   font-family: 'Cousine', monospace; }
@@ -850,9 +856,10 @@ figure {
   grid-template-rows: 1fr 3fr;
   height: inherit; }
   .activity .card-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     width: 100%;
-    justify-content: space-evenly; }
+    justify-items: center; }
     .activity .card-container .card {
       position: relative;
       text-decoration: none;
@@ -868,7 +875,7 @@ figure {
         overflow: hidden;
         height: 100px; }
         .activity .card-container .card .white-title h2 {
-          font-family: Eczar, sans-serif;
+          font-family: "Poppins", monospace, sans-serif;
           opacity: 0;
           text-align: center;
           text-transform: uppercase;
@@ -907,22 +914,23 @@ figure {
         height: 100%;
         background-size: cover; }
 
+@media (max-width: 840px) {
+  .card-container {
+    grid-template-columns: 1fr !important; } }
+
 @media (max-width: 996px) {
   .activity {
     grid-template-columns: 1fr; }
     .activity .title-container h2 {
       font-size: calc(6vw + 1rem) !important; }
-    .activity .card-container {
-      width: 100%;
-      max-width: 645px;
-      justify-content: center; }
-      .activity .card-container .card {
-        margin-top: 0px !important; } }
+    .activity .card-container .card {
+      margin-top: 0px !important; } }
 
 .card-product {
   width: 100%;
   max-width: 398px;
   display: flex;
+  background-size: cover;
   height: 385px;
   padding-left: 40px;
   padding-right: 40px; }
@@ -932,11 +940,12 @@ figure {
 		height: 385px;
 		position: absolute;
 		z-index: -1;*/ }
-  .card-product .card-container {
+  .card-product .card-wrapper {
     display: flex;
     flex-direction: column;
-    transition: all 1s ease-in; }
-    .card-product .card-container .card-button a {
+    transition: all 1s ease-in;
+    justify-content: center; }
+    .card-product .card-wrapper .card-button a {
       transition: all .2s ease-in;
       padding-left: 30px;
       padding-right: 30px;
@@ -960,7 +969,7 @@ figure {
     transition: all .2s ease-in; }
     .card-product .card-title h3 {
       transition: all .2s ease-in;
-      font-family: "Eczar", serif;
+      font-family: "Poppins", monospace, serif;
       font-style: normal;
       font-weight: bold;
       font-size: 40.6671px;
@@ -979,14 +988,11 @@ figure {
       letter-spacing: 0.01em;
       text-transform: capitalize;
       color: rgba(12, 27, 51, 0.7); }
-  .card-product:hover .card-container .overlay {
-    display: block;
-    background: linear-gradient(57.07deg, rgba(0, 0, 0, 0.68) 22.65%, rgba(255, 255, 255, 0) 100.13%); }
   .card-product:hover .card-container .card-title {
     transition: all .2s ease-in; }
     .card-product:hover .card-container .card-title h3 {
       transition: all .2s ease-in;
-      font-family: Eczar, serif;
+      font-family: "Poppins", monospace, serif;
       font-style: normal;
       font-weight: bold;
       font-size: 40.6671px;
@@ -1026,10 +1032,6 @@ figure {
   z-index: 1;
   position: absolute; }
 
-@media (max-width: 1305px) {
-  .activity .card-container {
-    flex-wrap: wrap; } }
-
 .progressbar {
   position: fixed;
   top: 0;
@@ -1051,7 +1053,7 @@ section {
       user-select: none;
       margin: 120px 0; }
       .product-container .links-container ul li a {
-        font-family: "Eczar" , serif;
+        font-family: "Poppins", monospace, serif;
         font-size: 50px;
         text-decoration: none;
         -webkit-text-stroke: 1px #3a7498;
@@ -1078,13 +1080,14 @@ section {
   flex-direction: column; }
 
 .product-list-container a {
-  font-family: Eczar, serif;
+  font-family: Poppins, serif;
   color: transparent;
   -webkit-text-stroke: 1px #3A7498;
   text-decoration: none;
   font-size: 4.4vw;
   margin: auto;
   letter-spacing: 0.2vw;
+  font-weight: 800;
   line-height: 1.5; }
 
 .product-list-container a:hover {
@@ -1130,13 +1133,20 @@ section {
 .brand {
   box-sizing: border-box;
   position: relative;
-  background: url("http://localhost/buddy-belgium/wp-content/uploads/2021/03/trimming-weed-3-1024x768-1.png") no-repeat;
   background-size: cover;
   z-index: 1; }
+  .brand .brand__logo__container {
+    display: flex;
+    justify-content: center; }
+    .brand .brand__logo__container img {
+      max-width: 410px;
+      width: 100%;
+      margin: auto;
+      position: absolute;
+      z-index: -1; }
   .brand .brand-bg {
     width: 100%;
     height: 100%;
-    background: linear-gradient(0deg, #3A7498 37.5%, rgba(58, 116, 152, 0.942708) 60.42%, rgba(58, 116, 152, 0.5) 75%, rgba(58, 116, 152, 0.3) 100%);
     mix-blend-mode: normal;
     opacity: 0.8;
     position: absolute;
@@ -1149,18 +1159,18 @@ section {
   padding-top: 80px; }
 
 .brand__header__title {
-  font-family: "Eczar", monospace;
+  font-family: "Poppins", monospace;
   font-size: clamp(3rem, 5vw, 7rem);
-  color: #FFFFFF;
+  color: #3A7498;
   margin: 0 auto;
   text-align: center; }
 
 .brand__header__text {
-  color: #FFFFFF;
+  color: #0c1b33;
   margin: 32px auto;
   text-align: center;
   font-family: Poppins, sans-serif;
-  font-weight: 200;
+  font-weight: 500;
   line-height: 150%; }
   @media (max-width: 575px) {
     .brand__header__text {
@@ -1199,6 +1209,18 @@ section {
   top: -10000%;
   left: 10000%;
   transform: translateY(10000%); }
+
+.call-to-action-brand {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center; }
+  .call-to-action-brand a {
+    color: #C3D6A1;
+    font-family: Proxima Nova, sans-serif;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: 500; }
 
 .contact__wrapper {
   max-width: 1500px;
@@ -1267,19 +1289,6 @@ section {
   flex-wrap: wrap;
   width: 100%; }
 
-.call-to-action-brand {
-  width: 100%;
-  text-align: center;
-  display: flex;
-  justify-content: center; }
-  .call-to-action-brand a {
-    color: white;
-    font-family: Proxima Nova, sans-serif;
-    text-decoration: none;
-    font-size: 30px; }
-    .call-to-action-brand a:hover {
-      color: #C3D6A1; }
-
 .marques__presentation {
   overflow: hidden;
   font-weight: 300; }
@@ -1330,13 +1339,13 @@ section {
   font-family: "Poppins", monospace; }
 
 .vat-question__text {
-  font-family: "Eczar", monospace;
+  font-family: "Poppins", monospace;
   font-size: clamp(2rem, 3vw, 5rem);
   text-align: center;
   color: #C3D6A1; }
 
 .vat-question__choice {
-  font-family: "Eczar", monospace;
+  font-family: "Poppins", monospace;
   font-size: clamp(2rem, 3vw, 5rem);
   text-align: center;
   color: #3A7498;
@@ -1346,7 +1355,7 @@ section {
     outline: none; }
 
 .vat-question__slash {
-  font-family: "Eczar", monospace;
+  font-family: "Poppins", monospace;
   font-size: clamp(2rem, 3vw, 5rem);
   color: #3A7498; }
 
@@ -1357,8 +1366,19 @@ section {
   align-items: center;
   justify-content: center; }
 
+.vat-question__form {
+  flex: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; }
+  .vat-question__form input {
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 800; }
+
 .vat-number__question__text {
-  font-family: "Eczar", monospace;
+  font-family: "Poppins", monospace;
   font-size: clamp(2rem, 3vw, 5rem);
   text-align: center;
   color: #C3D6A1; }
@@ -1406,6 +1426,14 @@ section {
     opacity: 0.5; }
   .vat-number__form__submit:focus {
     outline: 0; }
+
+.asterisque {
+  width: 400px;
+  margin: 60px auto; }
+  .asterisque p {
+    text-align: center;
+    font-family: "Poppins", monospace;
+    color: #3A7498; }
 
 .secondary-navbar {
   width: 100%;
@@ -1553,7 +1581,7 @@ section {
       display: none; } }
 
 .intro__main-title {
-  font-family: "Eczar", monospace;
+  font-family: "Poppins", monospace;
   font-size: clamp(3rem, 5vw, 7rem);
   display: flex;
   flex-direction: column;
@@ -1611,7 +1639,7 @@ section {
   position: absolute;
   top: -50px;
   font-size: 10rem;
-  font-family: "Eczar", monospace;
+  font-family: "Poppins", monospace;
   color: #3A7498;
   opacity: 0.03; }
 
@@ -1639,7 +1667,7 @@ section {
   position: absolute; }
 
 .activity-page__description__title {
-  font-family: "Eczar", monospace;
+  font-family: "Poppins", monospace;
   font-size: clamp(3rem, 5vw, 7rem); }
 
 .activity-page__description__title__top {
@@ -1738,7 +1766,7 @@ section {
       opacity: 80%; } }
 
 .contact__main-title {
-  font-family: "Eczar", monospace;
+  font-family: "Poppins", monospace;
   font-size: clamp(2rem, 3vw, 5rem);
   color: #3A7498; }
   @media (min-width: 992px) {
@@ -1780,7 +1808,7 @@ section {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  font-family: "Eczar", monospace;
+  font-family: "Poppins", monospace;
   color: #3A7498;
   font-size: 24px;
   padding: 40px 0; }
@@ -1798,7 +1826,7 @@ section {
   position: fixed;
   bottom: 32px;
   left: 32px;
-  font-family: "Eczar", monospace;
+  font-family: "Poppins", monospace;
   color: #3A7498;
   font-size: 16px; }
   .marques__scroll-to-top:hover {
@@ -1849,7 +1877,7 @@ section {
   position: absolute;
   top: -50px;
   font-size: 10rem;
-  font-family: "Eczar", monospace;
+  font-family: "Poppins", monospace;
   color: #3A7498;
   opacity: 0.03; }
 

@@ -1,14 +1,22 @@
 .brand {
 	box-sizing: border-box;
 	position: relative;
-	background: url("http://localhost/buddy-belgium/wp-content/uploads/2021/03/trimming-weed-3-1024x768-1.png") no-repeat;
 	background-size: cover;
-
 	z-index: 1;
+	.brand__logo__container {
+		display: flex;
+		justify-content: center;
+		img	{
+			max-width: 410px;
+			width: 100%;
+			margin: auto;
+			position: absolute;
+			z-index: -1;
+		}
+	}
 	.brand-bg {
 		width: 100%;
 		height: 100%;
-		background: linear-gradient(0deg, #3A7498 37.5%, rgba(58, 116, 152, 0.942708) 60.42%, rgba(58, 116, 152, 0.5) 75%, rgba(58, 116, 152, 0.3) 100%);
 		mix-blend-mode: normal;
 		opacity: 0.8;
 		position: absolute;
@@ -28,17 +36,17 @@
 
 .brand__header__title {
 	@include title;
-	color: #FFFFFF;
+	color: $blue;
 	margin: 0 auto;
 	text-align: center;
 }
 
 .brand__header__text {
-	color: #FFFFFF;
+	color: rgb(12, 27, 51);
 	margin: 32px auto;
 	text-align: center;
 	font-family: Poppins, sans-serif;
-	font-weight: 200;
+	font-weight: 500;
 	line-height: 150%;
 	@include respond-below(sm) {
 		padding: 30px 20px;
@@ -90,6 +98,21 @@
 }
 
 
+
+.call-to-action-brand {
+	width: 100%;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	a {
+		color: $green;
+		font-family: Proxima Nova, sans-serif;
+		text-decoration: none;
+		font-size: 30px;
+		font-weight: 500;
+
+	}
+}
 
 
 

@@ -6,13 +6,21 @@
 
 
 h1,  h2,  h3 , .line1 , .line2 {
-	font-family: "Eczar" , sans-serif ;
+	font-family: $titleFont , sans-serif ;
 	font-weight: 1000;
 }
 
 .white{
 	color: white;
 }
+span {
+	height: 72px;
+}
+
+.line {
+	height: 90px;
+}
+
 section {
 	height: 80vh;
 }
@@ -23,7 +31,7 @@ section {
 
 
 h1 h2 {
-	font-family: 'Eczar', serif;
+	font-family: $titleFont, serif;
 }
 
 h3 {
