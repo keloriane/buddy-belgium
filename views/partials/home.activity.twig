@@ -1,0 +1,66 @@
+<section class="activity">
+  <div class="title-container">
+    <h2 class="blue">
+          <span class="indent">
+            Nos <br>
+          </span>
+      <span>
+          Différentes <br>
+          </span>
+      <span class="indent-2">
+          Activités
+          </span>
+    </h2>
+  </div>
+
+  <div class="card-container">
+
+{#    {{ dump(activity) }}#}
+
+    {% for activities in activity %}
+
+      {# <a href="activities/{{ activities.slug }}" class="card" style="background-image:url({{ Image(activities.custom.thumbnail).src }}) ">
+      <div class="hero-blurr">
+        <div class="exclusion"></div>
+        <div class="hero"></div>
+        <div class="white-title">
+          <h2>
+            {{ activities.titleTop }}
+            {{ activities.titleBottom }}
+          </h2>
+        </div>
+      </div>
+    </a>
+      #}
+
+      <div class="card-product" data-image = {{ Image(activities.custom.thumbnail).src  }}>
+        <div class="overlay">
+
+        </div>
+        <div class="card-container">
+          <div class="card-title">
+            <h3>
+              {{ activities.titleTop }}
+              <br>
+              {{ activities.titleBottom }}
+            </h3>
+
+          </div>
+          <div class="card-text-content">
+            <p>
+              {{ activities.excerpt }}
+            </p>
+          </div>
+
+        <div class="card-button">
+          <a class="call-to-action" href="activities/{{ activities.slug }}">
+            Explorer
+          </a>
+        </div>
+        </div>
+      </div>
+    {% endfor %}
+
+  </div>
+</section>
+

@@ -1,24 +1,29 @@
 #parcours {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr 1.5fr;
 	grid-column-gap: $gap;
-	width: 90%;
+	width: 70%;
 	margin: 200px auto;
 
 	.info-container {
 		display: flex;
 		flex-direction: column;
-
-
-		h2 {
-			font-size: calc(3vw + 1rem);
+		align-self: flex-start;
+		.section-title {
 
 			span {
 				overflow: hidden;
 				display: flex;
+
+				h2 {
+					font-size: calc(3vw + 1rem);
+				}
 			}
 
 		}
+
+
+
 
 		h3 {
 			text-transform: uppercase;
@@ -30,10 +35,10 @@
 			width: 100%;
 			max-width: 396px;
 			margin-top: 60px;
-			align-self: flex-end;
+			align-self: center;
 
 			p {
-				font-family: $monoFont;
+				font-family: $mainFont;
 				font-style: normal;
 				font-weight: bold;
 				font-size: 16px;
@@ -75,8 +80,10 @@
 		.inner-text {
 			width: 100%;
 			max-width: 345px;
+			overflow: hidden;
+			height: 280px;
 			p {
-				font-family: $monoFont;
+				font-family: $mainFont;
 				font-style: normal;
 				font-weight: normal;
 				font-size: 16px;
@@ -109,11 +116,14 @@
 			.info-text {
 				align-self: center;
 				margin-bottom: 50px;
+				overflow: hidden;
 			}
 		}
 		.text-container {
 			.inner-text {
 				max-width: 400px;
+				overflow: hidden;
+				height: 280px;
 			}
 		}
 

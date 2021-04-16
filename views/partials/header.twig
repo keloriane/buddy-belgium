@@ -9,6 +9,55 @@
   <title>Document</title>
 </head>
 <body class="{{ body_class }}">
+{#<div class="menu-nav">#}
+{#  <div class="title">#}
+{#    <h1>Buddy Belgium</h1>#}
+{#  </div>#}
+{#  <div class="logo-menu-container">#}
+
+{#  </div>#}
+{#  <div class="menu-action" id="burger">#}
+{#    <div>#}
+{#      menu <span class="green">.</span>#}
+{#    </div>#}
+{#  </div>#}
+{#</div>#}
+
+{#<nav id="menu-burger">#}
+{#  <div class="menu-action close" id="burger">#}
+{#    <div id="close">#}
+{#      close <span class="green">.</span>#}
+{#    </div>#}
+{#  </div>#}
+{#  <ul class="nav-main">#}
+
+{#    {% for item in menu.items %}#}
+{#      <li class="nav-main-item {{ item.classes|join(' ') }}">#}
+{#        <a class="nav-main-link" href="{{ item.link }}">{{ item.title }}</a>#}
+{#        {% if item.children %}#}
+{#          <ul class="nav-drop">#}
+{#            {% for child in item.children %}#}
+{#              <li class="nav-drop-item">#}
+{#                <a href="{{ child.link }}">{{ child.title }}</a>#}
+{#              </li>#}
+{#            {% endfor %}#}
+{#          </ul>#}
+{#        {% endif %}#}
+{#      </li>#}
+{#    {% endfor %}#}
+{#  </ul>#}
+{#</nav>#}
+
+
+<div class="popup-message">
+  <div class="container">
+    <h3>
+      <a href="{{ site.link }}/contact">
+        Commandez votre échantillon gratuit
+      </a>
+    </h3>
+  </div>
+</div>
 <div id="viewport">
   <div id="scroll-container">
 <main id="barba-wrapper" data-barba="wrapper">

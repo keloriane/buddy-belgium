@@ -1,32 +1,50 @@
 {% extends getf('base') %}
 {% import getf('button') as button %}
 
+
 {% block body %}
   {% include getf('menu') %}
 
-  <div class="home" data-barba="container" data-barba-namespace="home">
+
+
+  <div class="home">
     <div class="home-wrapper">
+    <div class="social-media">
+      <ul>
+        <li>
+          <a href=""><img src="{{ Image(acf.custom.facebook).src }}" alt=""></a>
+
+        </li>
+        <li>
+          <a href=""><img src="{{ Image(acf.custom.instagram).src }}" alt=""></a>
+
+        </li>
+        <li>
+          <a href=""><img src="{{ Image(acf.custom.twitter).src }}" alt=""></a>
+        </li>
+      </ul>
+    </div>
       <section class="hero-wrapper">
         <div class="hero-title">
           <h1>
             <div class="green indent line-content">
               <div class="line">
-              The first <br>
+                The first <br>
               </div>
             </div>
             <div class="green line-content">
               <div class="line">
-              European <br>
+                European <br>
               </div>
             </div>
             <div class="blue line-content">
               <div class="line">
-              Hub for legal <br>
+                Hub for legal <br>
               </div>
             </div>
             <div class="blue indent line-content">
               <div class="line">
-              Cannabis.
+                Cannabis.
               </div>
             </div>
           </h1>
@@ -36,12 +54,11 @@
         </div>
       </section>
     </div>
+    
+    {% include getf('home.parcours') %}
+    {% include getf('home.activity') %}
+    {% include getf('home.category') %}
+    {% include getf('home.marques') %}
+    {% include getf('home.contact') %}
   </div>
-
-
-{% include getf('parcours') %}
-{% include getf('activity') %}
-{% include getf('product') %}
-{% include getf('marques') %}
-
 {% endblock body %}

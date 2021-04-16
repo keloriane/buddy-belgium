@@ -1,46 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Cousine:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Eczar:wght@700&family=Poppins:wght@600;700&display=swap');
-body {
-	font-family: 'Eczar', serif;
-	overflow-x: hidden;
-	background-color: #FDFDFB;
-	overflow-y: scroll;
 
 
-
+#product {
+	height: inherit;
 }
 
 
+h1,  h2,  h3 , .line1 , .line2 {
+	font-family: "Eczar" , sans-serif ;
+	font-weight: 1000;
+}
+
+.white{
+	color: white;
+}
 section {
 	height: 80vh;
 }
- /* Smooth Scrolling */
-#viewport {
-	overflow: hidden;
-	position: fixed;
-	height: 100%;
-	width: 100%;
-	top: 0;
-	left: 0;
 
-}
+/* Smooth Scrolling */
 
-#scroll-container {
-	position: absolute;
-	overflow: hidden;
-	width: 100%;
-	will-change: transform;
-	backface-visibility: hidden;
-}
+
 
 
 h1 h2 {
-	font-family: 'Eczar' , serif;
+	font-family: 'Eczar', serif;
 }
 
 h3 {
-	font-family: 'Cousine' , monospace;
+	font-family: 'Cousine', monospace;
 }
+
 h2 {
 	font-size: calc(3vw + 1rem);
 
@@ -55,10 +44,40 @@ h2 {
 .green {
 	color: $green;
 }
+
 .blue {
 	color: $blue;
 }
 
 .indent-2 {
-text-indent: calc( 25px * 1.5);
+	text-indent: calc(25px * 1.5);
+}
+
+
+footer {
+	height: 200px;
+	width: 100vw;
+	background-color: $blue;
+
+}
+body {
+	overflow-x: hidden;
+}
+.menu-nav {
+	top: 0;
+}
+
+.category__slider__item {
+	display: flex;
+	justify-content: center;
+	img {
+		
+		min-height: 200px;
+		max-height: 200px;
+	}
+}
+
+.category__headline__wrapper-image {
+	display: flex;
+	align-items: center;
 }

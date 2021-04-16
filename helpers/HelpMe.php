@@ -16,6 +16,26 @@ class HelpMe
 	{
 		return $_ENV['PUBLIC_IMAGES'];
 	}
+
+	public static function redirect($path)
+	{
+		$base_url = get_home_url();
+		header("Location: $base_url" . $path);
+	}
+
+	public static function get_request_value($name)
+	{
+		return isset($_REQUEST[$name]) ? $_REQUEST[$name] : false;
+	}
+
+	public static function protectedRoute($condition, $goToRoute, $errorPage = 'pages/Unauthorized.php')
+	{
+		if ($condition) {
+			Routes::load($errorPage);
+		} else {
+			$goToRoute();
+		}
+	}
 }
 
 ?>

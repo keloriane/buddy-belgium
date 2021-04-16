@@ -1,7 +1,7 @@
 <?php
 
 define('PROJECT_NAME', 'buddy-belgium');
-define('THEME_NAME', 'swift');
+define('THEME_NAME', 'buddy-belgium');
 
 $env_variables = new stdClass();
 $project_root = $_SERVER['DOCUMENT_ROOT'];

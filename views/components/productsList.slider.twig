@@ -1,0 +1,11 @@
+{% macro productsList(products) %}
+  <div class="category__slider swiper-container">
+    <div class="swiper-wrapper">
+      {% for product in products %}
+        <a href="{{ site.url }}/products/{{ product.slug }}" class="category__slider__item swiper-slide">
+          <img src={{ Image(product.product_image).src }}>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+{% endmacro %}

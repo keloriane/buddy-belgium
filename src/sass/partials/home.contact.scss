@@ -1,0 +1,101 @@
+.contact__wrapper {
+	max-width: 1500px;
+	margin: 0 auto;
+}
+
+.contact__title {
+	font-size: 67px;
+
+	.line1 {
+		color: $blue;
+	}
+
+	.line2 {
+		color: $green;
+	}
+
+	@media (min-width: 780px) {
+		margin-top: 64px;
+		margin-left: 80px;
+	}
+}
+.contact {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	.form__container {
+		max-width: 1280px;
+		width: 100%;
+		margin: auto;
+		height: 800px;
+		min-height: auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		p {
+			display: flex;
+			flex-direction: column;
+
+		}
+		form {
+			display: flex;
+			flex-direction: column;
+			padding: 25px;
+			width: 100%;
+			align-content: space-evenly;
+			justify-content: space-around;
+			font-family: "Proxima Nova" , sans-serif;
+			font-weight: 500;
+			font-size: 19px;
+			color: $blue;
+
+
+			input {
+				width: 100%;
+				max-width: 400px;
+				height: 40px;
+				border: 2px solid $green;
+				font-family: "Proxima Nova" , sans-serif;
+
+			}
+			textarea {
+				height: 300px;
+				max-width: 840px;
+				font-family: "Proxima Nova" , sans-serif;
+				border: 2px solid $green;
+				width: 100%;
+
+			}
+			.sub-button {
+				max-width: 120px;
+				background: none;
+				border: none;
+				text-transform: uppercase;
+				color: $blue;
+				font-weight: 800;
+
+			}
+		}
+	}
+}
+
+.block-input {
+	justify-content: space-between;
+	flex-wrap: wrap;
+	width: 100%;
+}
+.call-to-action-brand {
+	width: 100%;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	a {
+		color: white;
+		font-family: Proxima Nova, sans-serif;
+		text-decoration: none;
+		font-size: 30px;
+		&:hover {
+			color: $green;
+		}
+	}
+}

@@ -1,16 +1,13 @@
 <?php
-/*** Template Name: Home Page*/
+/** Template Name: Home Page*/
 
 $context = Timber::context();
-
-
-$context['product'] = Gimy::customType(['post_type' => 'products']);
-
-
-
-
-
-
-
-Timber::render( '/index.twig',$context);
+$product = Gimy::customType(['post_type' => 'category']);
+$brands = Gimy::customType(['post_type' => 'marque']);
+$activity = Gimy::customType(['post_type' => 'activities']);
+$context["acf"] = new Timber\Post();
+$context['product'] = $product;
+$context['brands'] = $brands;
+$context['activity'] = $activity;
+Timber::render('/index.twig', $context);
 

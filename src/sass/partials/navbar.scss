@@ -1,0 +1,39 @@
+@mixin link {
+	margin-top: 8px;
+	margin-left: 8px;
+	text-transform: uppercase;
+	font-family: $mainFont;
+	font-weight: 600;
+	color: $blue;
+}
+
+.navbar {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.navbar__backlink {
+	@include link;
+	display: inline-block;
+}
+
+.navbar__logo-wrapper {
+	width: 64px;
+	img {
+		width: 100%;
+	}
+}
+
+.navbar__menu{
+	@include link;
+	margin-right: 8px;
+}
+
+
+
+
+#burger {
+	z-index: 10000;
+	position: fixed;
+}
