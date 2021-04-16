@@ -5,41 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4ea9f56-cfe0-4785-a501-546d584a348a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/views/pages/single_product.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/custom_types.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/custom_types.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/router.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/router.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/marques.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/marques.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/single_products.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/frontend-bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend-bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/frontend-bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend-bundle.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/frontend.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/frontend.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/category.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/category.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/gsap/smoothScroll.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/gsap/smoothScroll.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/components/marques.slider.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/components/marques.slider.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/global.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/pages/contact.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/pages/contact.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/pages/home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/pages/home.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/partials/home.brands.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/partials/home.brands.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/partials/home.contact.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/partials/home.contact.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/partials/home.product.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/partials/home.product.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/components/marques.slider.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/components/marques.slider.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/components/productsList.slider.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/components/productsList.slider.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/contact.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/contact.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/customers.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/customers.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/index.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/index.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/product-single.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/products.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/category.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/partials/activity.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/activity.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/partials/header.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/header.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/partials/home.category.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/home.category.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/partials/home.contact.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/home.contact.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/partials/home.parcours.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/home.parcours.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +32,6 @@
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
       <path value="$PROJECT_DIR$/vendor/digitalnature/php-ref" />
-      <path value="$PROJECT_DIR$/vendor/ddeboer/vatin" />
     </include_path>
   </component>
   <component name="ProjectId" id="1lsYKhZrlXa6tnXPyPa0qCjyRBT" />
@@ -80,33 +45,31 @@
     <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
-    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pages" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="prettierjs.PrettierConfiguration.Package" value="D:\wamp64\www\buddy\wp-content\themes\buddy-belgium\node_modules\prettier" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\wamp64\www\buddy-belgium\wp-content\themes\buddy-belgium\pages" />
-      <recent name="D:\wamp64\www\buddy-belgium\wp-content\themes\buddy-belgium\src\js" />
-      <recent name="D:\wamp64\www\buddy-belgium\wp-content\themes\buddy-belgium\views\components" />
-      <recent name="D:\wamp64\www\buddy-belgium\wp-content\themes\buddy-belgium\src\sass\partials" />
-      <recent name="D:\wamp64\www\buddy-belgium\wp-content\themes\buddy-belgium\views\partials" />
+      <recent name="D:\wamp64\www\landing\wp-content\themes\landing\config" />
+      <recent name="D:\wamp64\www\landing\wp-content\themes\landing\helpers" />
+      <recent name="D:\wamp64\www\landing\wp-content\themes\landing\src\js" />
+      <recent name="D:\wamp64\www\landing\wp-content\themes\landing\src\sass\pages" />
+      <recent name="D:\wamp64\www\landing\wp-content\themes\landing\views\pages" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\wamp64\www\buddy-belgium\wp-content\themes\buddy-belgium\views\pages" />
-      <recent name="D:\wamp64\www\buddy-belgium\wp-content\themes\buddy-belgium\views\partials" />
       <recent name="D:\wamp64\www\landing\wp-content\themes\landing" />
       <recent name="D:\wamp64\www\landing\wp-content\themes\landing\pages" />
       <recent name="D:\wamp64\www\landing\wp-content\themes\landing\config" />
+      <recent name="D:\wamp64\www\landing\wp-content\themes\landing\helpers" />
+      <recent name="D:\wamp64\www\landing\wp-content\themes\landing\src\js\gsap" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -132,43 +95,9 @@
       <workItem from="1609148545357" duration="3874000" />
       <workItem from="1609153297822" duration="59000" />
       <workItem from="1609247304684" duration="2446000" />
-      <workItem from="1611656201654" duration="101000" />
-      <workItem from="1611656393612" duration="778000" />
-      <workItem from="1611657346903" duration="9273000" />
-      <workItem from="1611736288254" duration="912000" />
-      <workItem from="1611758550908" duration="7238000" />
-      <workItem from="1611827556749" duration="14163000" />
-      <workItem from="1611910934398" duration="1383000" />
-      <workItem from="1611915450734" duration="12195000" />
-      <workItem from="1611999259775" duration="23930000" />
-      <workItem from="1612088421823" duration="8930000" />
-      <workItem from="1612172786735" duration="1250000" />
-      <workItem from="1612350423640" duration="15490000" />
-      <workItem from="1612427072002" duration="32869000" />
-      <workItem from="1612625394511" duration="6222000" />
-      <workItem from="1612773171578" duration="20760000" />
-      <workItem from="1613034060814" duration="1994000" />
-      <workItem from="1613050909746" duration="1123000" />
-      <workItem from="1613052842891" duration="2098000" />
-      <workItem from="1613317728210" duration="812000" />
-      <workItem from="1613642311720" duration="8579000" />
-      <workItem from="1613660662897" duration="1269000" />
-      <workItem from="1613724402904" duration="591000" />
-      <workItem from="1613985728042" duration="752000" />
-      <workItem from="1613988089276" duration="1106000" />
-      <workItem from="1616075076349" duration="12057000" />
-      <workItem from="1616089356698" duration="9020000" />
-      <workItem from="1616142304686" duration="8123000" />
-      <workItem from="1616162052465" duration="4766000" />
-      <workItem from="1616251275649" duration="560000" />
-      <workItem from="1616400855900" duration="20000" />
-      <workItem from="1616609193938" duration="909000" />
-      <workItem from="1616665712435" duration="687000" />
-      <workItem from="1616748470290" duration="642000" />
-      <workItem from="1617361012119" duration="4973000" />
-      <workItem from="1617719000649" duration="13989000" />
-      <workItem from="1617801739913" duration="3315000" />
-      <workItem from="1617805954104" duration="13000" />
+      <workItem from="1617958708422" duration="611000" />
+      <workItem from="1617984053433" duration="590000" />
+      <workItem from="1618045553614" duration="10000" />
     </task>
     <servers />
   </component>
