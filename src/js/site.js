@@ -1,25 +1,22 @@
-import {intro} from "./intro";
-import {marques} from "./marques";
-import {category} from "./category";
-
+import { intro } from './intro';
+import { marques } from './marques';
+import { category } from './category';
+import './gsap/home.gsap';
 
 export const site = {
   _loaded: () => {
     document.addEventListener('DOMContentLoaded', () => {
       intro.init();
       marques.init();
-      category.init()
+      category.init();
     });
   },
 
   _beforeLeaving: () => {
-    window.addEventListener('beforeunload', () => {
-    });
+    window.addEventListener('beforeunload', () => {});
   },
 
   logP: () => {
-    console.log('log parcours')
-  }
+    console.log('log parcours');
+  },
 };
-
-

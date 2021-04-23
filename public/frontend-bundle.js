@@ -14704,6 +14704,202 @@ function updateSlidesProgress(translate) {
 
 /***/ }),
 
+/***/ "./node_modules/swiper/esm/components/navigation/navigation.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/swiper/esm/components/navigation/navigation.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _utils_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils/dom */ "./node_modules/swiper/esm/utils/dom.js");
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/utils */ "./node_modules/swiper/esm/utils/utils.js");
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+
+
+var Navigation = {
+  update: function update() {
+    // Update Navigation Buttons
+    var swiper = this;
+    var params = swiper.params.navigation;
+    if (swiper.params.loop) return;
+    var _swiper$navigation = swiper.navigation,
+        $nextEl = _swiper$navigation.$nextEl,
+        $prevEl = _swiper$navigation.$prevEl;
+
+    if ($prevEl && $prevEl.length > 0) {
+      if (swiper.isBeginning) {
+        $prevEl.addClass(params.disabledClass);
+      } else {
+        $prevEl.removeClass(params.disabledClass);
+      }
+
+      $prevEl[swiper.params.watchOverflow && swiper.isLocked ? 'addClass' : 'removeClass'](params.lockClass);
+    }
+
+    if ($nextEl && $nextEl.length > 0) {
+      if (swiper.isEnd) {
+        $nextEl.addClass(params.disabledClass);
+      } else {
+        $nextEl.removeClass(params.disabledClass);
+      }
+
+      $nextEl[swiper.params.watchOverflow && swiper.isLocked ? 'addClass' : 'removeClass'](params.lockClass);
+    }
+  },
+  onPrevClick: function onPrevClick(e) {
+    var swiper = this;
+    e.preventDefault();
+    if (swiper.isBeginning && !swiper.params.loop) return;
+    swiper.slidePrev();
+  },
+  onNextClick: function onNextClick(e) {
+    var swiper = this;
+    e.preventDefault();
+    if (swiper.isEnd && !swiper.params.loop) return;
+    swiper.slideNext();
+  },
+  init: function init() {
+    var swiper = this;
+    var params = swiper.params.navigation;
+    if (!(params.nextEl || params.prevEl)) return;
+    var $nextEl;
+    var $prevEl;
+
+    if (params.nextEl) {
+      $nextEl = (0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.default)(params.nextEl);
+
+      if (swiper.params.uniqueNavElements && typeof params.nextEl === 'string' && $nextEl.length > 1 && swiper.$el.find(params.nextEl).length === 1) {
+        $nextEl = swiper.$el.find(params.nextEl);
+      }
+    }
+
+    if (params.prevEl) {
+      $prevEl = (0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.default)(params.prevEl);
+
+      if (swiper.params.uniqueNavElements && typeof params.prevEl === 'string' && $prevEl.length > 1 && swiper.$el.find(params.prevEl).length === 1) {
+        $prevEl = swiper.$el.find(params.prevEl);
+      }
+    }
+
+    if ($nextEl && $nextEl.length > 0) {
+      $nextEl.on('click', swiper.navigation.onNextClick);
+    }
+
+    if ($prevEl && $prevEl.length > 0) {
+      $prevEl.on('click', swiper.navigation.onPrevClick);
+    }
+
+    (0,_utils_utils__WEBPACK_IMPORTED_MODULE_1__.extend)(swiper.navigation, {
+      $nextEl: $nextEl,
+      nextEl: $nextEl && $nextEl[0],
+      $prevEl: $prevEl,
+      prevEl: $prevEl && $prevEl[0]
+    });
+  },
+  destroy: function destroy() {
+    var swiper = this;
+    var _swiper$navigation2 = swiper.navigation,
+        $nextEl = _swiper$navigation2.$nextEl,
+        $prevEl = _swiper$navigation2.$prevEl;
+
+    if ($nextEl && $nextEl.length) {
+      $nextEl.off('click', swiper.navigation.onNextClick);
+      $nextEl.removeClass(swiper.params.navigation.disabledClass);
+    }
+
+    if ($prevEl && $prevEl.length) {
+      $prevEl.off('click', swiper.navigation.onPrevClick);
+      $prevEl.removeClass(swiper.params.navigation.disabledClass);
+    }
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'navigation',
+  params: {
+    navigation: {
+      nextEl: null,
+      prevEl: null,
+      hideOnClick: false,
+      disabledClass: 'swiper-button-disabled',
+      hiddenClass: 'swiper-button-hidden',
+      lockClass: 'swiper-button-lock'
+    }
+  },
+  create: function create() {
+    var swiper = this;
+    (0,_utils_utils__WEBPACK_IMPORTED_MODULE_1__.bindModuleMethods)(swiper, {
+      navigation: _extends({}, Navigation)
+    });
+  },
+  on: {
+    init: function init(swiper) {
+      swiper.navigation.init();
+      swiper.navigation.update();
+    },
+    toEdge: function toEdge(swiper) {
+      swiper.navigation.update();
+    },
+    fromEdge: function fromEdge(swiper) {
+      swiper.navigation.update();
+    },
+    destroy: function destroy(swiper) {
+      swiper.navigation.destroy();
+    },
+    click: function click(swiper, e) {
+      var _swiper$navigation3 = swiper.navigation,
+          $nextEl = _swiper$navigation3.$nextEl,
+          $prevEl = _swiper$navigation3.$prevEl;
+
+      if (swiper.params.navigation.hideOnClick && !(0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.default)(e.target).is($prevEl) && !(0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.default)(e.target).is($nextEl)) {
+        var isHidden;
+
+        if ($nextEl) {
+          isHidden = $nextEl.hasClass(swiper.params.navigation.hiddenClass);
+        } else if ($prevEl) {
+          isHidden = $prevEl.hasClass(swiper.params.navigation.hiddenClass);
+        }
+
+        if (isHidden === true) {
+          swiper.emit('navigationShow');
+        } else {
+          swiper.emit('navigationHide');
+        }
+
+        if ($nextEl) {
+          $nextEl.toggleClass(swiper.params.navigation.hiddenClass);
+        }
+
+        if ($prevEl) {
+          $prevEl.toggleClass(swiper.params.navigation.hiddenClass);
+        }
+      }
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/swiper/esm/modules/observer/observer.js":
 /*!**************************************************************!*\
   !*** ./node_modules/swiper/esm/modules/observer/observer.js ***!
@@ -15390,26 +15586,29 @@ gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().to(['.crea', '.ser'], {
     end: 'bottom bottom'
   }
 });
-var cards = document.querySelectorAll('.card');
+var cards = document.querySelectorAll('.card-product');
 var cardArray = gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().utils.toArray(cards);
 var productCards = document.querySelectorAll('.card-product');
-productCards.forEach(function (activity) {
+/*productCards.forEach((activity) => {
   activity.addEventListener('mouseenter', function (e) {
-    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().to(activity, {
-      duration: 0.05,
-      backgroundImage: "url(".concat(e.target.dataset.image, ")")
-    });
-    /*
+    gsap.to(activity, { duration: 0.05, backgroundImage: `url(${e.target.dataset.image})` });
+    gsap.to('.overlay', { duration: 0.05, backgroundColor: 'rgba(255,255, 255, 0.8)' });
+    /!*
+    gsap.to('.card-title h3', { duration: 0.05, mixBlendMode: 'difference' });
+  *!/
+
+    /!*
     gsap.fromTo(activity, { duration: 15, backgroundSize: '100%' }, { duration: 130, backgroundSize: '350%' });
-    */
-  });
+*!/
+  });*/
+
+/*
   activity.addEventListener('mouseleave', function (e) {
-    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().to(activity, {
-      duration: 0.2,
-      backgroundImage: 'none'
-    });
+    gsap.to(activity, { duration: 0.2, backgroundImage: 'none' });
   });
 });
+*/
+
 cards.forEach(function (link, e) {
   link.addEventListener('mouseenter', createHover);
   link.addEventListener('mouseleave', createHover);
@@ -15473,6 +15672,34 @@ close[0].addEventListener('click', function () {
   } else if (isOpen === false) {
     menu.style.display = 'none';
   }
+});
+
+/***/ }),
+
+/***/ "./src/js/gsap/home.gsap.js":
+/*!**********************************!*\
+  !*** ./src/js/gsap/home.gsap.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap/dist/gsap */ "./node_modules/gsap/dist/gsap.js");
+/* harmony import */ var gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__);
+
+var heroAnimation = gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
+  paused: true
+});
+var homeWrapper = document.getElementsByClassName('home-wrapper')[0];
+var lines = document.querySelectorAll('.line-span');
+window.addEventListener('load', function (e) {
+  gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.from(lines, {
+    stagger: 0.05,
+    duration: 0.8,
+    y: 200,
+    rotation: 4,
+    ease: 'Power4.easOut'
+  });
 });
 
 /***/ }),
@@ -15614,6 +15841,8 @@ function createHover(e) {
     var tl = gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline();
     tl.set(lInside, {
       backgroundImage: "url(".concat(imagelarge, ")")
+    }).set(lInside, {
+      backgroundRepeat: 'no-repeat'
     }).to(e.target, {
       color: '#3A7498',
       autoAlpha: 1
@@ -15851,7 +16080,7 @@ var intro = {
     }
   },
   setVatInputMessage: function setVatInputMessage(isValid, vat_number) {
-    if (!isValid && vat_number !== "") {
+    if (!isValid && vat_number !== '') {
       _html__WEBPACK_IMPORTED_MODULE_0__.html.setInner(this.message, 'wrong vat number');
       this.setVatInputErrorClasses();
       this.submit_button.disabled = true;
@@ -15905,17 +16134,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "marques": () => /* binding */ marques
 /* harmony export */ });
 /* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/esm/components/core/core-class.js");
-/* harmony import */ var gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap/dist/gsap */ "./node_modules/gsap/dist/gsap.js");
-/* harmony import */ var gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! gsap/ScrollToPlugin */ "./node_modules/gsap/ScrollToPlugin.js");
+/* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/esm/components/navigation/navigation.js");
+/* harmony import */ var gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! gsap/dist/gsap */ "./node_modules/gsap/dist/gsap.js");
+/* harmony import */ var gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! gsap/ScrollToPlugin */ "./node_modules/gsap/ScrollToPlugin.js");
 /* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helpers */ "./src/js/helpers.js");
 
 
 
 
+
+
+
+swiper__WEBPACK_IMPORTED_MODULE_1__.default.use([swiper__WEBPACK_IMPORTED_MODULE_2__.default]);
+var swiper = new swiper__WEBPACK_IMPORTED_MODULE_1__.default('.swiper-container', {
+  pagination: {
+    el: '.swiper-pagination',
+    type: 'progressbar'
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  }
+});
 var marques = {
   init: function init() {
     if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.includeJs)('marques')) {
+      console.log('qoivnqoivnosicnqosicnqsoicxn', arrow);
       this.configSlider();
       this.scrollToBrands();
       this.scrollToTop();
@@ -15923,38 +16168,14 @@ var marques = {
       this.displayScrollToTop(false);
     }
   },
-  configSlider: function configSlider() {
-    var swiper = new swiper__WEBPACK_IMPORTED_MODULE_1__.default('.swiper-container', {
-      slidesPerView: 3,
-      spaceBetween: 10,
-      // init: false,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true
-      },
-      breakpoints: {
-        '@0.00': {
-          slidesPerView: 2
-        },
-        '@0.75': {
-          slidesPerView: 2
-        },
-        '@1.00': {
-          slidesPerView: 2
-        },
-        '@1.50': {
-          slidesPerView: 2
-        }
-      }
-    });
-  },
   scrollToBrands: function scrollToBrands() {
     var _this = this;
 
-    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_2__.gsap.registerPlugin(gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_3__.default);
+    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_3__.gsap.registerPlugin(gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_4__.default);
     var brands = document.querySelectorAll('.marques__scroll-menu__list__link');
     brands.forEach(function (brand) {
       brand.addEventListener('click', function (e) {
+        console.log('click scroll');
         e.preventDefault();
         var sectionId = '#' + brand.outerText;
 
@@ -15965,7 +16186,7 @@ var marques = {
   scrollToTop: function scrollToTop() {
     var _this2 = this;
 
-    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_2__.gsap.registerPlugin(gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_3__.default);
+    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_3__.gsap.registerPlugin(gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_4__.default);
     var link = document.querySelector('.marques__scroll-to-top');
     link.addEventListener('click', function (e) {
       e.preventDefault();
@@ -15977,10 +16198,10 @@ var marques = {
   },
   displayScrollToTop: function displayScrollToTop(display) {
     var link = document.querySelector('.marques__scroll-to-top');
-    link.style.display = display ? "block" : "none";
+    link.style.display = display ? 'block' : 'none';
   },
   scrollTo: function scrollTo(el, duration, _scrollTo) {
-    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_2__.gsap.to(window, {
+    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_3__.gsap.to(window, {
       duration: duration,
       scrollTo: _scrollTo
     });
@@ -16003,6 +16224,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _intro__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./intro */ "./src/js/intro.js");
 /* harmony import */ var _marques__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./marques */ "./src/js/marques.js");
 /* harmony import */ var _category__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./category */ "./src/js/category.js");
+/* harmony import */ var _gsap_home_gsap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./gsap/home.gsap */ "./src/js/gsap/home.gsap.js");
+
 
 
 

@@ -11,7 +11,6 @@ const smallImage = document.querySelector('.portfolio__image--s');
 const lInside = document.querySelector('.portfolio__image--l .image_inside');
 const sInside = document.querySelector('.portfolio__image--s .image_inside');
 
-
 function initHover() {
   allLinks.forEach((link) => {
     link.addEventListener('mouseenter', createHover);
@@ -68,6 +67,7 @@ function createHover(e) {
     const allSiblings = allLinks.filter((item) => item !== e.target);
     const tl = gsap.timeline();
     tl.set(lInside, { backgroundImage: `url(${imagelarge})` })
+      .set(lInside, { backgroundRepeat: 'no-repeat' })
       .to(e.target, { color: '#3A7498', autoAlpha: 1 })
       .set(allSiblings, { autoAlpha: 0.3, color: 'transparent', delay: -1 })
       .to(largeImage, { duration: 0.4, autoAlpha: 1 })

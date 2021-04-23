@@ -1,8 +1,25 @@
+.brand-bg {
+	background: rgba(58, 116, 152 , .7) ;
+}
+
+	.brand__header__title {
+		h2 {
+		color: white;
+
+		}
+
+	}
+	.brand__header__text {
+		p {
+			color: white;
+		}
+	}
 .brand {
 	box-sizing: border-box;
 	position: relative;
 	background-size: cover;
 	z-index: 1;
+
 	.brand__logo__container {
 		display: flex;
 		justify-content: center;

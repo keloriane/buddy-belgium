@@ -2,6 +2,19 @@
 .contact {
 	position: relative;
 	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	.form__container {
+		display: flex;
+		flex-direction: column;
+
+		h2 {
+			font-size: clamp(3.5rem, 5vw, 7rem);
+			text-transform: uppercase;
+			text-align: center;
+
+		}
+	}
 }
 
 .contact__top-center-logo {

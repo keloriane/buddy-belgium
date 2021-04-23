@@ -7,7 +7,6 @@ $products = Gimy::customType(['post_type' => 'products']);
 $customProduct = new stdClass();
 $brand_products =  [];
 
-r($products);
 
 foreach ($brands as $brand) {
 	$currentBrand = new stdClass();
@@ -24,6 +23,7 @@ foreach ($brands as $brand) {
 	}
 	$brand_products[] = $currentBrand;
 }
+
 
 $context['brands'] = $brand_products;
 Timber::render('/marques.twig', $context);

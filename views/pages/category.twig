@@ -1,7 +1,8 @@
 {% extends getf('base') %}
 {% import getf('productsList.slider') as slider %}
 {% block body %}
-  <div id="category">
+  <section class="grey">
+  <div id="category" >
     <div class="category__headline">
       <div class="category__headline__wrapper-image">
         <img class="category__headline__image" src="{{ Image(category.image).src }}" alt="">
@@ -25,6 +26,8 @@
 
     </div>
   </div>
+
+  </section>
 {% endblock body %}
 
 

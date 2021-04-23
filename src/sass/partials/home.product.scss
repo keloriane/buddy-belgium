@@ -40,13 +40,14 @@ section {
 
 .product {
 	margin: 100px auto;
-	width: 80%;
+	width: 100%;
 	.title-container {
 		margin-top: 100px;
 		margin-bottom: 100px;
 	}
 	h2 {
 		text-align: center;
+		color: $blue;
 	}
 }
 .portfolio .chapter {
@@ -62,7 +63,7 @@ section {
 	color: transparent;
 	-webkit-text-stroke: 1px $blue;
 	text-decoration: none;
-	font-size: 4.4vw;
+	font-size: 3.4vw;
 	margin: auto;
 	letter-spacing: 0.2vw;
 	font-weight: 800;

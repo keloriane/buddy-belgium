@@ -605,11 +605,18 @@ h1, h2, h3, .line1, .line2 {
   font-family: "Poppins", monospace, sans-serif;
   font-weight: 1000; }
 
+.grey {
+  background-color: #f3f6ff;
+  padding-top: 40px; }
+
+#main__site {
+  min-height: 100vh; }
+
 .white {
   color: white; }
 
 span {
-  height: 72px; }
+  height: 100px; }
 
 .line {
   height: 90px; }
@@ -618,6 +625,10 @@ section {
   height: 80vh; }
 
 /* Smooth Scrolling */
+@media (max-width: 680px) {
+  span {
+    height: 68px; } }
+
 h1 h2 {
   font-family: "Poppins", monospace, serif; }
 
@@ -843,6 +854,27 @@ body {
       overflow: hidden;
       height: 280px; } }
 
+.region h2 {
+  overflow: hidden; }
+
+.region .brand__header__text {
+  display: flex;
+  justify-content: space-around;
+  align-items: center; }
+
+.region .flag__img {
+  height: 50px; }
+
+.elsewhere {
+  text-align: center; }
+  .elsewhere a {
+    font-weight: 800;
+    color: #C3D6A1;
+    text-transform: uppercase;
+    font-family: "Poppins", monospace;
+    font-size: 25px;
+    text-decoration: none; }
+
 figure {
   display: flex; }
 
@@ -857,7 +889,7 @@ figure {
   height: inherit; }
   .activity .card-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     width: 100%;
     justify-items: center; }
     .activity .card-container .card {
@@ -931,9 +963,12 @@ figure {
   max-width: 398px;
   display: flex;
   background-size: cover;
+  margin-top: 20px;
   height: 385px;
   padding-left: 40px;
-  padding-right: 40px; }
+  padding-right: 40px;
+  transition: .3s ease-in;
+  position: relative; }
   .card-product .overlay {
     /*	background: linear-gradient(57.07deg, rgba(0, 0, 0, 0.68) 22.65%, rgba(255, 255, 255, 0) 100.13%);
 		width: 315px;
@@ -945,27 +980,30 @@ figure {
     flex-direction: column;
     transition: all 1s ease-in;
     justify-content: center; }
-    .card-product .card-wrapper .card-button a {
-      transition: all .2s ease-in;
-      padding-left: 30px;
-      padding-right: 30px;
-      width: 127px;
-      height: 50px;
-      background: none;
-      border: none;
-      text-align: center;
-      font-family: "Proxima Nova", sans-serif;
-      text-decoration: none;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 14.4892px;
-      line-height: 14px;
-      display: flex;
-      align-items: center;
-      text-transform: uppercase;
-      color: #C3D6A1; }
+    .card-product .card-wrapper .card-button {
+      margin-left: 15px; }
+      .card-product .card-wrapper .card-button a {
+        transition: all .2s ease-in;
+        padding-left: 30px;
+        padding-right: 30px;
+        width: 127px;
+        height: 50px;
+        background: none;
+        border: none;
+        text-align: center;
+        font-family: "Proxima Nova", sans-serif;
+        text-decoration: none;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14.4892px;
+        line-height: 14px;
+        display: flex;
+        align-items: center;
+        text-transform: uppercase;
+        color: white;
+        background-color: #3A7498;
+        outline: 1px solid #3A7498; }
   .card-product .card-title {
-    display: flex;
     transition: all .2s ease-in; }
     .card-product .card-title h3 {
       transition: all .2s ease-in;
@@ -975,9 +1013,11 @@ figure {
       font-size: 40.6671px;
       line-height: 40px;
       text-transform: uppercase;
-      color: #3A7498; }
+      padding: 9px;
+      -webkit-text-stroke: 1px #3A7498;
+      color: white; }
   .card-product .card-text-content {
-    width: 184px; }
+    width: 300px; }
     .card-product .card-text-content p {
       font-family: Proxima Nova, sans-serif;
       font-style: normal;
@@ -987,7 +1027,10 @@ figure {
       /* or 17px */
       letter-spacing: 0.01em;
       text-transform: capitalize;
-      color: rgba(12, 27, 51, 0.7); }
+      font-weight: bold;
+      color: rgba(255, 255, 255, 0.7);
+      margin-top: 10px;
+      margin-bottom: 10px; }
   .card-product:hover .card-container .card-title {
     transition: all .2s ease-in; }
     .card-product:hover .card-container .card-title h3 {
@@ -1032,6 +1075,10 @@ figure {
   z-index: 1;
   position: absolute; }
 
+@media (max-width: 1275px) {
+  .activity .card-container {
+    grid-template-columns: 1fr 1fr; } }
+
 .progressbar {
   position: fixed;
   top: 0;
@@ -1064,12 +1111,13 @@ section {
 
 .product {
   margin: 100px auto;
-  width: 80%; }
+  width: 100%; }
   .product .title-container {
     margin-top: 100px;
     margin-bottom: 100px; }
   .product h2 {
-    text-align: center; }
+    text-align: center;
+    color: #3A7498; }
 
 .portfolio .chapter {
   color: blue;
@@ -1084,7 +1132,7 @@ section {
   color: transparent;
   -webkit-text-stroke: 1px #3A7498;
   text-decoration: none;
-  font-size: 4.4vw;
+  font-size: 3.4vw;
   margin: auto;
   letter-spacing: 0.2vw;
   font-weight: 800;
@@ -1129,6 +1177,15 @@ section {
   width: 100%;
   height: 100%;
   position: fixed; }
+
+.brand-bg {
+  background: rgba(58, 116, 152, 0.7); }
+
+.brand__header__title h2 {
+  color: white; }
+
+.brand__header__text p {
+  color: white; }
 
 .brand {
   box-sizing: border-box;
@@ -1433,7 +1490,8 @@ section {
   .asterisque p {
     text-align: center;
     font-family: "Poppins", monospace;
-    color: #3A7498; }
+    color: #3A7498;
+    font-size: 12px; }
 
 .secondary-navbar {
   width: 100%;
@@ -1482,12 +1540,21 @@ section {
 .home {
   width: 100vw; }
 
+.home-wrapper {
+  display: flex;
+  align-items: center; }
+
 .social-media {
-  height: 100%;
-  position: absolute; }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 160px; }
   .social-media ul {
     display: flex;
-    flex-flow: column; }
+    flex-flow: column;
+    height: 100%;
+    justify-content: space-around;
+    margin-left: 22px; }
 
 .line-content {
   overflow: hidden; }
@@ -1497,7 +1564,8 @@ section {
   display: grid;
   gap: 74px;
   grid-template-columns: 1.5fr 2fr;
-  margin: auto; }
+  margin: auto;
+  height: 100vh; }
   .hero-wrapper .hero-title {
     display: flex;
     align-items: center; }
@@ -1643,6 +1711,89 @@ section {
   color: #3A7498;
   opacity: 0.03; }
 
+.about {
+  width: 100%;
+  max-width: 1280px;
+  font-family: "Poppins", monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto auto 50px auto; }
+  .about .green {
+    color: #C3D6A1; }
+  .about h2 {
+    text-transform: uppercase;
+    color: #3A7498;
+    font-weight: 800;
+    font-size: 50px;
+    text-align: center; }
+  .about .text-container {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    align-items: center; }
+    .about .text-container .inner-text-wrapper {
+      max-width: 500px;
+      width: 100%;
+      padding: 15px;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 140%;
+      /* or 28px */
+      letter-spacing: 0.01em;
+      color: rgba(12, 27, 51, 0.7); }
+      .about .text-container .inner-text-wrapper .inner-text {
+        width: 100%; }
+  .about .team-grid-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; }
+    .about .team-grid-container .team {
+      width: 300px;
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 30px;
+      padding: 10px; }
+      .about .team-grid-container .team .name {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center; }
+      .about .team-grid-container .team .status h4 {
+        text-align: center;
+        text-transform: uppercase;
+        color: #C3D6A1;
+        font-weight: 700; }
+      .about .team-grid-container .team .description p {
+        font-size: 14px;
+        margin-top: 5px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 140%;
+        letter-spacing: 0.01em;
+        color: rgba(12, 27, 51, 0.7);
+        text-align: center; }
+      .about .team-grid-container .team .social .list__social {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 10px; }
+        .about .team-grid-container .team .social .list__social li a img {
+          width: 20px; }
+    .about .team-grid-container h3 {
+      font-weight: 800;
+      color: #3A7498;
+      font-size: 20px;
+      font-family: "Poppins", monospace; }
+    .about .team-grid-container img {
+      max-width: 300px;
+      width: 100%; }
+
 .activity-page__inner {
   display: flex;
   max-width: 1100px;
@@ -1707,7 +1858,16 @@ section {
 
 .contact {
   position: relative;
-  height: 100vh; }
+  height: 100vh;
+  display: flex;
+  flex-direction: column; }
+  .contact .form__container {
+    display: flex;
+    flex-direction: column; }
+    .contact .form__container h2 {
+      font-size: clamp(3.5rem, 5vw, 7rem);
+      text-transform: uppercase;
+      text-align: center; }
 
 .contact__top-center-logo {
   z-index: -10;

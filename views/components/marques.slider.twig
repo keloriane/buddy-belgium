@@ -1,8 +1,31 @@
 {% macro marques(products) %}
   <div class="marques__presentation__slider swiper-container">
+    {#<div class="arrow">
+      <svg width="55" height="55" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g filter="url(#filter0_d)">
+          <circle cx="27.5" cy="23.5" r="23" stroke="#3A7498"/>
+          <path d="M23 14L35.5039 22.3359C36.6913 23.1275 36.6913 24.8725 35.5038 25.6641L23 34" stroke="#3A7498"
+                stroke-width="3"/>
+        </g>
+        <defs>
+          <filter id="filter0_d" x="0" y="0" width="55" height="55" filterUnits="userSpaceOnUse"
+                  color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+            <feOffset dy="4"/>
+            <feGaussianBlur stdDeviation="2"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+          </filter>
+        </defs>
+      </svg>
+    </div>#}
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
     <div class="swiper-wrapper">
       {% for product in products %}
-        <a href="{{ site.url }}/products/{{ product.slug }}" class="marques__presentation__slider__item swiper-slide">
+        <a href="{{ site.url }}/pro/products/{{ product.slug }}" class="marques__presentation__slider__item swiper-slide">
           <img src={{ Image(product.product_image).src }}>
         </a>
       {% endfor %}

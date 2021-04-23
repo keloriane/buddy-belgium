@@ -12,22 +12,29 @@ gsap.to(['.crea', '.ser'], {
   },
 });
 
-const cards = document.querySelectorAll('.card');
+const cards = document.querySelectorAll('.card-product');
 
 const cardArray = gsap.utils.toArray(cards);
 const productCards = document.querySelectorAll('.card-product');
 
-productCards.forEach((activity) => {
+/*productCards.forEach((activity) => {
   activity.addEventListener('mouseenter', function (e) {
     gsap.to(activity, { duration: 0.05, backgroundImage: `url(${e.target.dataset.image})` });
-    /*
+    gsap.to('.overlay', { duration: 0.05, backgroundColor: 'rgba(255,255, 255, 0.8)' });
+    /!*
+    gsap.to('.card-title h3', { duration: 0.05, mixBlendMode: 'difference' });
+  *!/
+
+    /!*
     gsap.fromTo(activity, { duration: 15, backgroundSize: '100%' }, { duration: 130, backgroundSize: '350%' });
-*/
-  });
+*!/
+  });*/
+/*
   activity.addEventListener('mouseleave', function (e) {
     gsap.to(activity, { duration: 0.2, backgroundImage: 'none' });
   });
 });
+*/
 
 cards.forEach((link, e) => {
   link.addEventListener('mouseenter', createHover);
@@ -89,7 +96,6 @@ menuButton.addEventListener('click', function (e) {
     menu.style.display = 'none';
   }
 });
-
 close[0].addEventListener('click', () => {
   isOpen = !isOpen;
   if (isOpen === true) {
