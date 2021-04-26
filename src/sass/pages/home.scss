@@ -38,6 +38,10 @@
 
 		display: flex;
 		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+		height: 446px;
+		margin: auto;
 		h1 {
 			font-size: calc(4vw + 1rem);
 			span {

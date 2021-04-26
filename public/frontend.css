@@ -615,20 +615,21 @@ h1, h2, h3, .line1, .line2 {
 .white {
   color: white; }
 
-span {
-  height: 100px; }
-
 .line {
-  height: 90px; }
+  height: 110px; }
 
 section {
   height: 80vh; }
 
 /* Smooth Scrolling */
-@media (max-width: 680px) {
-  span {
-    height: 68px; } }
+/*
 
+@media (max-width: 680px) {
+	span {
+		height: 68px;
+	}
+}
+*/
 h1 h2 {
   font-family: "Poppins", monospace, serif; }
 
@@ -672,6 +673,13 @@ body {
   display: flex;
   align-items: center; }
 
+h1 {
+  font-size: 30px;
+  height: 90%; }
+
+.last-word {
+  height: 90px; }
+
 .marques__presentation__slider {
   display: flex;
   flex-direction: row;
@@ -692,17 +700,22 @@ body {
   justify-content: space-between;
   width: 100vw;
   z-index: 1; }
-  .menu-nav .title h1 {
-    font-family: "Poppins" , sans-serif; }
 
 #menu-burger {
   display: none; }
 
 .menu-action {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   width: 100%;
   background-color: #fdfdfb; }
+  .menu-action .title {
+    display: flex;
+    align-items: center; }
+    .menu-action .title svg {
+      margin-right: 15px; }
+    .menu-action .title h1 {
+      font-family: "Poppins" , sans-serif; }
   .menu-action div {
     color: #3A7498;
     font-size: 32px;
@@ -1110,7 +1123,6 @@ section {
           color: #3a7498; }
 
 .product {
-  margin: 100px auto;
   width: 100%; }
   .product .title-container {
     margin-top: 100px;
@@ -1535,7 +1547,8 @@ section {
   border-radius: 20px; }
   .popup-message h3 a {
     text-decoration: none;
-    color: #3A7498; }
+    color: #3A7498;
+    font-family: "Poppins", monospace; }
 
 .home {
   width: 100vw; }
@@ -1568,7 +1581,11 @@ section {
   height: 100vh; }
   .hero-wrapper .hero-title {
     display: flex;
-    align-items: center; }
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 446px;
+    margin: auto; }
     .hero-wrapper .hero-title h1 {
       font-size: calc(4vw + 1rem); }
       .hero-wrapper .hero-title h1 span {
