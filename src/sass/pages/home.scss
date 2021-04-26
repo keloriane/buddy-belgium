@@ -31,12 +31,17 @@
 	gap: 74px;
 	grid-template-columns: 1.5fr 2fr;
 	margin: auto;
+	height: 100vh;
 
 	.hero-title {
 
 
 		display: flex;
 		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+		height: 446px;
+		margin: auto;
 		h1 {
 			font-size: calc(4vw + 1rem);
 			span {

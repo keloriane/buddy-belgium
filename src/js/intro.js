@@ -1,6 +1,6 @@
 import { html } from './html';
 import { checkVAT, countries } from 'jsvat';
-import { includeJs, isCurrentPageIndex} from './helpers';
+import { includeJs, isCurrentPageIndex, isIndex } from './helpers';
 
 export const intro = {
   pageName: 'intro',

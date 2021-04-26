@@ -25,6 +25,7 @@ foreach ($brands as $brand) {
 	$brand_products[] = $currentBrand;
 }
 
+
 $context['brands'] = $brand_products;
 Timber::render('/marques.twig', $context);
 
