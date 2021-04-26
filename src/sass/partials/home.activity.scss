@@ -15,7 +15,7 @@ figure {
 
 	.card-container {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 1fr 1fr 1fr;
 		width: 100%;
 		justify-items: center;
 
@@ -155,11 +155,14 @@ figure {
 	max-width: 398px;
 	display: flex;
 	background-size: cover;
-
+	margin-top: 20px;
 	height: 385px;
 
 	padding-left: 40px;
 	padding-right: 40px;
+	transition: .3s ease-in;
+	position: relative;
+
 
 	.overlay {
 
@@ -168,6 +171,8 @@ figure {
 		height: 385px;
 		position: absolute;
 		z-index: -1;*/
+
+
 
 	}
 
@@ -179,6 +184,7 @@ figure {
 		justify-content: center;
 
 		.card-button {
+			margin-left: 15px;
 			a {
 				transition: all .2s ease-in;
 				padding-left: 30px;
@@ -203,16 +209,15 @@ figure {
 
 				text-transform: uppercase;
 
-				color: $green;
-
+				color: white;
+				background-color: $blue;
+				outline: 1px solid $blue;
 
 			}
 		}
 	}
 
 	.card-title {
-		display: flex;
-
 		transition: all .2s ease-in;
 
 		h3 {
@@ -223,14 +228,16 @@ figure {
 			font-size: 40.6671px;
 			line-height: 40px;
 			text-transform: uppercase;
+			padding: 9px;
+			-webkit-text-stroke: 1px $blue;
+			color: white;
 
-			color: #3A7498;
 
 		}
 	}
 
 	.card-text-content {
-		width: 184px;
+		width: 300px;
 
 		p {
 
@@ -243,8 +250,10 @@ figure {
 
 			letter-spacing: 0.01em;
 			text-transform: capitalize;
-
-			color: rgba(12, 27, 51, 0.7);
+			font-weight: bold;
+			color: rgba(255, 255, 255, 0.7);
+			margin-top: 10px;
+			margin-bottom: 10px;
 		}
 	}
 
@@ -325,8 +334,10 @@ figure {
 
 }
 
-@media (max-width: 1305px) {
-	.activity .card-container {
-
+@media (max-width: 1275px) {
+	.activity {
+		.card-container {
+			grid-template-columns: 1fr 1fr;
+		}
 	}
 }

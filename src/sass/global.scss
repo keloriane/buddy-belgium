@@ -10,11 +10,15 @@ h1,  h2,  h3 , .line1 , .line2 {
 	font-weight: 1000;
 }
 
+#main__site {
+	min-height: 100vh;
+}
+
 .white{
 	color: white;
 }
 span {
-	height: 72px;
+	height: 100px;
 }
 
 .line {
@@ -27,7 +31,11 @@ section {
 
 /* Smooth Scrolling */
 
-
+@media (max-width:680px) {
+	span {
+		height: 68px ;
+	}
+}
 
 
 h1 h2 {

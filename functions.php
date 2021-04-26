@@ -11,4 +11,8 @@ require_once 'config/assets.php';
 require_once 'config/timber.php';
 require_once 'config/router.php';
 require_once 'config/custom_types.php';
+register_nav_menus( array(
+	'menu' => 'Navigation Menu',
+	'customer_menu' => 'customer_menu',
+) );
 

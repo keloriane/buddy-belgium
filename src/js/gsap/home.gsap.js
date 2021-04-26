@@ -1,25 +1,9 @@
-import {gsap} from 'gsap/dist/gsap';
-import {fadeInStagger} from "./animation.gsap";
+import { gsap } from 'gsap/dist/gsap';
 
-export const animationHome = {
-  _enter: () => {
-    animationHome.posts()
-  },
-  _beforeEnter: () => {
-    animationHome.reinitialization()
-  },
-  posts: () => {
-    let tl = gsap.timeline();
-    return tl
-      .to('.nav-main', {opacity: 1})
-      .to('.home-wrapper', {opacity: 1})
-      .from('.home-wrapper article', fadeInStagger)
-  },
-  reinitialization: () => {
-    gsap.set('.home-wrapper', {opacity: 0})
-    gsap.set('.nav-main', {opacity: 0})
-  },
-}
+const heroAnimation = gsap.timeline({ paused: true });
 
-
-
+const homeWrapper = document.getElementsByClassName('home-wrapper')[0];
+const lines = document.querySelectorAll('.line-span');
+window.addEventListener('load', function (e) {
+  gsap.from(lines, { stagger: 0.05, duration: 0.8, y: 200, rotation: 4, ease: 'Power4.easOut' });
+});

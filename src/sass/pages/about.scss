@@ -1,56 +1,132 @@
+
 .about {
-	margin: 0 auto;
-	max-width: 480px;
-	height: 500vw;
-	overflow: hidden;
-}
-
-.about-wrapper{
-	background: white;
-	padding: 20px;
-}
-
-
-.about-img-wrapper{
 	width: 100%;
-	height: 250px;
-	margin-top: 32px;
-	overflow: hidden;
-}
-
-.about-img{
-	width: 100%;
-	object-fit: cover;
-}
-
-
-.about-title {
-	font-size: 24px;
-	line-height: 1.2;
-	text-transform: uppercase;
-	margin-left: 25px;
-}
-
-.about-main-text {
-	font-size: 14px;
-	font-family: sans-serif;
-	line-height: 1.45;
-	display: block;
-	width: 85%;
-	margin-top: 32px;
-	margin-left: 25px;
-	p {
-		color: #303030;
-		margin-bottom: 32px;
+	max-width: 1280px;
+	font-family: $mainFont;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: auto auto 50px auto;
+	.green {
+		color: $green;
 	}
-}
 
-.text-scroll {
-	position: absolute;
-	top: 1200px;
-	left: -150px;
-	margin-top: 20px;
-	font-size: 140px;
-	font-family: 'Poppins', serif;
-	-webkit-text-stroke: 1px  white;
-}
+	h2 {
+		text-transform: uppercase;
+		color: $blue;
+		font-weight: 800;
+		font-size: 50px;
+		text-align: center;
+	}
+	.text-container {
+		display: flex;
+		gap: 40px;
+		justify-content: center;
+		flex-wrap: wrap;
+		margin-top: 50px;
+		align-items: center;
+		.inner-text-wrapper {
+			max-width: 500px;
+			width: 100%;
+			padding: 15px;
+			font-style: normal;
+			font-weight: 300;
+			font-size: 16px;
+			line-height: 140%;
+			/* or 28px */
+
+			letter-spacing: 0.01em;
+
+			color: rgba(12, 27, 51, 0.7);
+			.inner-text {
+				width: 100%;
+
+			}
+		}
+	}
+	.team-grid-container {
+		display: flex;
+		justify-content: space-around;
+		flex-wrap: wrap;
+
+		.team {
+			width: 300px;
+			height: 300px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin: 30px;
+			padding: 10px;
+
+
+
+			.name {
+				display: flex;
+
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+
+
+			}
+
+			.status {
+				h4 {
+				text-align: center;
+				text-transform: uppercase;
+				color: $green;
+				font-weight: 700;
+
+				}
+			}
+			.description {
+
+				p {
+					font-size: 14px;
+					margin-top: 5px;
+					font-style: normal;
+					font-weight: 300;
+					line-height: 140%;
+					letter-spacing: 0.01em;
+					color: rgba(12, 27, 51, 0.7);
+					text-align: center;
+				}
+
+
+				}
+
+			.social {
+				.list__social {
+					display: flex;
+					justify-content: space-evenly;
+					margin-top: 10px;
+					li {
+						a {
+							img {
+								width: 20px;
+
+							}
+						}
+					}
+				}
+			}
+			}
+			h3 {
+
+				font-weight: 800;
+				color: $blue;
+				font-size: 20px;
+				font-family: $titleFont;
+
+			}
+			p {
+
+			}
+			img {
+				max-width: 300px;
+				width: 100%;
+			}
+		}
+	}
+

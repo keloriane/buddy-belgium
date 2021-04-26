@@ -124,6 +124,7 @@ function produits_vrac () {
 add_action('init', 'create_product');
 add_action('init', 'create_category');
 add_action('init', 'create_activities');
+add_action('init', 'create_brands');
 add_action('init', 'produits_vrac');
 add_action('init', 'produits_paquet');
 

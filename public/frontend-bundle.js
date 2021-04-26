@@ -14704,6 +14704,202 @@ function updateSlidesProgress(translate) {
 
 /***/ }),
 
+/***/ "./node_modules/swiper/esm/components/navigation/navigation.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/swiper/esm/components/navigation/navigation.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _utils_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils/dom */ "./node_modules/swiper/esm/utils/dom.js");
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/utils */ "./node_modules/swiper/esm/utils/utils.js");
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+
+
+var Navigation = {
+  update: function update() {
+    // Update Navigation Buttons
+    var swiper = this;
+    var params = swiper.params.navigation;
+    if (swiper.params.loop) return;
+    var _swiper$navigation = swiper.navigation,
+        $nextEl = _swiper$navigation.$nextEl,
+        $prevEl = _swiper$navigation.$prevEl;
+
+    if ($prevEl && $prevEl.length > 0) {
+      if (swiper.isBeginning) {
+        $prevEl.addClass(params.disabledClass);
+      } else {
+        $prevEl.removeClass(params.disabledClass);
+      }
+
+      $prevEl[swiper.params.watchOverflow && swiper.isLocked ? 'addClass' : 'removeClass'](params.lockClass);
+    }
+
+    if ($nextEl && $nextEl.length > 0) {
+      if (swiper.isEnd) {
+        $nextEl.addClass(params.disabledClass);
+      } else {
+        $nextEl.removeClass(params.disabledClass);
+      }
+
+      $nextEl[swiper.params.watchOverflow && swiper.isLocked ? 'addClass' : 'removeClass'](params.lockClass);
+    }
+  },
+  onPrevClick: function onPrevClick(e) {
+    var swiper = this;
+    e.preventDefault();
+    if (swiper.isBeginning && !swiper.params.loop) return;
+    swiper.slidePrev();
+  },
+  onNextClick: function onNextClick(e) {
+    var swiper = this;
+    e.preventDefault();
+    if (swiper.isEnd && !swiper.params.loop) return;
+    swiper.slideNext();
+  },
+  init: function init() {
+    var swiper = this;
+    var params = swiper.params.navigation;
+    if (!(params.nextEl || params.prevEl)) return;
+    var $nextEl;
+    var $prevEl;
+
+    if (params.nextEl) {
+      $nextEl = (0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.default)(params.nextEl);
+
+      if (swiper.params.uniqueNavElements && typeof params.nextEl === 'string' && $nextEl.length > 1 && swiper.$el.find(params.nextEl).length === 1) {
+        $nextEl = swiper.$el.find(params.nextEl);
+      }
+    }
+
+    if (params.prevEl) {
+      $prevEl = (0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.default)(params.prevEl);
+
+      if (swiper.params.uniqueNavElements && typeof params.prevEl === 'string' && $prevEl.length > 1 && swiper.$el.find(params.prevEl).length === 1) {
+        $prevEl = swiper.$el.find(params.prevEl);
+      }
+    }
+
+    if ($nextEl && $nextEl.length > 0) {
+      $nextEl.on('click', swiper.navigation.onNextClick);
+    }
+
+    if ($prevEl && $prevEl.length > 0) {
+      $prevEl.on('click', swiper.navigation.onPrevClick);
+    }
+
+    (0,_utils_utils__WEBPACK_IMPORTED_MODULE_1__.extend)(swiper.navigation, {
+      $nextEl: $nextEl,
+      nextEl: $nextEl && $nextEl[0],
+      $prevEl: $prevEl,
+      prevEl: $prevEl && $prevEl[0]
+    });
+  },
+  destroy: function destroy() {
+    var swiper = this;
+    var _swiper$navigation2 = swiper.navigation,
+        $nextEl = _swiper$navigation2.$nextEl,
+        $prevEl = _swiper$navigation2.$prevEl;
+
+    if ($nextEl && $nextEl.length) {
+      $nextEl.off('click', swiper.navigation.onNextClick);
+      $nextEl.removeClass(swiper.params.navigation.disabledClass);
+    }
+
+    if ($prevEl && $prevEl.length) {
+      $prevEl.off('click', swiper.navigation.onPrevClick);
+      $prevEl.removeClass(swiper.params.navigation.disabledClass);
+    }
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'navigation',
+  params: {
+    navigation: {
+      nextEl: null,
+      prevEl: null,
+      hideOnClick: false,
+      disabledClass: 'swiper-button-disabled',
+      hiddenClass: 'swiper-button-hidden',
+      lockClass: 'swiper-button-lock'
+    }
+  },
+  create: function create() {
+    var swiper = this;
+    (0,_utils_utils__WEBPACK_IMPORTED_MODULE_1__.bindModuleMethods)(swiper, {
+      navigation: _extends({}, Navigation)
+    });
+  },
+  on: {
+    init: function init(swiper) {
+      swiper.navigation.init();
+      swiper.navigation.update();
+    },
+    toEdge: function toEdge(swiper) {
+      swiper.navigation.update();
+    },
+    fromEdge: function fromEdge(swiper) {
+      swiper.navigation.update();
+    },
+    destroy: function destroy(swiper) {
+      swiper.navigation.destroy();
+    },
+    click: function click(swiper, e) {
+      var _swiper$navigation3 = swiper.navigation,
+          $nextEl = _swiper$navigation3.$nextEl,
+          $prevEl = _swiper$navigation3.$prevEl;
+
+      if (swiper.params.navigation.hideOnClick && !(0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.default)(e.target).is($prevEl) && !(0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.default)(e.target).is($nextEl)) {
+        var isHidden;
+
+        if ($nextEl) {
+          isHidden = $nextEl.hasClass(swiper.params.navigation.hiddenClass);
+        } else if ($prevEl) {
+          isHidden = $prevEl.hasClass(swiper.params.navigation.hiddenClass);
+        }
+
+        if (isHidden === true) {
+          swiper.emit('navigationShow');
+        } else {
+          swiper.emit('navigationHide');
+        }
+
+        if ($nextEl) {
+          $nextEl.toggleClass(swiper.params.navigation.hiddenClass);
+        }
+
+        if ($prevEl) {
+          $prevEl.toggleClass(swiper.params.navigation.hiddenClass);
+        }
+      }
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/swiper/esm/modules/observer/observer.js":
 /*!**************************************************************!*\
   !*** ./node_modules/swiper/esm/modules/observer/observer.js ***!
@@ -15272,7 +15468,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "websiteIndexLocalUrl": () => /* binding */ websiteIndexLocalUrl
 /* harmony export */ });
 var websiteIndexUrl = '/';
-var websiteIndexLocalUrl = '/buddy-belgium/';
+var websiteIndexLocalUrl = '/';
 
 /***/ }),
 
@@ -15288,29 +15484,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var swiper_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(swiper_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _sass_style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sass/style.scss */ "./src/sass/style.scss");
 /* harmony import */ var _sass_style_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_sass_style_scss__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _js_site__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./js/site */ "./src/js/site.js");
-/* harmony import */ var _js_gsap_product_gsap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/gsap/product.gsap */ "./src/js/gsap/product.gsap.js");
-/* harmony import */ var _js_gsap_smoothScroll_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./js/gsap/smoothScroll.js */ "./src/js/gsap/smoothScroll.js");
-/* harmony import */ var _js_gsap_smoothScroll_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_js_gsap_smoothScroll_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _js_gsap_parcours_gsap_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./js/gsap/parcours.gsap.js */ "./src/js/gsap/parcours.gsap.js");
-/* harmony import */ var _js_gsap_service_gsap_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./js/gsap/service.gsap.js */ "./src/js/gsap/service.gsap.js");
-/* harmony import */ var _js_gsap_activity_gsap_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./js/gsap/activity.gsap.js */ "./src/js/gsap/activity.gsap.js");
-/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./config */ "./src/config.js");
+/* harmony import */ var _js_gsap_product_gsap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./js/gsap/product.gsap */ "./src/js/gsap/product.gsap.js");
+/* harmony import */ var _js_gsap_parcours_gsap_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/gsap/parcours.gsap.js */ "./src/js/gsap/parcours.gsap.js");
+/* harmony import */ var _js_gsap_activity_gsap_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./js/gsap/activity.gsap.js */ "./src/js/gsap/activity.gsap.js");
+/* harmony import */ var _js_site__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./js/site */ "./src/js/site.js");
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./config */ "./src/config.js");
+
+
+
 
  //PAGES
 
  //GSAP
 
-
-
-
-
-
  //WEBSITE INITIALIZATION
 
-_js_site__WEBPACK_IMPORTED_MODULE_2__.site._loaded();
+_js_site__WEBPACK_IMPORTED_MODULE_5__.site._loaded();
 
-_js_site__WEBPACK_IMPORTED_MODULE_2__.site._beforeLeaving();
+_js_site__WEBPACK_IMPORTED_MODULE_5__.site._beforeLeaving();
 
 /***/ }),
 
@@ -15331,7 +15522,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var category = {
   init: function init() {
-    console.log((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.includeJs)('category'));
+    console.log("CATEGORY", (0,_helpers__WEBPACK_IMPORTED_MODULE_0__.includeJs)('category'));
 
     if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.includeJs)('category')) {
       this.configSlider();
@@ -15374,105 +15565,146 @@ var category = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap/dist/gsap */ "./node_modules/gsap/dist/gsap.js");
-/* harmony import */ var gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap/dist/ScrollTrigger.min */ "./node_modules/gsap/dist/ScrollTrigger.min.js");
-/* harmony import */ var gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap/dist/gsap */ "./node_modules/gsap/dist/gsap.js");
+/* harmony import */ var gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap/dist/ScrollTrigger.min */ "./node_modules/gsap/dist/ScrollTrigger.min.js");
+/* harmony import */ var gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers */ "./src/js/helpers.js");
 
 
-gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().registerPlugin(gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger);
-gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().to(['.crea', '.ser'], {
-  duration: 1,
-  marginTop: 0,
-  scrollTrigger: {
-    trigger: '.activity',
-    start: 'center center',
-    end: 'bottom bottom'
-  }
-});
-var cards = document.querySelectorAll('.card');
-var cardArray = gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().utils.toArray(cards);
-var productCards = document.querySelectorAll('.card-product');
-productCards.forEach(function (activity) {
-  activity.addEventListener('mouseenter', function (e) {
-    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().to(activity, {
-      duration: 0.05,
-      backgroundImage: "url(".concat(e.target.dataset.image, ")")
-    });
-    /*
-    gsap.fromTo(activity, { duration: 15, backgroundSize: '100%' }, { duration: 130, backgroundSize: '350%' });
-    */
+
+gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_1___default().registerPlugin(gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger);
+
+function init() {
+  gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_1___default().to(['.crea', '.ser'], {
+    duration: 1,
+    marginTop: 0,
+    scrollTrigger: {
+      trigger: '.activity',
+      start: 'center center',
+      end: 'bottom bottom'
+    }
   });
-  activity.addEventListener('mouseleave', function (e) {
-    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().to(activity, {
-      duration: 0.2,
-      backgroundImage: 'none'
-    });
-  });
-});
-cards.forEach(function (link, e) {
-  link.addEventListener('mouseenter', createHover);
-  link.addEventListener('mouseleave', createHover);
-});
-
-function createHover(e) {
-  var allSiblings = cardArray.filter(function (item) {
-    return item !== e.target;
-  });
-
-  if (e.type === 'mouseenter') {
-    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().to(e.target.querySelector('.exclusion'), {
-      duration: 0.2
-    });
-    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().fromTo(e.target.querySelector('h2'), {
-      duration: 0.2,
-      opacity: 0,
-      y: 200
-    }, {
-      duration: 0.2,
-      opacity: 1,
-      y: 0
-    });
-    /* gsap.to(allSiblings, { duration: 0.1, opacity: 0.3 });*/
-  } else if (e.type === 'mouseleave') {
-    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().fromTo(e.target.querySelector('h2'), {
-      duration: 0.2,
-      opacity: 0,
-      y: 0
-    }, {
-      duration: 0.2,
-      opacity: 1,
-      y: 200
-    });
-    /*  gsap.to(e.target.querySelector('.exclusion'), {
-      duration: 0.2,
-      backgroundColor: 'none',
-      mixBlendMode: 'none',
+  var cards = document.querySelectorAll('.card-product');
+  var cardArray = gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_1___default().utils.toArray(cards);
+  var productCards = document.querySelectorAll('.card-product');
+  /*productCards.forEach((activity) => {
+    activity.addEventListener('mouseenter', function (e) {
+      gsap.to(activity, { duration: 0.05, backgroundImage: `url(${e.target.dataset.image})` });
+      gsap.to('.overlay', { duration: 0.05, backgroundColor: 'rgba(255,255, 255, 0.8)' });
+      /!*
+      gsap.to('.card-title h3', { duration: 0.05, mixBlendMode: 'difference' });
+    *!/
+       /!*
+      gsap.fromTo(activity, { duration: 15, backgroundSize: '100%' }, { duration: 130, backgroundSize: '350%' });
+  *!/
     });*/
+
+  /*
+    activity.addEventListener('mouseleave', function (e) {
+      gsap.to(activity, { duration: 0.2, backgroundImage: 'none' });
+    });
+  });
+  */
+
+  cards.forEach(function (link, e) {
+    link.addEventListener('mouseenter', createHover);
+    link.addEventListener('mouseleave', createHover);
+  });
+
+  function createHover(e) {
+    var allSiblings = cardArray.filter(function (item) {
+      return item !== e.target;
+    });
+
+    if (e.type === 'mouseenter') {
+      gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_1___default().to(e.target.querySelector('.exclusion'), {
+        duration: 0.2
+      });
+      gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_1___default().fromTo(e.target.querySelector('h2'), {
+        duration: 0.2,
+        opacity: 0,
+        y: 200
+      }, {
+        duration: 0.2,
+        opacity: 1,
+        y: 0
+      });
+      /* gsap.to(allSiblings, { duration: 0.1, opacity: 0.3 });*/
+    } else if (e.type === 'mouseleave') {
+      gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_1___default().fromTo(e.target.querySelector('h2'), {
+        duration: 0.2,
+        opacity: 0,
+        y: 0
+      }, {
+        duration: 0.2,
+        opacity: 1,
+        y: 200
+      });
+      /*  gsap.to(e.target.querySelector('.exclusion'), {
+        duration: 0.2,
+        backgroundColor: 'none',
+        mixBlendMode: 'none',
+      });*/
+    }
   }
+
+  var menuButton = document.getElementById('burger');
+  var menu = document.getElementById('menu-burger');
+  var close = document.getElementsByClassName('close');
+  var isOpen = false;
+  menuButton.addEventListener('click', function (e) {
+    isOpen = !isOpen;
+
+    if (isOpen === true) {
+      menu.style.display = 'flex';
+    } else if (isOpen === false) {
+      menu.style.display = 'none';
+    }
+  });
+  close[0].addEventListener('click', function () {
+    isOpen = !isOpen;
+
+    if (isOpen === true) {
+      menu.style.display = 'flex';
+    } else if (isOpen === false) {
+      menu.style.display = 'none';
+    }
+  });
 }
 
-var menuButton = document.getElementById('burger');
-var menu = document.getElementById('menu-burger');
-var close = document.getElementsByClassName('close');
-var isOpen = false;
-menuButton.addEventListener('click', function (e) {
-  isOpen = !isOpen;
-
-  if (isOpen === true) {
-    menu.style.display = 'flex';
-  } else if (isOpen === false) {
-    menu.style.display = 'none';
+window.addEventListener('load', function () {
+  if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.isRootPage)('pro')) {
+    init();
   }
 });
-close[0].addEventListener('click', function () {
-  isOpen = !isOpen;
 
-  if (isOpen === true) {
-    menu.style.display = 'flex';
-  } else if (isOpen === false) {
-    menu.style.display = 'none';
-  }
+/***/ }),
+
+/***/ "./src/js/gsap/home.gsap.js":
+/*!**********************************!*\
+  !*** ./src/js/gsap/home.gsap.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap/dist/gsap */ "./node_modules/gsap/dist/gsap.js");
+/* harmony import */ var gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__);
+
+var heroAnimation = gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
+  paused: true
+});
+var homeWrapper = document.getElementsByClassName('home-wrapper')[0];
+var lines = document.querySelectorAll('.line-span');
+window.addEventListener('load', function (e) {
+  gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.from(lines, {
+    stagger: 0.05,
+    duration: 0.8,
+    y: 200,
+    rotation: 4,
+    ease: 'Power4.easOut'
+  });
 });
 
 /***/ }),
@@ -15485,17 +15717,19 @@ close[0].addEventListener('click', function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap/dist/gsap */ "./node_modules/gsap/dist/gsap.js");
-/* harmony import */ var gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap/dist/ScrollTrigger.min */ "./node_modules/gsap/dist/ScrollTrigger.min.js");
-/* harmony import */ var gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap/dist/gsap */ "./node_modules/gsap/dist/gsap.js");
+/* harmony import */ var gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap/dist/ScrollTrigger.min */ "./node_modules/gsap/dist/ScrollTrigger.min.js");
+/* harmony import */ var gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers */ "./src/js/helpers.js");
 
 
-gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().registerPlugin(gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger);
+
+gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_1___default().registerPlugin(gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger);
 
 function init() {
   var innerText = document.querySelectorAll('.inner-text');
-  gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().from('span h2', {
+  gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_1___default().from('span h2', {
     duration: 0.5,
     y: 100,
     stagger: 0.13,
@@ -15505,7 +15739,7 @@ function init() {
       end: 'bottom bottom'
     }
   });
-  gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default().from(['.inner-text  p', '.info-text p'], {
+  gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_1___default().from(['.inner-text  p', '.info-text p'], {
     duration: 0.5,
     opacity: 0,
     y: '80%',
@@ -15519,7 +15753,9 @@ function init() {
 }
 
 window.addEventListener('load', function () {
-  init();
+  if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.isRootPage)('pro')) {
+    init();
+  }
 });
 
 /***/ }),
@@ -15532,16 +15768,17 @@ window.addEventListener('load', function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap/dist/gsap */ "./node_modules/gsap/dist/gsap.js");
-/* harmony import */ var gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap/dist/ScrollTrigger.min */ "./node_modules/gsap/dist/ScrollTrigger.min.js");
-/* harmony import */ var gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/esm/components/core/core-class.js");
+/* harmony import */ var gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap/dist/gsap */ "./node_modules/gsap/dist/gsap.js");
+/* harmony import */ var gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap/dist/ScrollTrigger.min */ "./node_modules/gsap/dist/ScrollTrigger.min.js");
+/* harmony import */ var gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers */ "./src/js/helpers.js");
 
 
 
-gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger);
-var allLinks = gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.toArray('.product-list-container a');
+
+gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.registerPlugin(gsap_dist_ScrollTrigger_min__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger);
+var allLinks = gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.utils.toArray('.product-list-container a');
 var pageBackground = document.querySelector('.fill-background');
 var largeImage = document.querySelector('.portfolio__image--l');
 var smallImage = document.querySelector('.portfolio__image--s');
@@ -15554,10 +15791,10 @@ function initHover() {
     link.addEventListener('mouseleave', createHover);
   });
   productList.addEventListener('mouseleave', function () {
-    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(allLinks, {
+    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.to(allLinks, {
       autoAlpha: 1
     });
-    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(lInside, {
+    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.set(lInside, {
       backgroundImage: "inherit"
     });
   });
@@ -15566,9 +15803,9 @@ function initHover() {
 function translateLink() {
   allLinks.forEach(function (link, index) {
     if (index % 2 === 0) {
-      var tl = gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline(); //tl.from(link, { duration: 3, translateX: '100%' });
+      var tl = gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.timeline(); //tl.from(link, { duration: 3, translateX: '100%' });
 
-      gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.from(link, {
+      gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.from(link, {
         scrollTrigger: {
           trigger: '.product',
           end: 'top 100px',
@@ -15578,10 +15815,10 @@ function translateLink() {
         duration: 3
       });
     } else {
-      var _tl = gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline(); //tl.from(link, { duration: 3, translateX: '100%' });
+      var _tl = gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.timeline(); //tl.from(link, { duration: 3, translateX: '100%' });
 
 
-      gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.from(link, {
+      gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.from(link, {
         scrollTrigger: {
           trigger: '.product',
           end: 'top 100px',
@@ -15603,7 +15840,6 @@ var productList = document.getElementsByClassName('product-list-container')[0];
 
 function createHover(e) {
   if (e.type === 'mouseenter') {
-    console.log('enter');
     var _e$target$dataset = e.target.dataset,
         color = _e$target$dataset.color,
         imagelarge = _e$target$dataset.imagelarge,
@@ -15611,9 +15847,11 @@ function createHover(e) {
     var allSiblings = allLinks.filter(function (item) {
       return item !== e.target;
     });
-    var tl = gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline();
+    var tl = gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.timeline();
     tl.set(lInside, {
       backgroundImage: "url(".concat(imagelarge, ")")
+    }).set(lInside, {
+      backgroundRepeat: 'no-repeat'
     }).to(e.target, {
       color: '#3A7498',
       autoAlpha: 1
@@ -15634,9 +15872,7 @@ function createHover(e) {
       delay: -1
     });
   } else if (e.type === 'mouseleave') {
-    console.log('leave');
-
-    var _tl2 = gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline();
+    var _tl2 = gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.timeline();
 
     _tl2.to([allLinks], {
       color: 'transparent',
@@ -15651,84 +15887,10 @@ function init() {
 }
 
 window.addEventListener('load', function () {
-  init();
-});
-var swiper = new swiper__WEBPACK_IMPORTED_MODULE_2__.default('.product-list-container', {
-  slidesPerView: 3,
-  spaceBetween: 30,
-  loop: true,
-  loopFillGroupWithBlank: true,
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true
+  if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.isRootPage)("pro")) {
+    init();
   }
 });
-
-/***/ }),
-
-/***/ "./src/js/gsap/service.gsap.js":
-/*!*************************************!*\
-  !*** ./src/js/gsap/service.gsap.js ***!
-  \*************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-
-
-/*
-gsap.registerPlugin(ScrollTrigger);
-
-gsap.from(link, {
-  scrollTrigger: {
-    trigger: '.activity',
-    end: 'top 100px',
-    scrub: 1,
-  },
-  x: '-100%',
-
-  duration: 5,
-});
-*/
-
-/***/ }),
-
-/***/ "./src/js/gsap/smoothScroll.js":
-/*!*************************************!*\
-  !*** ./src/js/gsap/smoothScroll.js ***!
-  \*************************************/
-/***/ (() => {
-
-/*
-import { gsap } from 'gsap/dist/gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger);
-
-function init() {}
-
-window.addEventListener('load', () => {
-  init();
-});
-
-let container = document.getElementById('scroll-container');
-let height;
-function setHeight() {
-  height = container.clientHeight;
-  document.body.style.height = `${height}px`;
-}
-ScrollTrigger.addEventListener('refreshInit', setHeight);
-gsap.to(container, {
-  y: () => -(height - document.documentElement.clientHeight),
-  ease: 'none',
-  scrollTrigger: {
-    trigger: document.body,
-    start: 'top top',
-    end: 'bottom bottom',
-    scrub: 1,
-    invalidateOnRefresh: true,
-  },
-});
-*/
 
 /***/ }),
 
@@ -15745,6 +15907,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "redirect": () => /* binding */ redirect,
 /* harmony export */   "baseUrl": () => /* binding */ baseUrl,
 /* harmony export */   "includeJs": () => /* binding */ includeJs,
+/* harmony export */   "isRootPage": () => /* binding */ isRootPage,
+/* harmony export */   "isCurrentPagePro": () => /* binding */ isCurrentPagePro,
 /* harmony export */   "isCurrentPageIndex": () => /* binding */ isCurrentPageIndex
 /* harmony export */ });
 /* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../config */ "./src/config.js");
@@ -15763,11 +15927,47 @@ var baseUrl = function baseUrl() {
 var includeJs = function includeJs(currentPage) {
   return baseUrl().split('/').includes(currentPage);
 };
+var isRootPage = function isRootPage(currentPage, root) {
+  var splitUrl = baseUrl().split('/');
+  var mainPageIndex = splitUrl.indexOf("pro");
+  var subPageIndex = mainPageIndex + 1;
+  return baseUrl().split('/')[subPageIndex] === "";
+};
+var isCurrentPagePro = function isCurrentPagePro(currentPage) {
+  var endOfUrl = baseUrl().split('/');
+  return baseUrl().split('/').includes(currentPage) && endOfUrl[endOfUrl.length - 2];
+};
 var isCurrentPageIndex = function isCurrentPageIndex(local) {
   if (local) {
     return window.location.pathname === _config__WEBPACK_IMPORTED_MODULE_0__.websiteIndexLocalUrl;
   } else {
     return window.location.pathname === _config__WEBPACK_IMPORTED_MODULE_0__.websiteIndexUrl;
+  }
+};
+
+/***/ }),
+
+/***/ "./src/js/home.js":
+/*!************************!*\
+  !*** ./src/js/home.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "home": () => /* binding */ home
+/* harmony export */ });
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helpers */ "./src/js/helpers.js");
+
+
+var home = {
+  init: function init() {
+    console.log("pro", (0,_helpers__WEBPACK_IMPORTED_MODULE_0__.includeJs)('pro', true));
+
+    if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.isRootPage)('pro')) {
+      console.log('im Roooooot');
+    }
   }
 };
 
@@ -15851,7 +16051,7 @@ var intro = {
     }
   },
   setVatInputMessage: function setVatInputMessage(isValid, vat_number) {
-    if (!isValid && vat_number !== "") {
+    if (!isValid && vat_number !== '') {
       _html__WEBPACK_IMPORTED_MODULE_0__.html.setInner(this.message, 'wrong vat number');
       this.setVatInputErrorClasses();
       this.submit_button.disabled = true;
@@ -15905,17 +16105,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "marques": () => /* binding */ marques
 /* harmony export */ });
 /* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/esm/components/core/core-class.js");
-/* harmony import */ var gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap/dist/gsap */ "./node_modules/gsap/dist/gsap.js");
-/* harmony import */ var gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! gsap/ScrollToPlugin */ "./node_modules/gsap/ScrollToPlugin.js");
+/* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/esm/components/navigation/navigation.js");
+/* harmony import */ var gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! gsap/dist/gsap */ "./node_modules/gsap/dist/gsap.js");
+/* harmony import */ var gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! gsap/ScrollToPlugin */ "./node_modules/gsap/ScrollToPlugin.js");
 /* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helpers */ "./src/js/helpers.js");
 
 
 
 
+
+
+
+swiper__WEBPACK_IMPORTED_MODULE_1__.default.use([swiper__WEBPACK_IMPORTED_MODULE_2__.default]);
+var swiper = new swiper__WEBPACK_IMPORTED_MODULE_1__.default('.swiper-container', {
+  pagination: {
+    el: '.swiper-pagination',
+    type: 'progressbar'
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  }
+});
 var marques = {
   init: function init() {
     if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.includeJs)('marques')) {
+      console.log('qoivnqoivnosicnqosicnqsoicxn', arrow);
       this.configSlider();
       this.scrollToBrands();
       this.scrollToTop();
@@ -15923,38 +16139,14 @@ var marques = {
       this.displayScrollToTop(false);
     }
   },
-  configSlider: function configSlider() {
-    var swiper = new swiper__WEBPACK_IMPORTED_MODULE_1__.default('.swiper-container', {
-      slidesPerView: 3,
-      spaceBetween: 10,
-      // init: false,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true
-      },
-      breakpoints: {
-        '@0.00': {
-          slidesPerView: 2
-        },
-        '@0.75': {
-          slidesPerView: 2
-        },
-        '@1.00': {
-          slidesPerView: 2
-        },
-        '@1.50': {
-          slidesPerView: 2
-        }
-      }
-    });
-  },
   scrollToBrands: function scrollToBrands() {
     var _this = this;
 
-    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_2__.gsap.registerPlugin(gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_3__.default);
+    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_3__.gsap.registerPlugin(gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_4__.default);
     var brands = document.querySelectorAll('.marques__scroll-menu__list__link');
     brands.forEach(function (brand) {
       brand.addEventListener('click', function (e) {
+        console.log('click scroll');
         e.preventDefault();
         var sectionId = '#' + brand.outerText;
 
@@ -15965,7 +16157,7 @@ var marques = {
   scrollToTop: function scrollToTop() {
     var _this2 = this;
 
-    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_2__.gsap.registerPlugin(gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_3__.default);
+    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_3__.gsap.registerPlugin(gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_4__.default);
     var link = document.querySelector('.marques__scroll-to-top');
     link.addEventListener('click', function (e) {
       e.preventDefault();
@@ -15977,10 +16169,10 @@ var marques = {
   },
   displayScrollToTop: function displayScrollToTop(display) {
     var link = document.querySelector('.marques__scroll-to-top');
-    link.style.display = display ? "block" : "none";
+    link.style.display = display ? 'block' : 'none';
   },
   scrollTo: function scrollTo(el, duration, _scrollTo) {
-    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_2__.gsap.to(window, {
+    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_3__.gsap.to(window, {
       duration: duration,
       scrollTo: _scrollTo
     });
@@ -16003,12 +16195,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _intro__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./intro */ "./src/js/intro.js");
 /* harmony import */ var _marques__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./marques */ "./src/js/marques.js");
 /* harmony import */ var _category__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./category */ "./src/js/category.js");
+/* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./home */ "./src/js/home.js");
+/* harmony import */ var _gsap_home_gsap__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./gsap/home.gsap */ "./src/js/gsap/home.gsap.js");
+
+
 
 
 
 var site = {
   _loaded: function _loaded() {
     document.addEventListener('DOMContentLoaded', function () {
+      _home__WEBPACK_IMPORTED_MODULE_3__.home.init();
       _intro__WEBPACK_IMPORTED_MODULE_0__.intro.init();
       _marques__WEBPACK_IMPORTED_MODULE_1__.marques.init();
       _category__WEBPACK_IMPORTED_MODULE_2__.category.init();

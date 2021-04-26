@@ -13,10 +13,8 @@ let animation = {
             start: 'top bottom',
             scrub: true
           }
-        })
-
-      }
-    })
+        });
+    }});
   },
 
   init: () => {
@@ -26,8 +24,8 @@ let animation = {
   onLoad: () => {
     window.addEventListener('load', function () {
       animation.init();
-    })
+    });
   }
-}
+};
 
 animation.onLoad();

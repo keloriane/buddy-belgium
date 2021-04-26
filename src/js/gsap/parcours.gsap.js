@@ -1,5 +1,7 @@
 import gsap from 'gsap/dist/gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min';
+import {ScrollTrigger} from 'gsap/dist/ScrollTrigger.min';
+import {isRootPage} from "../helpers";
+
 gsap.registerPlugin(ScrollTrigger);
 
 function init() {
@@ -28,5 +30,7 @@ function init() {
 }
 
 window.addEventListener('load', () => {
-  init();
+  if (isRootPage('pro')) {
+    init();
+  }
 });

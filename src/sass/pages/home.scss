@@ -1,12 +1,24 @@
 .home {
 	width: 100vw;
 }
+
+.home-wrapper {
+	display: flex;
+	align-items: center;
+}
 .social-media {
-	height: 100%;
-	position: absolute;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	height: 160px;
 	ul {
 		display: flex;
 		flex-flow: column;
+		height: 100%;
+		justify-content: space-around;
+		margin-left: 22px;
+
+
 
 	}
 }

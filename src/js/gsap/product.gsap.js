@@ -1,6 +1,7 @@
 import { gsap } from 'gsap/dist/gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min';
 import Swiper from 'swiper';
+import {isRootPage} from "../helpers";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,7 +11,6 @@ const largeImage = document.querySelector('.portfolio__image--l');
 const smallImage = document.querySelector('.portfolio__image--s');
 const lInside = document.querySelector('.portfolio__image--l .image_inside');
 const sInside = document.querySelector('.portfolio__image--s .image_inside');
-
 
 function initHover() {
   allLinks.forEach((link) => {
@@ -63,11 +63,11 @@ const productList = document.getElementsByClassName('product-list-container')[0]
 
 function createHover(e) {
   if (e.type === 'mouseenter') {
-    console.log('enter');
     const { color, imagelarge, imagesmall } = e.target.dataset;
     const allSiblings = allLinks.filter((item) => item !== e.target);
     const tl = gsap.timeline();
     tl.set(lInside, { backgroundImage: `url(${imagelarge})` })
+      .set(lInside, { backgroundRepeat: 'no-repeat' })
       .to(e.target, { color: '#3A7498', autoAlpha: 1 })
       .set(allSiblings, { autoAlpha: 0.3, color: 'transparent', delay: -1 })
       .to(largeImage, { duration: 0.4, autoAlpha: 1 })
@@ -77,7 +77,6 @@ function createHover(e) {
         { backgroundSize: '100%', duration: 0.5, delay: -1 }
       );
   } else if (e.type === 'mouseleave') {
-    console.log('leave');
     const tl = gsap.timeline();
     tl.to([allLinks], { color: 'transparent', autoAlpha: 0.3 });
   }
@@ -89,16 +88,10 @@ function init() {
 }
 
 window.addEventListener('load', function () {
-  init();
+  if (isRootPage("pro")) {
+    init();
+  }
 });
 
-var swiper = new Swiper('.product-list-container', {
-  slidesPerView: 3,
-  spaceBetween: 30,
-  loop: true,
-  loopFillGroupWithBlank: true,
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-});
+
+

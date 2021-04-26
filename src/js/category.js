@@ -3,7 +3,7 @@ import { includeJs } from './helpers';
 
 export const category = {
   init() {
-    console.log(includeJs('category'));
+    console.log("CATEGORY",includeJs('category'));
     if (includeJs('category')) {
       this.configSlider();
     }
