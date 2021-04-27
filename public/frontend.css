@@ -618,7 +618,10 @@ h1, h2, h3, .line1, .line2 {
 .line {
   height: 110px; }
 
-section {
+a {
+  text-decoration: none; }
+
+#product-section {
   height: 80vh; }
 
 /* Smooth Scrolling */
@@ -786,7 +789,7 @@ h1 {
   grid-template-columns: 1fr 1.5fr;
   grid-column-gap: 24px;
   width: 70%;
-  margin: 200px auto; }
+  margin: 100px auto; }
   #parcours .info-container {
     display: flex;
     flex-direction: column;
@@ -1092,6 +1095,11 @@ figure {
   .activity .card-container {
     grid-template-columns: 1fr 1fr; } }
 
+@media (max-width: 640px) {
+  .activity .card-wrapper {
+    width: 280px;
+    margin: auto; } }
+
 .progressbar {
   position: fixed;
   top: 0;
@@ -1190,6 +1198,14 @@ section {
   height: 100%;
   position: fixed; }
 
+@media (max-width: 640px) {
+  .product-list-container a {
+    font-size: 4.4vw; }
+  h1 {
+    font-size: 20px; }
+  .menu-action div {
+    font-size: 20px; } }
+
 .brand-bg {
   background: rgba(58, 116, 152, 0.7); }
 
@@ -1203,7 +1219,8 @@ section {
   box-sizing: border-box;
   position: relative;
   background-size: cover;
-  z-index: 1; }
+  z-index: 1;
+  padding-bottom: 100px; }
   .brand .brand__logo__container {
     display: flex;
     justify-content: center; }
@@ -1283,9 +1300,16 @@ section {
   width: 100%;
   text-align: center;
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  max-width: 300px;
+  padding: 10px;
+  border: 2px solid white;
+  margin: auto; }
+  .call-to-action-brand:hover {
+    background: #3A7498;
+    transition: .2s ease-in-out; }
   .call-to-action-brand a {
-    color: #C3D6A1;
+    color: white;
     font-family: Proxima Nova, sans-serif;
     text-decoration: none;
     font-size: 30px;
@@ -1578,7 +1602,8 @@ section {
   gap: 74px;
   grid-template-columns: 1.5fr 2fr;
   margin: auto;
-  height: 100vh; }
+  min-height: 100vh;
+  height: 100%; }
   .hero-wrapper .hero-title {
     display: flex;
     align-items: center;
@@ -1611,11 +1636,21 @@ section {
 
 @media (max-width: 996px) {
   .hero-wrapper {
-    grid-template-columns: 1fr; }
+    grid-template-columns: 1fr;
+    margin-top: 125px;
+    height: 56vh;
+    min-height: auto !important; }
+    .hero-wrapper h1 {
+      height: initial; }
     .hero-wrapper .hero-title {
       justify-content: center; }
       .hero-wrapper .hero-title h1 {
-        font-size: calc(8vw + 1rem); } }
+        font-size: calc(8vw + 1rem); }
+  .line {
+    height: 13vw; } }
+
+.span-big {
+  height: 95%; }
 
 .intro {
   height: 100vh; }

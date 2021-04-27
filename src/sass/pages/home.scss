@@ -31,7 +31,8 @@
 	gap: 74px;
 	grid-template-columns: 1.5fr 2fr;
 	margin: auto;
-	height: 100vh;
+	min-height: 100vh;
+	height: 100%;
 
 	.hero-title {
 
@@ -82,6 +83,15 @@
 @media (max-width: 996px ) {
 	.hero-wrapper {
 		grid-template-columns: 1fr;
+		margin-top: 125px;
+		height: 56vh;
+
+			min-height:auto !important;
+
+		h1 {
+			height: initial;
+		}
+
 		.hero-title {
 			justify-content: center;
 			h1 {
@@ -89,4 +99,16 @@
 			}
 		}
 	}
+	.line {
+		height: 13vw;
+	}
+
 }
+
+
+
+.span-big {
+	height: 95%;
+}
+
+

@@ -341,3 +341,13 @@ figure {
 		}
 	}
 }
+@media (max-width: 640px) {
+	.activity {
+		.card-wrapper {
+			width: 280px;
+			margin: auto;
+		}
+
+
+	}
+}

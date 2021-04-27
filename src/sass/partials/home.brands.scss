@@ -19,6 +19,7 @@
 	position: relative;
 	background-size: cover;
 	z-index: 1;
+	padding-bottom: 100px;
 
 	.brand__logo__container {
 		display: flex;
@@ -121,12 +122,25 @@
 	text-align: center;
 	display: flex;
 	justify-content: center;
+	max-width: 300px;
+	padding: 10px;
+	border: 2px solid white;
+	&:hover {
+		background: $blue;
+		transition: .2s ease-in-out;
+
+
+	}
+
+
+	margin: auto;
 	a {
-		color: $green;
+		color: white;
 		font-family: Proxima Nova, sans-serif;
 		text-decoration: none;
 		font-size: 30px;
 		font-weight: 500;
+
 
 	}
 }
