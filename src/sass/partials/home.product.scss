@@ -111,4 +111,14 @@ section {
 
 
 
-
+@media (max-width: 640px) {
+	.product-list-container a {
+		font-size: 4.4vw;
+	}
+	h1 {
+		font-size: 20px;
+	}
+	.menu-action div  {
+		font-size: 20px;
+	}
+}
