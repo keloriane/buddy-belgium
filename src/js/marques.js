@@ -21,8 +21,9 @@ var swiper = new Swiper('.swiper-container', {
 
 export const marques = {
   init() {
+    console.log('Marques init')
     if (includeJs('marques')) {
-      console.log('qoivnqoivnosicnqosicnqsoicxn', arrow);
+      console.log('Marques js included')
       this.configSlider();
       this.scrollToBrands();
       this.scrollToTop();

@@ -1,18 +1,18 @@
 import { gsap } from 'gsap/dist/gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min';
-import Swiper from 'swiper';
 import {isRootPage} from "../helpers";
+import {_event} from "../events";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const allLinks = gsap.utils.toArray('.product-list-container a');
-const pageBackground = document.querySelector('.fill-background');
 const largeImage = document.querySelector('.portfolio__image--l');
-const smallImage = document.querySelector('.portfolio__image--s');
 const lInside = document.querySelector('.portfolio__image--l .image_inside');
-const sInside = document.querySelector('.portfolio__image--s .image_inside');
+// const smallImage = document.querySelector('.portfolio__image--s');
+// const sInside = document.querySelector('.portfolio__image--s .image_inside');
 
 function initHover() {
+  const productList = document.getElementsByClassName('product-list-container')[0];
   allLinks.forEach((link) => {
     link.addEventListener('mouseenter', createHover);
     link.addEventListener('mouseleave', createHover);
@@ -26,8 +26,6 @@ function initHover() {
 function translateLink() {
   allLinks.forEach((link, index) => {
     if (index % 2 === 0) {
-      const tl = gsap.timeline();
-      //tl.from(link, { duration: 3, translateX: '100%' });
       gsap.from(link, {
         scrollTrigger: {
           trigger: '.product',
@@ -38,8 +36,6 @@ function translateLink() {
         duration: 3,
       });
     } else {
-      const tl = gsap.timeline();
-      //tl.from(link, { duration: 3, translateX: '100%' });
       gsap.from(link, {
         scrollTrigger: {
           trigger: '.product',
@@ -47,23 +43,15 @@ function translateLink() {
           scrub: 1,
         },
         x: '-100%',
-
         duration: 5,
       });
     }
   });
 }
-const productList = document.getElementsByClassName('product-list-container')[0];
-
-/*function productListHover(e) {
-  if(e.type === 'mouseleave') {
-    gsap.to(allLinks,{ autoAlpha:1})
-  }
-}*/
 
 function createHover(e) {
   if (e.type === 'mouseenter') {
-    const { color, imagelarge, imagesmall } = e.target.dataset;
+    const {imagelarge} = e.target.dataset;
     const allSiblings = allLinks.filter((item) => item !== e.target);
     const tl = gsap.timeline();
     tl.set(lInside, { backgroundImage: `url(${imagelarge})` })
@@ -87,11 +75,13 @@ function init() {
   translateLink();
 }
 
-window.addEventListener('load', function () {
+
+_event.siteIsLoaded(() => {
   if (isRootPage("pro")) {
     init();
   }
-});
+})
+
 
 
 

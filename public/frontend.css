@@ -786,7 +786,7 @@ h1 {
   grid-template-columns: 1fr 1.5fr;
   grid-column-gap: 24px;
   width: 70%;
-  margin: 200px auto; }
+  margin: 100px auto; }
   #parcours .info-container {
     display: flex;
     flex-direction: column;
