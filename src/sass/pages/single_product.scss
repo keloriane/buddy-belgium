@@ -46,37 +46,3 @@
 	font: revert;
 
 }
-
-
-.single-product__carousel__wrapper__main-images{
-	max-width: 600px;
-	width: clamp(400px,30vw,600px);
-	overflow: hidden;
-	 div.tns-controls {
-		display: none;
-	}
-}
-
-.single-product__carousel__main-images__source{
-	min-height: 600px !important;
-	object-fit: cover !important;
-}
-
-.single-product__thumbnail{
-	img{
-		width: 100%;
-		object-fit: cover;
-	}
-}
-
-.single-product__wrapper__thumbnails{
-	overflow: hidden;
-	max-width: 475px;
-	.tns-nav{
-		display: none;
-	}
-	.tns-outer{
-		position: relative;;
-	}
-}
-

@@ -1,24 +1,13 @@
 {% extends getf('base') %}
 {% import getf('productsList.slider') as slider %}
 {% block body %}
-  <div class="single-product">
-    <div class="single-product__inner-wrapper">
-      <div class="single-product__carousel">
-        <div>
-          <div class="single-product__carousel__wrapper__main-images">
-            <div class="single-product__main-images">
-              {% for single_image in product.custom.single_image %}
-                  <img class="single-product__carousel__main-images__source" src="{{ Image(single_image).src }}" alt="">
-              {% endfor %}
-            </div>
-          </div>
-          <div class="single-product__wrapper__thumbnails">
-            <div class="single-product__thumbnails">
-              {% for single_image in product.custom.single_image %}
-                  <img class="single-product__headline__image" src="{{ Image(single_image).src }}" alt="">
-              {% endfor %}
-            </div>
-          </div>
+
+  <div id="single-product">
+    <div class="single-product__headline">
+      <div class="single-product__headline__wrapper-image">
+        <img class="single-product__headline__image" src="{{ Image(product.custom.product_image).src }}" alt="">
+        <div class="bottom__line__images">
+
         </div>
       </div>
       <div class="single-product__headline__information">
@@ -27,7 +16,7 @@
         </div>
         <div class="single-product__headline__description-container">
           <p class="single-product__headline__description">
-            {{ product.product_description|wpautop }}
+            {{ product.product_description | wpautop }}
           </p>
         </div>
       </div>

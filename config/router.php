@@ -15,24 +15,11 @@ Routes::map('/example', function () use ($protectionCondition) {
 	};
 	HelpMe::protectedRoute($protectionCondition, $route);
 
-});Routes::map('/pro/produits', function () use ($protectionCondition) {
-	$route = function () {
-		Routes::load('pages/products.php');;
-	};
-	HelpMe::protectedRoute($protectionCondition, $route);
-
 });
 
 Routes::map('/category/:category', function ($params) use ($protectionCondition) {
 	$route = function () use ($params) {
 		Routes::load('pages/category.php', $params);
-	};
-	HelpMe::protectedRoute($protectionCondition, $route);
-});
-
-Routes::map('/pro/products-list', function ($params) use ($protectionCondition) {
-	$route = function () use ($params) {
-		Routes::load('pages/products.php', $params);
 	};
 	HelpMe::protectedRoute($protectionCondition, $route);
 });

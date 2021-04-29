@@ -3,64 +3,65 @@
 }
 
 .home-wrapper {
-	align-items: center;
 	display: flex;
+	align-items: center;
 }
-
 .social-media {
 	display: flex;
 	flex-direction: column;
-	height: 160px;
 	justify-content: space-evenly;
-
+	height: 160px;
 	ul {
 		display: flex;
 		flex-flow: column;
 		height: 100%;
 		justify-content: space-around;
 		margin-left: 22px;
+
+
+
 	}
 }
-
 .line-content {
 	overflow: hidden;
 }
-
 .hero-wrapper {
+	width: 90%;
 	display: grid;
 	gap: 74px;
 	grid-template-columns: 1.5fr 2fr;
-	height: 100%;
 	margin: auto;
 	min-height: 100vh;
-	width: 90%;
+	height: 100%;
 
 	.hero-title {
-		align-items: center;
-		display: flex;
-		flex-direction: column;
-		height: 446px;
-		justify-content: center;
-		margin: auto;
 
+
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+		height: 446px;
+		margin: auto;
 		h1 {
 			font-size: calc(4vw + 1rem);
-
 			span {
+				overflow: hidden ;
 				display: flex;
-				overflow: hidden;
 			}
+
+
+
 		}
 	}
-
 	.hero-slider {
-		align-items: center;
-		background-image: url("http://localhost/buddy-belgium/wp-content/uploads/2021/01/buddy-logo-background.png");
-		background-position: center center;
-		background-repeat: no-repeat;
-		background-size: 70%;
 
 		display: flex;
+		align-items: center;
+		background-image: url("http://localhost/buddy-belgium/wp-content/uploads/2021/01/buddy-logo-background.png");
+		background-size: 70%;
+		background-position: center center;
+		background-repeat: no-repeat;
 
 		img {
 			width: 100%;
@@ -68,7 +69,6 @@
 
 	}
 }
-
 .indent {
 	text-indent: 3vw;
 }
@@ -81,13 +81,12 @@
 
 
 @media (max-width: 996px ) {
-
 	.hero-wrapper {
 		grid-template-columns: 1fr;
-		height: 56vh;
 		margin-top: 125px;
+		height: 56vh;
 
-		min-height: auto !important;
+			min-height:auto !important;
 
 		h1 {
 			height: initial;
@@ -95,20 +94,21 @@
 
 		.hero-title {
 			justify-content: center;
-
 			h1 {
 				font-size: calc(8vw + 1rem);
 			}
 		}
 	}
-
 	.line {
 		height: 13vw;
 	}
+
 }
+
 
 
 .span-big {
 	height: 95%;
 }
+
 

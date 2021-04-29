@@ -1,11 +1,9 @@
 import gsap from 'gsap/dist/gsap';
-import {ScrollTrigger} from 'gsap/dist/ScrollTrigger.min';
-import {isRootPage} from "../helpers";
-import {_event} from "../events";
-
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min';
 gsap.registerPlugin(ScrollTrigger);
 
 function init() {
+  const innerText = document.querySelectorAll('.inner-text');
   gsap.from('span h2', {
     duration: 0.5,
     y: 100,
@@ -16,7 +14,6 @@ function init() {
       end: 'bottom bottom',
     },
   });
-
   gsap.from(['.inner-text  p', '.info-text p'], {
     duration: 0.5,
     opacity: 0,
@@ -30,9 +27,6 @@ function init() {
   });
 }
 
-
-_event.siteIsLoaded(() => {
-  if (isRootPage('pro')) {
-    init();
-  }
-})
+window.addEventListener('load', () => {
+  init();
+});

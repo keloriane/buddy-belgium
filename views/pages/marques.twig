@@ -3,7 +3,7 @@
   <div class="marques">
     <div class="marques__scroll-menu">
       <ul class="marques__scroll-menu__list">
-        {% for brand in brands|sort((a,b) => a.order <=> b.order) %}
+        {% for brand in brands %}
           <li class="marques__scroll-menu__list__link">
             {{ brand.name }}
           </li>

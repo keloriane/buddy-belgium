@@ -1762,14 +1762,14 @@ section {
   width: 100vw; }
 
 .home-wrapper {
-  align-items: center;
-  display: flex; }
+  display: flex;
+  align-items: center; }
 
 .social-media {
   display: flex;
   flex-direction: column;
-  height: 160px;
-  justify-content: space-evenly; }
+  justify-content: space-evenly;
+  height: 160px; }
   .social-media ul {
     display: flex;
     flex-flow: column;
@@ -1781,32 +1781,32 @@ section {
   overflow: hidden; }
 
 .hero-wrapper {
+  width: 90%;
   display: grid;
   gap: 74px;
   grid-template-columns: 1.5fr 2fr;
-  height: 100%;
   margin: auto;
   min-height: 100vh;
-  width: 90%; }
+  height: 100%; }
   .hero-wrapper .hero-title {
-    align-items: center;
     display: flex;
+    align-items: center;
     flex-direction: column;
-    height: 446px;
     justify-content: center;
+    height: 446px;
     margin: auto; }
     .hero-wrapper .hero-title h1 {
       font-size: calc(4vw + 1rem); }
       .hero-wrapper .hero-title h1 span {
-        display: flex;
-        overflow: hidden; }
+        overflow: hidden;
+        display: flex; }
   .hero-wrapper .hero-slider {
+    display: flex;
     align-items: center;
     background-image: url("http://localhost/buddy-belgium/wp-content/uploads/2021/01/buddy-logo-background.png");
-    background-position: center center;
-    background-repeat: no-repeat;
     background-size: 70%;
-    display: flex; }
+    background-position: center center;
+    background-repeat: no-repeat; }
     .hero-wrapper .hero-slider img {
       width: 100%; }
 
@@ -1821,8 +1821,8 @@ section {
 @media (max-width: 996px) {
   .hero-wrapper {
     grid-template-columns: 1fr;
-    height: 56vh;
     margin-top: 125px;
+    height: 56vh;
     min-height: auto !important; }
     .hero-wrapper h1 {
       height: initial; }
@@ -2316,29 +2316,6 @@ section {
 
 .single-product__headline__description {
   font: revert; }
-
-.single-product__carousel__wrapper__main-images {
-  max-width: 600px;
-  width: clamp(400px, 30vw, 600px);
-  overflow: hidden; }
-  .single-product__carousel__wrapper__main-images div.tns-controls {
-    display: none; }
-
-.single-product__carousel__main-images__source {
-  min-height: 600px !important;
-  object-fit: cover !important; }
-
-.single-product__thumbnail img {
-  width: 100%;
-  object-fit: cover; }
-
-.single-product__wrapper__thumbnails {
-  overflow: hidden;
-  max-width: 475px; }
-  .single-product__wrapper__thumbnails .tns-nav {
-    display: none; }
-  .single-product__wrapper__thumbnails .tns-outer {
-    position: relative; }
 
 .slider-container {
   display: flex;
