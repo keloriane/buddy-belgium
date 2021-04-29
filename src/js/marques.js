@@ -1,11 +1,10 @@
 import Swiper, { Navigation } from 'swiper';
-
 import 'swiper/components/navigation/navigation.scss';
 import 'swiper/components/pagination/pagination.scss';
 import 'swiper/components/scrollbar/scrollbar.scss';
 import { gsap } from 'gsap/dist/gsap';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
-import { includeJs } from './helpers';
+import {includeJs, isRootPage} from './helpers';
 
 Swiper.use([Navigation]);
 var swiper = new Swiper('.swiper-container', {
@@ -22,9 +21,8 @@ var swiper = new Swiper('.swiper-container', {
 export const marques = {
   init() {
     console.log('Marques init')
-    if (includeJs('marques')) {
+    if (isRootPage('marques')) {
       console.log('Marques js included')
-      this.configSlider();
       this.scrollToBrands();
       this.scrollToTop();
     } else {

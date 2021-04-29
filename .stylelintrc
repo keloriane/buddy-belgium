@@ -2,6 +2,7 @@
   "extends": "stylelint-config-wordpress/scss",
   "plugins": ["stylelint-order"],
   "rules": {
+    "block-no-empty": null,
     "order/properties-alphabetical-order": true,
     "max-line-length": 120
   }

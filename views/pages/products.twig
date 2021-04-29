@@ -1,0 +1,8 @@
+{% extends getf('base') %}
+{% block body %}
+  <div id="products">
+    {% for product in vrac %}
+      {{ product }}
+    {% endfor %}
+  </div>
+{% endblock body %}
