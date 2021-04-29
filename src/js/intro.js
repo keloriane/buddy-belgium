@@ -1,6 +1,6 @@
-import { html } from './html';
-import { checkVAT, countries } from 'jsvat';
-import { includeJs, isCurrentPageIndex, isIndex } from './helpers';
+import {html} from './html';
+import {checkVAT, countries} from 'jsvat';
+import {includeJs, isCurrentPageIndex, isIndex} from './helpers';
 
 export const intro = {
   pageName: 'intro',
@@ -9,8 +9,8 @@ export const intro = {
   submit_button: document.querySelector('.vat-number__form__submit'),
 
   init() {
-    if (isCurrentPageIndex(true)) {
-      console.log('in');
+    if (isCurrentPageIndex()) {
+      console.log('intro included')
       this.inputState();
       this.hidePopup();
     }
@@ -22,7 +22,7 @@ export const intro = {
         event.preventDefault();
         let vat_number_value = html.getValue(event);
         let check_response = checkVAT(vat_number_value, countries);
-        let { isValid } = check_response;
+        let {isValid} = check_response;
         this.setVatInputMessage(isValid, vat_number_value);
       });
     }

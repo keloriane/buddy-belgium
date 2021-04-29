@@ -1,10 +1,11 @@
 import { Swiper } from 'swiper';
-import { includeJs } from './helpers';
+import {includeJs, isRootPage} from './helpers';
 
 export const category = {
   init() {
-    console.log(includeJs('category'));
-    if (includeJs('category')) {
+    console.log('category init')
+    if (isRootPage('category')) {
+      console.log('category included')
       this.configSlider();
     }
   },
@@ -13,7 +14,6 @@ export const category = {
     const swiper = new Swiper('.swiper-container', {
       slidesPerView: 3,
       spaceBetween: 10,
-      // init: false,
       pagination: {
         el: '.swiper-pagination',
         clickable: true,

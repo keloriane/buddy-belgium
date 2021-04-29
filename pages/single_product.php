@@ -4,6 +4,9 @@
 
 global $params;
 
+Picz::add('arrow_left', 'angle-left.png');
+Picz::add('arrow_right', 'angle-right.png');
+
 $context = Timber::context();
 $product = Gimy::customType(
 	[
@@ -12,7 +15,7 @@ $product = Gimy::customType(
 	]);
 
 $context['product'] = array_pop($product);
-
+$context['images'] = Picz::getAll();
 Timber::render('/single_product.twig', $context);
 
 

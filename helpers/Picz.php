@@ -2,7 +2,7 @@
 
 class Picz
 {
-    public static $images = [];
+    private static $images = [];
 
     public static function getAll()
     {
@@ -11,10 +11,10 @@ class Picz
 
     public static function add($key, $filename)
     {
-		return Picz::$images[$key] = $filename;
+		return Picz::$images[$key] = Picz::get($filename);
     }
 
-    public static function get($filename)
+    private static function get($filename)
     {
         return get_template_directory_uri() . '/public/images/' . $filename;
     }

@@ -1,4 +1,5 @@
 import {gsap} from "gsap/dist/gsap";
+import {isRootPage} from "./helpers";
 
 export const html = {
   removeClass(el, className) {
@@ -15,12 +16,6 @@ export const html = {
 
   getValue(event) {
     return event.target.value
-  },
-
-  domIsReady(fn) {
-    document.addEventListener('DOMContentLoaded', () => {
-        fn();
-    });
   }
 };
 
