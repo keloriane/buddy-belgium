@@ -1,6 +1,11 @@
 .single-product__headline {
+<<<<<<< HEAD
 	display: grid;
 	grid-template-columns: 1fr 1fr;
+=======
+	display: flex;
+	flex-direction: column;
+>>>>>>> parent of b69735b... single added
 	@include respond-above(md) {
 		flex-direction: row;
 		gap: 50px;
@@ -42,7 +47,10 @@
 .single-product__headline__information__title-container {
 	margin-top: 32px;
 }
+<<<<<<< HEAD
 .single-product__headline__description {
 	font: revert;
 
 }
+=======
+>>>>>>> parent of b69735b... single added

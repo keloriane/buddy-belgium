@@ -2,7 +2,10 @@
 import { intro } from './intro';
 import { marques } from './marques';
 import { category } from './category';
+<<<<<<< HEAD
 /*import { single_product } from './single_product';*/
+=======
+>>>>>>> parent of b69735b... single added
 
 export const site = {
   _loaded: () => {
@@ -11,7 +14,10 @@ export const site = {
       intro.init();
       marques.init();
       category.init();
+<<<<<<< HEAD
       /* single_product.init()*/
+=======
+>>>>>>> parent of b69735b... single added
     });
   },
 

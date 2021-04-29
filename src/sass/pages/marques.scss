@@ -1,36 +1,37 @@
-.marques {}
+.marques {
+
+}
 
 .marques__scroll-menu {
-	color: $blue;
 	display: inline-block;
-	font-family: $titleFont;
-	font-size: 24px;
-	left: 50%;
-	padding: 40px 0;
 	position: relative;
+	left: 50%;
 	transform: translateX(-50%);
+	font-family: $titleFont;
+	color: $blue;
+	font-size: 24px;
+	padding: 40px 0;
 }
 
 
 .marques__scroll-menu__list {
 	display: flex;
-	flex-direction: row;
 	gap: 24px;
+	flex-direction: row;
 }
 
 .marques__scroll-menu__list__link:hover {
-	color: $green;
 	cursor: pointer;
+	color: $green;
 }
 
 .marques__scroll-to-top {
-	bottom: 32px;
-	color: $green;
-	font-family: $titleFont;
-	font-size: 16px;
-	left: 32px;
 	position: fixed;
-
+	bottom: 32px;
+	left: 32px;
+	font-family: $titleFont;
+	color: $blue;
+	font-size: 16px;
 	&:hover {
 		cursor: pointer;
 	}

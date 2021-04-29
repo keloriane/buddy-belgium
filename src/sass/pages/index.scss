@@ -1,16 +1,15 @@
 .home {
-	margin: 0 auto;
+	margin: 0 auto ;
 	max-width: 480px;
 	padding-top: 32px;
 }
 
-.home-wrapper {
-	background: #fff;
-	height: 100vh;
+.home-wrapper{
+	background: white;
 	padding: 20px;
+	height: 100vh;
 }
-
-.article {
+.article{
 	margin-bottom: 16px;
 }
 
@@ -21,10 +20,10 @@
 }
 
 .article-text {
-	display: block;
 	font-size: 16px;
 	line-height: 1.4;
-	margin-top: 8px;
+	display: block;
 	width: 85%;
+	margin-top: 8px;
 }
 
