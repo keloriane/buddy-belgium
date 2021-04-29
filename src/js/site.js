@@ -1,4 +1,4 @@
-/*import { home } from './home';*/
+²/*import { home } from './home';*/
 import { intro } from './intro';
 import { marques } from './marques';
 import { category } from './category';
