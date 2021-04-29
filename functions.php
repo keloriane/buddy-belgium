@@ -15,4 +15,6 @@ register_nav_menus( array(
 	'menu' => 'Navigation Menu',
 	'customer_menu' => 'customer_menu',
 ) );
+add_editor_style();
+
 

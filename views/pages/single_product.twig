@@ -1,6 +1,7 @@
 {% extends getf('base') %}
 {% import getf('productsList.slider') as slider %}
 {% block body %}
+
   <div id="single-product">
     <div class="single-product__headline">
       <div class="single-product__headline__wrapper-image">
@@ -15,7 +16,7 @@
         </div>
         <div class="single-product__headline__description-container">
           <p class="single-product__headline__description">
-            {{ product.product_description }}
+            {{ product.product_description|wpautop }}
           </p>
         </div>
       </div>

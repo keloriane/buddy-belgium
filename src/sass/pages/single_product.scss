@@ -1,6 +1,6 @@
 .single-product__headline {
-	display: flex;
-	flex-direction: column;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
 	@include respond-above(md) {
 		flex-direction: row;
 		gap: 50px;
@@ -41,4 +41,8 @@
 
 .single-product__headline__information__title-container {
 	margin-top: 32px;
+}
+.single-product__headline__description {
+	font: revert;
+
 }

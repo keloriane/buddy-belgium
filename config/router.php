@@ -15,6 +15,12 @@ Routes::map('/example', function () use ($protectionCondition) {
 	};
 	HelpMe::protectedRoute($protectionCondition, $route);
 
+});Routes::map('/pro/produits', function () use ($protectionCondition) {
+	$route = function () {
+		Routes::load('pages/products.php');;
+	};
+	HelpMe::protectedRoute($protectionCondition, $route);
+
 });
 
 Routes::map('/category/:category', function ($params) use ($protectionCondition) {

@@ -568,7 +568,6 @@ html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockq
   padding: 0;
   border: 0;
   font-size: 100%;
-  font: inherit;
   vertical-align: baseline;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -682,6 +681,64 @@ h1 {
 
 .last-word {
   height: 90px; }
+
+#products a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+  #products a p {
+    font-family: "Poppins", monospace;
+    font-size: 19px;
+    color: #737373;
+    font-weight: 700;
+    text-transform: capitalize; }
+
+#products .product-list {
+  margin-top: 60px; }
+
+#products ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; }
+  #products ul li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    padding: 25px; }
+
+#products .vrac-product {
+  margin-top: 100px; }
+  #products .vrac-product img {
+    width: 100%;
+    max-width: 280px; }
+  #products .vrac-product .title-container {
+    text-align: center; }
+    #products .vrac-product .title-container h2 {
+      font-size: 30px;
+      color: #3A7498; }
+
+.call_to_action_product {
+  width: 100%;
+  max-width: 300px;
+  border: 1px solid #3A7498;
+  text-align: center;
+  margin: 100px auto;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .call_to_action_product a {
+    font-family: "Poppins", monospace;
+    text-align: center;
+    font-size: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #3A7498; }
+    .call_to_action_product a:hover {
+      color: #C3D6A1; }
 
 .marques__presentation__slider {
   display: flex;
@@ -890,6 +947,9 @@ h1 {
     font-family: "Poppins", monospace;
     font-size: 25px;
     text-decoration: none; }
+
+#region h2, #region h3, #region p {
+  color: #3A7498 !important; }
 
 figure {
   display: flex; }
@@ -2094,8 +2154,8 @@ section {
   opacity: 0.03; }
 
 .single-product__headline {
-  display: flex;
-  flex-direction: column; }
+  display: grid;
+  grid-template-columns: 1fr 1fr; }
   @media (min-width: 768px) {
     .single-product__headline {
       flex-direction: row;
@@ -2129,6 +2189,9 @@ section {
 
 .single-product__headline__information__title-container {
   margin-top: 32px; }
+
+.single-product__headline__description {
+  font: revert; }
 
 .slider-container {
   display: flex;
