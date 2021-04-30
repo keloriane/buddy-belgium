@@ -9,7 +9,6 @@ export const intro = {
   submit_button: document.querySelector('.vat-number__form__submit'),
 
   init() {
-    console.log('intro init')
     if (isCurrentPageIndex()) {
       console.log('intro included')
       this.inputState();
