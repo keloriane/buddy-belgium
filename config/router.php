@@ -30,6 +30,12 @@ Routes::map('/pro/products/:product', function ($params) use ($protectionConditi
 	};
 	HelpMe::protectedRoute($protectionCondition, $route);
 });
+Routes::map('/pro/products', function ($params) use ($protectionCondition) {
+	$route = function () use ($params) {
+		Routes::load('pages/produtcs.php', $params);
+	};
+	HelpMe::protectedRoute($protectionCondition, $route);
+});
 
 Routes::map('/activities', function ($params) use ($protectionCondition) {
 	$route = function () use ($params) {
