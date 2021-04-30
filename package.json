@@ -60,6 +60,7 @@
     "@barba/core": "^2.9.7",
     "@splidejs/splide": "^2.4.21",
     "jsvat": "^2.5.0",
-    "swiper": "^6.4.10"
+    "swiper": "^6.4.10",
+    "tiny-slider": "^2.9.3"
   }
 }
