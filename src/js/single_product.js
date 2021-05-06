@@ -22,7 +22,7 @@ export const single_product = {
 
     tns({
       container: '.single-product__thumbnails',
-      items: 4,
+      items:5,
       gutter: 5,
       arrowKeys: true,
       mouseDrag: true,

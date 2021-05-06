@@ -122,6 +122,7 @@ function produits_paquet () {
 		]
 	);
 }
+
 function produit_cat () {
 	register_post_type('product_type',[
 			'label' => 'produits type ',

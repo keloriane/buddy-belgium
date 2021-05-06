@@ -22128,7 +22128,7 @@ var single_product = {
     });
     (0,tiny_slider_src_tiny_slider__WEBPACK_IMPORTED_MODULE_1__.tns)({
       container: '.single-product__thumbnails',
-      items: 4,
+      items: 5,
       gutter: 5,
       arrowKeys: true,
       mouseDrag: true,
