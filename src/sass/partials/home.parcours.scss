@@ -1,9 +1,23 @@
-#home-parcours{}
+#home-parcours{
+	position: relative;
+	overflow: hidden;
+}
+
+.home-parcours_logo1{
+	position: absolute;
+	right: -200px;
+}
+
+.home-parcours_logo2{
+	position: absolute;
+	bottom: -100px;
+	left: -400px;
+}
 
 .home-parcours_title{
 	margin-left: 16px;
-	@include respond-above(md){
-		margin-left: -100px;
+	@include respond-above(lg){
+		margin-left: -32px;
 	}
 }
 
@@ -73,7 +87,7 @@
 	font-family: $mainFont;
 	line-height: 150%;
 	font-weight: 300;
-	max-width: 560px;
+	max-width: 520px;
 }
 
 .home-parcours_content_text{

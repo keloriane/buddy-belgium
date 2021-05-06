@@ -965,11 +965,24 @@ h1 {
   z-index: 10000;
   position: fixed; }
 
+#home-parcours {
+  position: relative;
+  overflow: hidden; }
+
+.home-parcours_logo1 {
+  position: absolute;
+  right: -200px; }
+
+.home-parcours_logo2 {
+  position: absolute;
+  bottom: -100px;
+  left: -400px; }
+
 .home-parcours_title {
   margin-left: 16px; }
-  @media (min-width: 768px) {
+  @media (min-width: 992px) {
     .home-parcours_title {
-      margin-left: -100px; } }
+      margin-left: -32px; } }
 
 .home-parcours_inner-wrapper {
   max-width: 1200px;
@@ -1028,7 +1041,7 @@ h1 {
   font-family: "Poppins", monospace;
   line-height: 150%;
   font-weight: 300;
-  max-width: 560px; }
+  max-width: 520px; }
 
 .home-parcours_content_text {
   max-width: 600px; }
