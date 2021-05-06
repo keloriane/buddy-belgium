@@ -3,13 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="bf913162-00d9-403c-9507-eeb4b1342cb5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/custom_types.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/custom_types.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/frontend-bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend-bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/env.helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/env.helpers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/about.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/about.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/intro.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/intro.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/about.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/category.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/contact.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/frontend-bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend-bundle.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/frontend.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/frontend.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/single_product.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/single_product.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/pages/single_product.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/pages/single_product.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +90,7 @@
       <workItem from="1619966136609" duration="1207000" />
       <workItem from="1620026835423" duration="618000" />
       <workItem from="1620213396984" duration="260000" />
-      <workItem from="1620300766922" duration="1525000" />
+      <workItem from="1620300766922" duration="4533000" />
     </task>
     <servers />
   </component>
