@@ -735,6 +735,11 @@ h1 {
     .call_to_action_product a:hover {
       color: #C3D6A1; }
 
+#close {
+  font-family: "Poppins", monospace;
+  font-size: 20px;
+  font-weight: 800; }
+
 .tns-outer {
   padding: 0 !important; }
   .tns-outer [hidden] {
@@ -1674,7 +1679,8 @@ section {
   box-sizing: border-box;
   height: 40px;
   width: 60%;
-  margin-top: 32px; }
+  margin-top: 32px;
+  text-transform: uppercase; }
   .vat-number__form__input:focus {
     outline: 0; }
 

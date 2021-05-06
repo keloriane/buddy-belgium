@@ -21807,6 +21807,7 @@ _events__WEBPACK_IMPORTED_MODULE_1__._event.siteIsLoaded(function () {
 
 var open = false;
 var menu = document.getElementById('menu-burger');
+var close = document.getElementById('close');
 var menuButton = document.getElementById('burger__menu');
 menuButton.addEventListener('click', function (e) {
   console.log(e.target);
@@ -21817,6 +21818,9 @@ menuButton.addEventListener('click', function (e) {
   } else if (open === false) {
     menu.style.display = 'none';
   }
+});
+close.addEventListener('click', function () {
+  if (open === false) {}
 });
 
 /***/ }),
