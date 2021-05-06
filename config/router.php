@@ -6,7 +6,7 @@ Routes::map('/about', function () use ($protectionCondition) {
 	$route = function () {
 		Routes::load('pages/about.php');
 	};
-	HelpMe::protectedRoute($protectionCondition, $route);
+
 });
 
 Routes::map('/example', function () use ($protectionCondition) {
@@ -30,13 +30,21 @@ Routes::map('/pro/products/:product', function ($params) use ($protectionConditi
 	};
 	HelpMe::protectedRoute($protectionCondition, $route);
 });
-
-Routes::map('/activities', function ($params) use ($protectionCondition) {
+Routes::map('/pro/produits', function ($params) use ($protectionCondition) {
 	$route = function () use ($params) {
-		Routes::load('pages/activity.php', $params);
+
+		Routes::load('pages/produtcs.php', $params);
 	};
 	HelpMe::protectedRoute($protectionCondition, $route);
 });
+
+
+//Routes::map('/activities', function ($params) use ($protectionCondition) {
+//	$route = function () use ($params) {
+//		Routes::load('pages/activity.php', $params);
+//	};
+//	HelpMe::protectedRoute($protectionCondition, $route);
+//});
 
 Routes::map('/pro/activities/:activity', function ($params) use ($protectionCondition) {
 	$route = function () use ($params) {

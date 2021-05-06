@@ -2,6 +2,7 @@
 {% import getf('productsList.slider') as slider %}
 {% block body %}
   <section class="grey">
+
   <div id="category" >
     <div class="category__headline">
       <div class="category__headline__wrapper-image">
@@ -19,14 +20,29 @@
       </div>
     </div>
 
-    <div class="category__slider__container">
-      <div class="category__slider__title-bg">Product Lister</div>
 
-      {{ slider.productsList(category.products) }}
+<div>
+  <div class="product-list">
+          <ul class="marques__scroll-menu__list">
+            {% for product in category.products %}
+              <li class="marques__scroll-menu__list__link">
+                <a href="{{ site.url }}/pro/products/{{ product.slug }}">
+                  <img src={{ Image(product.product_image).src }}>
 
-    </div>
-  </div>
+                  <p>
+                    {{ product.name }}
+                  </p>
 
+
+                </a>
+
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+</div>
+
+    {#  {{ slider.productsList(category.products) }}#}
   </section>
 {% endblock body %}
 

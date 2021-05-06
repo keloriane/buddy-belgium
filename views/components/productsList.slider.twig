@@ -1,11 +1,34 @@
 {% macro productsList(products) %}
+  {#
   <div class="product-container">
     <div class="product-wrapper">
       {% for product in products %}
-        <a href="{{ site.url }}/pro/products/{{ product.slug }}" class="category__slider__item swiper-slide">
+        <a href="{{ site.url }}/pro/products/{{ product.slug }}" class="category__slider__item">
           <img src={{ Image(product.product_image).src }}>
         </a>
       {% endfor %}
+    </div>
+  </div>
+  #}
+  <div class="vrac-product">
+
+    <div class="product-list">
+      <ul class="marques__scroll-menu__list">
+        {% for product in products %}
+          <li class="marques__scroll-menu__list__link">
+            <a href="{{ site.url }}/pro/products/{{ product.slug }}">
+              <img src={{ Image(product.product_image).src }}>
+
+              <p>
+                {{ product.name }}
+              </p>
+
+
+            </a>
+
+          </li>
+        {% endfor %}
+      </ul>
     </div>
   </div>
 {% endmacro %}

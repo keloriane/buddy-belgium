@@ -9,11 +9,11 @@ module.exports = {
   context: __dirname,
   entry: {
     frontend: ['./src/index.js'],
-    customizer: './src/js/customizer.js'
+    customizer: './src/js/customizer.js',
   },
   output: {
     path: path.resolve(__dirname, 'public'),
-    filename: '[name]-bundle.js'
+    filename: '[name]-bundle.js',
   },
   mode: 'development',
   devtool: 'source-map',
@@ -23,30 +23,29 @@ module.exports = {
         enforce: 'pre',
         exclude: /node_modules/,
         test: /\.jsx$/,
-        loader: 'eslint-loader'
+        loader: 'eslint-loader',
       },
       {
         test: /\.jsx?$/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
       },
       {
         test: /\.s?css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
       {
         test: /\.svg$/,
         loader: 'svg-sprite-loader',
         options: {
           extract: true,
-          spriteFilename: 'svg-defs.svg'
-        }
+          spriteFilename: 'svg-defs.svg',
+        },
       },
       {
-
         test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
         use: {
-          loader: 'url-loader'
-        }
+          loader: 'url-loader',
+        },
       },
       {
         test: /\.(jpe?g|png|gif)\$/,
@@ -55,26 +54,25 @@ module.exports = {
             loader: 'file-loader',
             options: {
               outputPath: 'images/',
-              name: '[name].[ext]'
-            }
+              name: '[name].[ext]',
+            },
           },
-          'img-loader'
-        ]
-      }
-    ]
+          'img-loader',
+        ],
+      },
+    ],
   },
   plugins: [
-    new MiniCssExtractPlugin({filename: '[name].css'}),
+    new MiniCssExtractPlugin({ filename: '[name].css' }),
     new BrowserSyncPlugin({
       files: ['**/*.php', '**/*.twig'],
       open: 'external',
       port: 80,
-      proxy: 'buddy.test',
+      proxy: 'localhost/buddy-belgium',
       injectChanges: true,
-    })
+    }),
   ],
   optimization: {
-    minimizer: [new UglifyJSPlugin(), new OptimizeCssAssetsPlugin()]
-  }
+    minimizer: [new UglifyJSPlugin(), new OptimizeCssAssetsPlugin()],
+  },
 };
-

@@ -21799,6 +21799,32 @@ _events__WEBPACK_IMPORTED_MODULE_1__._event.siteIsLoaded(function () {
 
 /***/ }),
 
+/***/ "./src/js/gsap/menu.gsap.js":
+/*!**********************************!*\
+  !*** ./src/js/gsap/menu.gsap.js ***!
+  \**********************************/
+/***/ (() => {
+
+var open = false;
+var menu = document.getElementById('menu-burger');
+var close = document.getElementById('close');
+var menuButton = document.getElementById('burger__menu');
+menuButton.addEventListener('click', function (e) {
+  console.log(e.target);
+  open = !open;
+
+  if (open === true) {
+    menu.style.display = 'block';
+  } else if (open === false) {
+    menu.style.display = 'none';
+  }
+});
+close.addEventListener('click', function () {
+  if (open === false) {}
+});
+
+/***/ }),
+
 /***/ "./src/js/helpers.js":
 /*!***************************!*\
   !*** ./src/js/helpers.js ***!
@@ -22174,6 +22200,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _marques__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./marques */ "./src/js/marques.js");
 /* harmony import */ var _category__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./category */ "./src/js/category.js");
 /* harmony import */ var _single_product__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./single_product */ "./src/js/single_product.js");
+/* harmony import */ var _gsap_menu_gsap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./gsap/menu.gsap */ "./src/js/gsap/menu.gsap.js");
+/* harmony import */ var _gsap_menu_gsap__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_gsap_menu_gsap__WEBPACK_IMPORTED_MODULE_5__);
+
 
 
 

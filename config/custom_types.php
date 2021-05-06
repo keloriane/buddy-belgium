@@ -95,6 +95,20 @@ function create_activities()
 	register_post_type('activities', $args);
 }
 
+function create_teams () {
+	register_post_type('teams', [
+			'label' => 'Team',
+			'public' => true,
+			'menu_position' => 9,
+			'supports' => ['title', 'editor',],
+			'show_in_graphql' => true,
+			'hierarchical' => true,
+			'graphql_single_name' => 'team',
+			'graphql_plural_name' => 'team',
+		]
+	);
+}
+
 
 function produits_vrac () {
 	register_post_type('products', [
@@ -139,6 +153,7 @@ add_action('init', 'create_product');
 add_action('init', 'create_category');
 add_action('init', 'create_activities');
 add_action('init', 'create_brands');
+add_action('init', 'create_teams');
 add_action('init', 'produits_vrac');
 add_action('init', 'produits_paquet');
 add_action('init', 'produit_cat');
