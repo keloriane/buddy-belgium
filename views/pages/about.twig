@@ -3,61 +3,64 @@
 {% block body %}
 
 
+<div class="about">
+  <div class="about-wrapper">
+    <h2 class="green">About</h2>
+    <h2>{{ site.title }}</h2>
 
-  <div class="about">
-    <div class="about-wrapper">
-      <h2 class="green">About</h2>
-      <h2 >{{ site.title }}</h2>
+    <div class="text-container">
+      <div class="inner-text-wrapper">
 
-      <div class="text-container">
-         <div class="inner-text-wrapper">
+        {{ about.text_part_one }}
 
-            {{ about.text_part_one }}
-
-         </div>
-        <div class="inner-text-wrapper">
-
-            {{ about.text_part_two }}
-
-
-         </div>
       </div>
+      <div class="inner-text-wrapper">
+
+        {{ about.text_part_two }}
+      </div>
+    </div>
     <div class="team-grid-container">
       {% for member in team %}
-      <div class="team">
-        <img src="{{ Image(member.image_profil).src }}" alt="">
-        <div class="name">
-          <h3>{{ member.nom }}</h3>
-          <h3>{{ member.prenom }}</h3>
+        <div class="team">
+          <img src="{{ Image(member.image_profil).src }}" alt="">
+          <div class="name">
+            <h3>{{ member.nom }}</h3>
+            <h3>{{ member.prenom }}</h3>
+
+          </div>
+          <div class="status">
+            <h4>{{ member.status_info }}</h4>
+          </div>
+          <div class="social">
+            <ul class="list__social">
+              <li>
+                <a href="">
+                  <img
+                    src="https://www.flaticon.com/svg/vstatic/svg/174/174876.svg?token=exp=1618996290~hmac=d2161fb64e1516a9193d76801a4562f3"
+                    alt="">
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <img
+                    src="https://www.flaticon.com/svg/vstatic/svg/174/174857.svg?token=exp=1618996290~hmac=015dbe8b5c76bf73e05231a60284e04b"
+                    alt="">
+                </a>
+
+              </li>
+              <li>
+                <a href="">
+                  <img
+                    src="https://www.flaticon.com/svg/vstatic/svg/174/174848.svg?token=exp=1618996290~hmac=823d9d27878e4d98773c2be6f7b4293a"
+                    alt="">
+                </a>
+
+              </li>
+            </ul>
+          </div>
 
         </div>
-        <div class="status">
-          <h4>{{ member.status_info }}</h4>
-        </div>
-        <div class="social">
-          <ul class="list__social">
-            <li>
-              <a href="">
-                <img src="https://www.flaticon.com/svg/vstatic/svg/174/174876.svg?token=exp=1618996290~hmac=d2161fb64e1516a9193d76801a4562f3" alt="">
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <img src="https://www.flaticon.com/svg/vstatic/svg/174/174857.svg?token=exp=1618996290~hmac=015dbe8b5c76bf73e05231a60284e04b" alt="">
-              </a>
-
-            </li>
-            <li>
-              <a href="">
-                <img src="https://www.flaticon.com/svg/vstatic/svg/174/174848.svg?token=exp=1618996290~hmac=823d9d27878e4d98773c2be6f7b4293a" alt="">
-              </a>
-
-            </li>
-          </ul>
-        </div>
-
-      </div>
       {% endfor %}
     </div>
   </div>
-{% endblock body %}
+  {% endblock body %}

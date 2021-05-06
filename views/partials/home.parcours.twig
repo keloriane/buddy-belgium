@@ -1,39 +1,40 @@
-
-<section  class="grey">
-  <div id="parcours">
-    <div class=" info-container">
-      <div class="section-title blue">
-        <span class="indent">  <h2 class= "blue">Le parcours</h2> </span>
-        <span> <h2 class=" blue">De buddy</h2> </span>
-        <span class="indent">  <h2 class="blue last-word">
+<section class="grey">
+  <div id="home-parcours">
+    <div class="home-parcours_inner-wrapper">
+      <div class=" info-container">
+        <div class="home-parcours_title section-title blue">
+          <span class="indent">  <h2 class="blue">Le parcours</h2> </span>
+          <span> <h2 class=" blue">De buddy</h2> </span>
+          <span class="indent">  <h2 class="blue last-word">
              Belgium
           </h2></span>
-      </div>
-      <h3 class="indent">
-        the story of buddy
-      </h3>
-
-      <div class="info-text">
-        <p>
-          {{acf.custom.left_bloc_text}}        </p>
-        <div class="call-to-action">
-          <a href="{{ site.link }}/about">
-            <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 10.3988H10.4699M10.4699 10.3988V1.08191M10.4699 10.3988L2 1.08191" stroke="#F5DFB4" stroke-width="3.16492"/>
-            </svg>
-            En savoir plus
-          </a>
         </div>
-      </div>
-    </div>
-    <div class="text-container">
-      <div class="inner-text">
-        <p>
-          {{acf.custom.right_bloc_text_top}}        </p>
-      </div>
-      <div class="inner-text">
-        <p>
-          {{acf.custom.right_bloc_text_bottom}}        </p>
+        <div class="home-parcours_content">
+          <div class="home-parcours_content_quote">
+            <p>
+              {{ acf.custom.left_bloc_text }}
+            </p>
+            <div class="home-parcours_content_quote_cta call-to-action">
+              <a href="{{ site.link }}/about">
+                <svg class="home-parcours_content_quote_cta_arrow" width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2 10.3988H10.4699M10.4699 10.3988V1.08191M10.4699 10.3988L2 1.08191" stroke="#FFFFFF"
+                        stroke-width="3.16492"/>
+                </svg>
+                En savoir plus
+              </a>
+            </div>
+          </div>
+          <div class="home-parcours_content_wrapper-text">
+            <div class="home-parcours_content_text">
+              <p>
+                {{ acf.custom.right_bloc_text_top }}        </p>
+            </div>
+            <div class="home-parcours_content_text">
+              <p>
+                {{ acf.custom.right_bloc_text_bottom }}        </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
