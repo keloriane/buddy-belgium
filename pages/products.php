@@ -21,7 +21,6 @@ foreach ($products as $product) {
 		$products_package [] = $product;
 	}
 }
-
 $context["vrac"] = $products_vrac;
 $context["paquet"] = $products_package;
 

@@ -7,8 +7,13 @@
 		background-color: $blue;
 		width: 50%;
 		.hero-customer {
-			display: grid;
-			grid-template-columns: 1fr;
+
+			/* display: grid; */
+			/* margin: auto; */
+			/* min-height: 100vh; */
+			height: 100%;
+			display: flex;
+			align-items: center;
 		}
 
 	}

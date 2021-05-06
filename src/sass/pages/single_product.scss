@@ -1,6 +1,7 @@
 .single-product__inner-wrapper {
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	@include respond-above(md) {
 		flex-direction: row;
 		gap: 50px;

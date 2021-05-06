@@ -22,5 +22,6 @@
 
 .vat-question__form {
 	margin-top: 32px;
+	text-transform: uppercase;
 	@include flexCentred();
 }
