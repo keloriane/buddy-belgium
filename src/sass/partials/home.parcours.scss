@@ -1,6 +1,6 @@
 #parcours {
 	display: grid;
-	grid-template-columns: 1fr 1.5fr;
+	grid-template-columns: 1fr;
 	grid-column-gap: $gap;
 	width: 70%;
 	margin: 100px auto;
@@ -101,9 +101,6 @@
 
 
 @media (max-width: 996px) {
-	.hero-wrapper .hero-slider {
-		display: none;
-	}
 	#parcours {
 		display: grid;
 		grid-template-columns: 1fr 1.5fr;

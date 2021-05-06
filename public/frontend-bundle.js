@@ -21809,18 +21809,17 @@ var open = false;
 var menu = document.getElementById('menu-burger');
 var close = document.getElementById('close');
 var menuButton = document.getElementById('burger__menu');
+close.addEventListener('click', function () {
+  open = false;
+  menu.style.display = 'none';
+});
 menuButton.addEventListener('click', function (e) {
-  console.log(e.target);
   open = !open;
+  console.log(open);
 
   if (open === true) {
     menu.style.display = 'block';
-  } else if (open === false) {
-    menu.style.display = 'none';
   }
-});
-close.addEventListener('click', function () {
-  if (open === false) {}
 });
 
 /***/ }),

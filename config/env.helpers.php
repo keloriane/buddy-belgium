@@ -1,6 +1,6 @@
 <?php
 
-define('PROJECT_NAME', 'buddy');
+define('PROJECT_NAME', 'buddy-belgium');
 define('THEME_NAME', 'swift');
 
 $env_variables = new stdClass();

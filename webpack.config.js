@@ -68,7 +68,7 @@ module.exports = {
       files: ['**/*.php', '**/*.twig'],
       open: 'external',
       port: 80,
-      proxy: 'buddy.test',
+      proxy: 'localhost/buddy-belgium',
       injectChanges: true,
     }),
   ],

@@ -720,7 +720,7 @@ h1 {
   max-width: 300px;
   border: 1px solid #3A7498;
   text-align: center;
-  margin: 100px auto;
+  margin: auto;
   height: 80px;
   display: flex;
   align-items: center;
@@ -737,8 +737,12 @@ h1 {
 
 #close {
   font-family: "Poppins", monospace;
-  font-size: 20px;
-  font-weight: 800; }
+  font-weight: 800;
+  text-align: right;
+  margin-left: 20px;
+  font-size: 32px;
+  padding: 20px;
+  cursor: pointer; }
 
 .tns-outer {
   padding: 0 !important; }
@@ -965,9 +969,13 @@ h1 {
   z-index: 10000;
   position: fixed; }
 
+.back__button {
+  color: #3A7498;
+  text-decoration: none; }
+
 #parcours {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  grid-template-columns: 1fr;
   grid-column-gap: 24px;
   width: 70%;
   margin: 100px auto; }
@@ -1033,8 +1041,6 @@ h1 {
         color: rgba(12, 27, 51, 0.7); }
 
 @media (max-width: 996px) {
-  .hero-wrapper .hero-slider {
-    display: none; }
   #parcours {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
