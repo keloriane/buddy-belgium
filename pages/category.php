@@ -5,10 +5,12 @@
 global $params;
 
 $context = Timber::context();
+$category = str_replace("-"," ",$params["category"]);
+
 $categoryArray = Gimy::customType(
 	[
 		'post_type' => 'category',
-		's' => ucfirst($params["category"])
+		's' => $category
 	]);
 
 $category = array_shift($categoryArray);
