@@ -3,13 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bf913162-00d9-403c-9507-eeb4b1342cb5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/frontend.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/frontend.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/global.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/partials/home.activity.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/partials/home.activity.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/partials/home.parcours2.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/partials/home.parcours2.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/partials/home.activity.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/home.activity.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +53,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2021.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -91,7 +85,8 @@
       <workItem from="1620213396984" duration="260000" />
       <workItem from="1620300766922" duration="14692000" />
       <workItem from="1620318507817" duration="4105000" />
-      <workItem from="1621081362716" duration="313000" />
+      <workItem from="1621081362716" duration="840000" />
+      <workItem from="1621082243411" duration="22000" />
     </task>
     <servers />
   </component>
