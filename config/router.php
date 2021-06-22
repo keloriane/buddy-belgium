@@ -46,11 +46,8 @@ Routes::map('/pro/produits', function ($params) use ($protectionCondition) {
 //	HelpMe::protectedRoute($protectionCondition, $route);
 //});
 
-Routes::map('/pro/activities/:activity', function ($params) use ($protectionCondition) {
-	$route = function () use ($params) {
-		Routes::load('pages/activity.php', $params);
-	};
-	HelpMe::protectedRoute($protectionCondition, $route);
+Routes::map('/activities/:activity', function ($params)  {
+		Routes::load('pages/activity.php' , $params);
 });
 
 Routes::map('/pro', function () use ($protectionCondition) {
