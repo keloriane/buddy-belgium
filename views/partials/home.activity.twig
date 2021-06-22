@@ -4,19 +4,19 @@
           <span class="indent">
             Nos <br>
           </span>
-      <span>
+        <span>
           Différentes <br>
           </span>
-      <span class="indent-2">
+        <span class="indent-2">
           Activités
           </span>
-    </h2>
-  </div>
-
-  <div class="card-container">
-    {% for activities in activity %}
-      <div class="card-product" data-image ="{{ Image(activities.custom.thumbnail).src  }}" style="background-image: url({{ Image(activities.custom.thumbnail).src }})">
-        <div class="overlay">
+      </h2>
+    </div>
+    <div class="card-container">
+      {% for activities in activity %}
+        <div class="card-product" data-image="{{ Image(activities.custom.thumbnail).src }}"
+             style="background-image: url({{ Image(activities.custom.thumbnail).src }})">
+          <div class="overlay">
 
         </div>
         <div class="card-wrapper">

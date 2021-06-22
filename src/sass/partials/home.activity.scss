@@ -3,51 +3,61 @@ figure {
 }
 
 
+.activity_inner-wrapper {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.activity_title {
+	margin-top: 64px;
+	font-weight: 800;
+	margin-bottom: 64px;
+	@include respond-above(lg) {
+		margin-left: -48px;
+	}
+}
+
 .activity {
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-column-gap: 50px;
+	grid-row-gap: 40px;
 	width: 90%;
 	margin: 120px auto;
 	align-items: center;
-	grid-template-rows: 1fr 3fr;
 	height: inherit;
 
 	.card-container {
+		margin: 0 auto;
+		max-width: 1200px;
+		grid-column-gap: 32px;
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
 		width: 100%;
 		justify-items: center;
 
-
-
 		.card {
 			position: relative;
-
 			text-decoration: none;
 			color: white;
 			max-width: 230px;
 			width: 100%;
 			height: 360.09px;
 
-
-
 			.white-title {
 				position: absolute;
-
 				width: 470px;
 				top: 47%;
 				left: -35%;
 				overflow: hidden;
 				height: 100px;
 
-
 				h2 {
 					font-family: $titleFont, sans-serif;
 					opacity: 0;
 					text-align: center;
 					text-transform: uppercase;
-					-webkit-text-stroke: 2px #0d66c2;
+					-webkit-text-stroke: 2px #c6c1c1;
 					font-size: calc(1vw + 2rem);
 					position: absolute;
 					color: white;
@@ -95,11 +105,8 @@ figure {
 			.hero-blurr {
 				width: 100%;
 				height: 100%;
-
 				position: absolute;
 				top: 0;
-
-
 			}
 
 			.exclusion {
@@ -108,8 +115,6 @@ figure {
 				/*background-color: #E4A77B;
 				mix-blend-mode: exclusion;*/
 				position: absolute;
-
-
 				top: 0;
 			}
 
@@ -117,30 +122,23 @@ figure {
 				width: 100%;
 				height: 100%;
 				background-size: cover;
-
 			}
 		}
 	}
 }
+
 @media (max-width: 840px) {
 
 	.card-container {
 		grid-template-columns: 1fr !important;
 	}
 }
+
 @media (max-width: 996px) {
 	.activity {
 		grid-template-columns: 1fr;
 
-		.title-container {
-			h2 {
-				font-size: calc(6vw + 1rem) !important;
-			}
-		}
-
 		.card-container {
-
-
 			.card {
 				margin-top: 0px !important;
 			}
@@ -157,58 +155,51 @@ figure {
 	background-size: cover;
 	margin-top: 20px;
 	height: 385px;
-
 	padding-left: 40px;
 	padding-right: 40px;
 	transition: .3s ease-in;
 	position: relative;
-
+	justify-content: center;
+	align-items: center;
 
 	.overlay {
 
-	/*	background: linear-gradient(57.07deg, rgba(0, 0, 0, 0.68) 22.65%, rgba(255, 255, 255, 0) 100.13%);
-		width: 315px;
-		height: 385px;
-		position: absolute;
-		z-index: -1;*/
-
-
-
+		/*	background: linear-gradient(57.07deg, rgba(0, 0, 0, 0.68) 22.65%, rgba(255, 255, 255, 0) 100.13%);
+			width: 315px;
+			height: 385px;
+			position: absolute;
+			z-index: -1;*/
 	}
 
 	.card-wrapper {
 		display: flex;
 		flex-direction: column;
-
+		text-align: center;
 		transition: all 1s ease-in;
 		justify-content: center;
-
+		align-items: center;
+		height: 50%;
 		.card-button {
 			margin-left: 15px;
+			margin-top: 20px;
+
 			a {
 				transition: all .2s ease-in;
 				padding-left: 30px;
 				padding-right: 30px;
 				width: 127px;
-
 				height: 50px;
-				background: none;
 				border: none;
 				text-align: center;
-
-
 				font-family: "Proxima Nova", sans-serif;
 				text-decoration: none;
-
 				font-style: normal;
 				font-weight: bold;
 				font-size: 14.4892px;
 				line-height: 14px;
 				display: flex;
 				align-items: center;
-
 				text-transform: uppercase;
-
 				color: white;
 				background-color: $blue;
 				outline: 1px solid $blue;
@@ -224,14 +215,13 @@ figure {
 			transition: all .2s ease-in;
 			font-family: $titleFont, serif;
 			font-style: normal;
-			font-weight: bold;
-			font-size: 40.6671px;
-			line-height: 40px;
+			font-weight: 900;
+			font-size: 45.6671px;
+			line-height: 120%;
 			text-transform: uppercase;
 			padding: 9px;
 			-webkit-text-stroke: 1px $blue;
 			color: white;
-
 
 		}
 	}
@@ -262,9 +252,9 @@ figure {
 		.card-container {
 
 
-
 			.card-title {
 				transition: all .2s ease-in;
+
 				h3 {
 					transition: all .2s ease-in;
 					font-family: $titleFont, serif;
@@ -295,6 +285,7 @@ figure {
 					color: #FFFFFF;
 				}
 			}
+
 			.card-button {
 				a {
 					background-color: $blue;
@@ -341,6 +332,7 @@ figure {
 		}
 	}
 }
+
 @media (max-width: 640px) {
 	.activity {
 		.card-wrapper {

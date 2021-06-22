@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css2?family=Eczar:wght@700&family=Poppins:wght@100;200;300;400;600;700&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700;800;900&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&display=swap);
 /**
  * Swiper 6.4.10
@@ -602,7 +602,7 @@ input {
 
 h1, h2, h3, .line1, .line2 {
   font-family: "Poppins", monospace, sans-serif;
-  font-weight: 1000; }
+  font-weight: 700; }
 
 .grey {
   background-color: #f3f6ff;
@@ -1083,16 +1083,31 @@ h1 {
 figure {
   display: flex; }
 
+.activity_inner-wrapper {
+  max-width: 1200px;
+  margin: 0 auto; }
+
+.activity_title {
+  margin-top: 64px;
+  font-weight: 800;
+  margin-bottom: 64px; }
+  @media (min-width: 992px) {
+    .activity_title {
+      margin-left: -48px; } }
+
 .activity {
   display: grid;
   grid-template-columns: 1fr;
   grid-column-gap: 50px;
+  grid-row-gap: 40px;
   width: 90%;
   margin: 120px auto;
   align-items: center;
-  grid-template-rows: 1fr 3fr;
   height: inherit; }
   .activity .card-container {
+    margin: 0 auto;
+    max-width: 1200px;
+    grid-column-gap: 32px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     width: 100%;
@@ -1116,7 +1131,7 @@ figure {
           opacity: 0;
           text-align: center;
           text-transform: uppercase;
-          -webkit-text-stroke: 2px #0d66c2;
+          -webkit-text-stroke: 2px #c6c1c1;
           font-size: calc(1vw + 2rem);
           position: absolute;
           color: white;
@@ -1158,8 +1173,6 @@ figure {
 @media (max-width: 996px) {
   .activity {
     grid-template-columns: 1fr; }
-    .activity .title-container h2 {
-      font-size: calc(6vw + 1rem) !important; }
     .activity .card-container .card {
       margin-top: 0px !important; } }
 
@@ -1173,27 +1186,32 @@ figure {
   padding-left: 40px;
   padding-right: 40px;
   transition: .3s ease-in;
-  position: relative; }
+  position: relative;
+  justify-content: center;
+  align-items: center; }
   .card-product .overlay {
     /*	background: linear-gradient(57.07deg, rgba(0, 0, 0, 0.68) 22.65%, rgba(255, 255, 255, 0) 100.13%);
-		width: 315px;
-		height: 385px;
-		position: absolute;
-		z-index: -1;*/ }
+			width: 315px;
+			height: 385px;
+			position: absolute;
+			z-index: -1;*/ }
   .card-product .card-wrapper {
     display: flex;
     flex-direction: column;
+    text-align: center;
     transition: all 1s ease-in;
-    justify-content: center; }
+    justify-content: center;
+    align-items: center;
+    height: 50%; }
     .card-product .card-wrapper .card-button {
-      margin-left: 15px; }
+      margin-left: 15px;
+      margin-top: 20px; }
       .card-product .card-wrapper .card-button a {
         transition: all .2s ease-in;
         padding-left: 30px;
         padding-right: 30px;
         width: 127px;
         height: 50px;
-        background: none;
         border: none;
         text-align: center;
         font-family: "Proxima Nova", sans-serif;
@@ -1214,9 +1232,9 @@ figure {
       transition: all .2s ease-in;
       font-family: "Poppins", monospace, serif;
       font-style: normal;
-      font-weight: bold;
-      font-size: 40.6671px;
-      line-height: 40px;
+      font-weight: 900;
+      font-size: 45.6671px;
+      line-height: 120%;
       text-transform: uppercase;
       padding: 9px;
       -webkit-text-stroke: 1px #3A7498;
