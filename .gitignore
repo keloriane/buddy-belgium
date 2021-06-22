@@ -1,5 +1,7 @@
 /node_modules/
 /composer.phar
 /vendor/
+/config/env.helpers.php
 /composer.lock
 /package-lock.json
+webpack.config.js

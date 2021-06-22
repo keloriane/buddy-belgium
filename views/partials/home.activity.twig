@@ -1,7 +1,6 @@
-<div class="activity">
-  <div class="activity_inner-wrapper">
-    <div class="title-container">
-      <h2 class="activity_title blue">
+<section class="activity" id="activity">
+  <div class="title-container">
+    <h2 class="blue">
           <span class="indent">
             Nos <br>
           </span>
@@ -19,29 +18,29 @@
              style="background-image: url({{ Image(activities.custom.thumbnail).src }})">
           <div class="overlay">
 
-          </div>
-          <div class="card-wrapper">
-            <div class="card-title">
-              <h3>
-                {{ activities.titleTop }}
-                <br>
-                {{ activities.titleBottom }}
-              </h3>
-            </div>
-            <div class="card-text-content">
-              <p>
-                {{ activities.excerpt }}
-              </p>
-            </div>
-            <div class="card-button">
-              <a class="call-to-action" href="pro/activities/{{ activities.slug }}">
-                Explorer
-              </a>
-            </div>
-          </div>
         </div>
-      {% endfor %}
-    </div>
+        <div class="card-wrapper">
+          <div class="card-title">
+            <h3>
+              {{ activities.titleTop }}
+              <br>
+              {{ activities.titleBottom }}
+            </h3>
+          </div>
+          <div class="card-text-content">
+            <p>
+              {{ activities.excerpt }}
+            </p>
+          </div>
+        <div class="card-button">
+          <a class="call-to-action" href="{{ site.link }}/activities/{{ activities.slug }}">
+            Explorer
+          </a>
+        </div>
+        </div>
+      </div>
+    {% endfor %}
+
   </div>
-</div>
+</section>
 

@@ -19,3 +19,4 @@ $context['images'] = Picz::getAll();
 Timber::render('/single_product.twig', $context);
 
 
+
