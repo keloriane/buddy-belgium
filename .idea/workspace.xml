@@ -2,31 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf913162-00d9-403c-9507-eeb4b1342cb5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/views/partials/nofooter.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/activity.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/activity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/intro.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/intro.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/assets.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/assets.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/frontend-bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend-bundle.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/frontend-bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend-bundle.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/frontend.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/frontend.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/global.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/pages/activity.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/pages/activity.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/pages/category.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/pages/category.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/pages/customers.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/pages/customers.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/pages/home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/pages/home.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/pages/intro.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/pages/intro.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/partials/home.activity.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/partials/home.activity.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/partials/home.product.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/partials/home.product.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/partials/intro.question.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/partials/intro.question.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/partials/intro.vat-question.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/partials/intro.vat-question.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/partials/navbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/partials/navbar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/activity.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/activity.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/category.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/category.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/intro.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/intro.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/partials/menu.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/menu.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/partials/navbar.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/navbar.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/templates/base.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/templates/base.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/gsap/menu.gsap.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/gsap/menu.gsap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/marques.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/marques.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/single_product.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/single_product.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/site.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/single_product.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/single_product.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +63,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="app.teamhub.trackedBranches" value="-t4g0ee/dev,-t4g0ee/main" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/views/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -125,7 +112,7 @@
       <workItem from="1624969448519" duration="1818000" />
       <workItem from="1624983975726" duration="1616000" />
       <workItem from="1624987690838" duration="605000" />
-      <workItem from="1625054970167" duration="1246000" />
+      <workItem from="1625054970167" duration="7626000" />
     </task>
     <servers />
   </component>

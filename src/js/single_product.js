@@ -4,12 +4,18 @@ import {tns} from "tiny-slider/src/tiny-slider"
 
 export const single_product = {
   init() {
-    console.log('single_product included')
-    this.configSlider();
-    this.buttonSliderCustomization()
+
+    if (isRootPage('product')) {
+      console.log('single_product included')
+
+      this.configSlider();
+      this.buttonSliderCustomization()
+    }
   },
 
   configSlider() {
+
+    console.log(document.querySelector('.single-product__main-images'));
     tns({
       container: '.single-product__main-images',
       items: 1,

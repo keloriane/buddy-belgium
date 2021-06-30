@@ -21799,31 +21799,6 @@ _events__WEBPACK_IMPORTED_MODULE_1__._event.siteIsLoaded(function () {
 
 /***/ }),
 
-/***/ "./src/js/gsap/menu.gsap.js":
-/*!**********************************!*\
-  !*** ./src/js/gsap/menu.gsap.js ***!
-  \**********************************/
-/***/ (() => {
-
-var open = false;
-var menu = document.getElementById('menu-burger');
-var close = document.getElementById('close');
-var menuButton = document.getElementById('burger__menu');
-close.addEventListener('click', function () {
-  open = false;
-  menu.style.display = 'none';
-});
-menuButton.addEventListener('click', function (e) {
-  open = !open;
-  console.log(open);
-
-  if (open === true) {
-    menu.style.display = 'block';
-  }
-});
-
-/***/ }),
-
 /***/ "./src/js/helpers.js":
 /*!***************************!*\
   !*** ./src/js/helpers.js ***!
@@ -21905,9 +21880,30 @@ var home = {
   init: function init() {
     console.log('proHomepage init');
 
-    if ((0,_helpers__WEBPACK_IMPORTED_MODULE_4__.isRootPage)('pro')) {
+    if ((0,_helpers__WEBPACK_IMPORTED_MODULE_4__.isRootPage)('pro') || (0,_helpers__WEBPACK_IMPORTED_MODULE_4__.isRootPage)('customers')) {
       console.log('proHomepage included');
+      this.displayMenu();
     }
+  },
+  displayMenu: function displayMenu() {
+    var open = false;
+    var menu = document.getElementById('menu-burger');
+    var close = document.getElementById('close');
+    var menuButton = document.getElementById('burger__menu');
+    console.log(menuButton);
+    menuButton.addEventListener('click', function (e) {
+      open = !open;
+      console.log('hello');
+      console.log(open);
+
+      if (open === true) {
+        menu.style.display = 'block';
+      }
+    });
+    close.addEventListener('click', function () {
+      open = false;
+      menu.style.display = 'none';
+    });
   }
 };
 
@@ -22054,17 +22050,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-swiper__WEBPACK_IMPORTED_MODULE_1__.default.use([swiper__WEBPACK_IMPORTED_MODULE_2__.default]);
-var swiper = new swiper__WEBPACK_IMPORTED_MODULE_1__.default('.swiper-container', {
-  pagination: {
-    el: '.swiper-pagination',
-    type: 'progressbar'
-  },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev'
-  }
-});
 var marques = {
   init: function init() {
     console.log('Marques init');
@@ -22073,9 +22058,23 @@ var marques = {
       console.log('Marques js included');
       this.scrollToBrands();
       this.scrollToTop();
+      this.initSliders();
     } else {
       this.displayScrollToTop(false);
     }
+  },
+  initSliders: function initSliders() {
+    swiper__WEBPACK_IMPORTED_MODULE_1__.default.use([swiper__WEBPACK_IMPORTED_MODULE_2__.default]);
+    var swiper = new swiper__WEBPACK_IMPORTED_MODULE_1__.default('.swiper-container', {
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'progressbar'
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      }
+    });
   },
   scrollToBrands: function scrollToBrands() {
     var _this = this;
@@ -22092,18 +22091,14 @@ var marques = {
       });
     });
   },
-  scrollToTop: function scrollToTop() {
-    var _this2 = this;
-
-    gsap_dist_gsap__WEBPACK_IMPORTED_MODULE_3__.gsap.registerPlugin(gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_4__.default);
-    var link = document.querySelector('.marques__scroll-to-top');
-    link.addEventListener('click', function (e) {
-      e.preventDefault();
-
-      _this2.scrollTo(link, 0.3, {
-        y: 0
-      });
-    });
+  scrollToTop: function scrollToTop() {// gsap.registerPlugin(ScrollToPlugin);
+    // let link = document.querySelector('.marques__scroll-to-top');
+    // console.log(link)
+    //
+    // link.addEventListener('click', (e) => {
+    //   e.preventDefault();
+    //   this.scrollTo(link, 0.3, { y: 0 });
+    // });
   },
   displayScrollToTop: function displayScrollToTop(display) {
     var link = document.querySelector('.marques__scroll-to-top');
@@ -22137,11 +22132,14 @@ __webpack_require__.r(__webpack_exports__);
 
 var single_product = {
   init: function init() {
-    console.log('single_product included');
-    this.configSlider();
-    this.buttonSliderCustomization();
+    if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.isRootPage)('product')) {
+      console.log('single_product included');
+      this.configSlider();
+      this.buttonSliderCustomization();
+    }
   },
   configSlider: function configSlider() {
+    console.log(document.querySelector('.single-product__main-images'));
     (0,tiny_slider_src_tiny_slider__WEBPACK_IMPORTED_MODULE_1__.tns)({
       container: '.single-product__main-images',
       items: 1,
@@ -22199,22 +22197,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _marques__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./marques */ "./src/js/marques.js");
 /* harmony import */ var _category__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./category */ "./src/js/category.js");
 /* harmony import */ var _single_product__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./single_product */ "./src/js/single_product.js");
-/* harmony import */ var _gsap_menu_gsap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./gsap/menu.gsap */ "./src/js/gsap/menu.gsap.js");
-/* harmony import */ var _gsap_menu_gsap__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_gsap_menu_gsap__WEBPACK_IMPORTED_MODULE_5__);
 
 
 
 
-
+ // import './gsap/menu.gsap';
 
 var site = {
   _loaded: function _loaded() {
     document.addEventListener('DOMContentLoaded', function () {
+      console.log("loaded");
+      _single_product__WEBPACK_IMPORTED_MODULE_4__.single_product.init();
       _home__WEBPACK_IMPORTED_MODULE_0__.home.init();
       _intro__WEBPACK_IMPORTED_MODULE_1__.intro.init();
       _marques__WEBPACK_IMPORTED_MODULE_2__.marques.init();
       _category__WEBPACK_IMPORTED_MODULE_3__.category.init();
-      _single_product__WEBPACK_IMPORTED_MODULE_4__.single_product.init();
     });
   },
   _beforeLeaving: function _beforeLeaving() {

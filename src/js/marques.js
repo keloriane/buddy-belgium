@@ -6,17 +6,6 @@ import { gsap } from 'gsap/dist/gsap';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 import {includeJs, isRootPage} from './helpers';
 
-Swiper.use([Navigation]);
-var swiper = new Swiper('.swiper-container', {
-  pagination: {
-    el: '.swiper-pagination',
-    type: 'progressbar',
-  },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-});
 
 export const marques = {
   init() {
@@ -25,9 +14,25 @@ export const marques = {
       console.log('Marques js included')
       this.scrollToBrands();
       this.scrollToTop();
+      this.initSliders()
     } else {
       this.displayScrollToTop(false);
     }
+  },
+
+  initSliders(){
+    Swiper.use([Navigation]);
+    var swiper = new Swiper('.swiper-container', {
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'progressbar',
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+
   },
 
   scrollToBrands() {
@@ -44,12 +49,14 @@ export const marques = {
   },
 
   scrollToTop() {
-    gsap.registerPlugin(ScrollToPlugin);
-    let link = document.querySelector('.marques__scroll-to-top');
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      this.scrollTo(link, 0.3, { y: 0 });
-    });
+    // gsap.registerPlugin(ScrollToPlugin);
+    // let link = document.querySelector('.marques__scroll-to-top');
+    // console.log(link)
+    //
+    // link.addEventListener('click', (e) => {
+    //   e.preventDefault();
+    //   this.scrollTo(link, 0.3, { y: 0 });
+    // });
   },
 
   displayScrollToTop(display) {
