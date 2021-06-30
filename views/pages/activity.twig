@@ -4,26 +4,31 @@
 {% block body %}
   {% include getf('navbar') %}
 
-  <div class="activity-page">
-    <div class="activity-page__inner">
-      <div class="activity-page__description">
-        <div class="activity-page__description__wrapper__title">
-          <div class="activity-page__description__title">
+<div class="activity-page">
+  <div class="activity-page__inner">
+    <div class="activity-page__description__wrapper__title">
+      <div class="activity-page__description__title">
           <span class="activity-page__description__title__top">
             {{ activity.titleTop }}
           </span>
-            <span class="activity-page__description__title__bottom">
-            {{ activity.titleBottom }}
-          </span>
+      </div>
+      <div>
+        <div class="activity-page__description__button">
+          {% if '.pdf' in   activity.custom.call_to_action_url  %}
+            <a href="{{ activity.custom.call_to_action_url }}">{{ activity.custom.call_to_action_name }}</a>
+          {% else %}
+            <a href="{{ site_link }}/{{ activity.custom.call_to_action_url }}">{{ activity.custom.call_to_action_name }}</a>
+          {% endif %}
+
+        </div>
+        <div class="activity-page__description">
+          <figure class="activity-page__figure">
+            <img src="{{ Image(activity.custom.image).src }}" alt=""/>
+          </figure>
+          <div class="activity-page__description__main-text">
+            <p>{{ activity.description }}</p>
           </div>
         </div>
-        <div class="activity-page__description__main-text">
-          <p>{{ activity.description }}</p>
-        </div>
       </div>
-      <figure class="activity-page__figure">
-        <img src="{{ Image(activity.custom.image).src }}" alt=""/>
-      </figure>
     </div>
-  </div>
-{% endblock body %}
+    {% endblock body %}

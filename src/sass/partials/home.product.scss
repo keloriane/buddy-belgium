@@ -39,7 +39,7 @@ section {
 
 
 .product {
-
+	padding-bottom: 64px;
 	width: 100%;
 	.title-container {
 		margin-top: 100px;
@@ -57,6 +57,7 @@ section {
 .product-list-container {
 	display: flex;
 	flex-direction: column;
+	margin-bottom: 48px;
 }
 .product-list-container a {
 	font-family: Poppins, serif;

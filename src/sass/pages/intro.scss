@@ -2,6 +2,20 @@
 	height: 100vh;
 }
 
+.intro__social{
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	gap: 20px ;
+	bottom: 50px;
+	place-items: center;
+	margin-left: 40px;
+}
+
+.intro__social img{
+	height: 20px;
+}
+
 .intro__inner {
 	display: flex;
 	width: 100%;

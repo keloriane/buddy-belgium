@@ -72,6 +72,10 @@
 	&:focus{
 		outline: 0;
 	}
+	&:hover{
+		background: $green;
+		cursor: pointer;
+	}
 }
 
 

@@ -224,4 +224,14 @@ ul {
 
 }
 
+.main-logo{
+	display: flex;
+	position: absolute;
+	place-items: center;
+	margin-left: 40px;
+	margin-top: 24px;
+}
 
+.main-logo svg{
+	margin-right: 8px;
+}

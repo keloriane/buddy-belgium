@@ -9,6 +9,7 @@ $activity = array_filter($activities, function ($activity) use ($params) {
 	}
 });
 
+
 $context["activity"] = array_pop($activity);
 Timber::render('activity.twig', $context);
 

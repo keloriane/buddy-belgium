@@ -5,6 +5,7 @@ use Ddeboer\Vatin\Validator;
 /*** Template Name: Intro Page*/
 
 $method = $_SERVER['REQUEST_METHOD'];
+$context['base'] = HelpMe::getImage();
 $context = Timber::context();
 $context['logo_center'] = 'http://localhost/buddy-belgium/wp-content/uploads/2021/02/logointro.png';
 $context['logo_top_left'] = 'http://localhost/buddy-belgium/wp-content/uploads/2021/02/logobuddytexr.png';
